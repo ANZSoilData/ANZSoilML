@@ -1,7 +1,7 @@
 # Australian and New Zealand Soil Mark-up Language (ANZSoilML)
 
-### ANZSoilML documentation can be found on the project wiki: [https://github.com/ANZSoilData/ANZSoilML/wiki](https://github.com/ANZSoilData/ANZSoilML/wiki)
-### The ANZSoilML github.io home page is here: [https://anzsoildata.github.io/ANZSoilML/](https://anzsoildata.github.io/ANZSoilML/)
+> ANZSoilML documentation can be found on the project wiki: [https://github.com/ANZSoilData/ANZSoilML/wiki](https://github.com/ANZSoilData/ANZSoilML/wiki)  
+> The ANZSoilML github.io home page is here: [https://anzsoildata.github.io/ANZSoilML/](https://anzsoildata.github.io/ANZSoilML/)
 
 ## Summary
 ANZSoilML is a GML application schema that specifies a set of feature-types and supporting structures for information used in the Australian and New Zealand soil sciences. It is primarily concerned with observed properties of Soils and associated Landscapes as specified in the:
