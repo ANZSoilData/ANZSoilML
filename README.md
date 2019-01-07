@@ -10,16 +10,15 @@
 ## Summary
 ANZSoilML is an information model that specifies the set of classes, properties, relationships and supporting
 vocabularies needed to structure digital information used in the Australian and New Zealand soil sciences. It is
-primarily concerned with observed properties of soils and associated landscape features as specified in the:
+primarily concerned with observed properties of soils and their associated landscape features as specified in the:
 - _Australian Soil and Land Survey Field Handbook, Third edition, 2009, The National Committee on Soil and Terrain._
 ([CSIRO Publishing](https://www.publish.csiro.au/book/5230/))
 - _New Zealand Soil Description Handbook, Revised edition, 1995, Milne, J.D.G., Clayden, B., Singleton, P.L., Wilson,
 A.D._ ([Manaaki Whenua Digital Library](http://digitallibrary.landcareresearch.co.nz/cdm/ref/collection/p20022coll14/id/79))
 
 The main intention of ANZSoilML is to provide communities of data providers and users with a model that allows them to
-publish and parse a consistent set of data across multiple data repositories. End users especially can be confident
-that, for a given version of ANZSoilML, responses from providers will use the same data types, propertiy names and
-vocabularies.
+publish and parse a consistent set of data across multiple data repositories. End users should be confident that, for a
+given version of ANZSoilML, responses from providers will use the same data types, property names and vocabularies.
 
 ANZSoilML also aims for consistency with other environmental datasets. Soil itself does not exist in isolation - its
 formation is influenced by climate, hydrology, geology, topography and biology, and in return it influences those
@@ -45,8 +44,9 @@ Schema are also published via the ANZSoilML github.io home page: https://anzsoil
 ## The current state of ANZSoilML
 The current version of ANZSoilML (2.0.1) has been designed and implemented as a
 [Geography Mark-up Language (GML)](https://en.wikipedia.org/wiki/Geography_Markup_Language) [Application Schema](https://en.wikipedia.org/wiki/Geography_Markup_Language#Application_schema).
-This approach involves the definition and provision of '[Features](https://en.wikipedia.org/wiki/Geography_Markup_Language#Features)'
-(broadly speaking physical things) that are of interest when dealing with soils. These include (in _italics_):
+This approach involves the definition and provision of
+'[Features](https://en.wikipedia.org/wiki/Geography_Markup_Language#Features)' (broadly speaking physical things) that
+are of interest when dealing with soils. These include (in _italics_):
 - _Soil Profiles_ as made up of _Soils_ and their _Horizons_
 - Soil _Landscape Features_ (e.g. _Topography_, _Climatic Setting_ and _Vegetation_)
 - Soil _Sites_
@@ -63,14 +63,14 @@ The use of GML Application Schema has these technical implications:
 - GML is an XML grammar therefore XML documents are provided by default
 - The physical model for the XML documents is provided as a collection of XML Schema Documents (XSDs)
 ([link](http://anzsoil.org/def/schema/))
-- Documents are mainly provided via web services conforming to the OGC [Web Feature Service (WFS)](https://en.wikipedia.org/wiki/Web_Feature_Service)
-specification
+- Documents are mainly provided via web services conforming to the OGC
+[Web Feature Service (WFS)](https://en.wikipedia.org/wiki/Web_Feature_Service) specification
 - Documents may be accessed via URLs acting as an identifier for a Feature (so called HTTP URIs) - these may proxy or
 redirect to a WFS request or a static document
 
 ## The future of ANZSoilML
-ANZSoilML 2.0.1 has defined a robust conceptual model for the description, sampling and analysis of soils, and the
-modelling of their distribution, productivity or health. The next steps for the ANZSoilML community are to:
+ANZSoilML 2.0.1 has defined a rich and robust conceptual model for the description, sampling and analysis of soils, and
+the modelling of their distribution, productivity or health. The next steps for the ANZSoilML community are to:
 - repackage the data model in a way that separates concepts (the 'data dictionary') from technology (encodings, and
 web services and their APIs)
 - define a modular framework that allows deployment of a range of tools that use technology and data that are
@@ -81,12 +81,12 @@ These communities will be varied. They may be made up of any combination (often 
 data without the loss of _any_ content
 - _data engineers_ who work with data providers to publish data in ways the meet the needs of users or with users to
 extract and transform data according to their needs
-- _data scientists_ who may need Semantic Web inferencing tools to discover new patterns in data; or fast access to raw
-data for models and simulations with optional access to rich metadata to help explain anomalies in results
+- _data scientists_ who may need fast access to raw data for models and simulations with optional access to rich
+metadata to help explain anomalies in results; or Semantic Web inferencing tools to discover new patterns in data
 - _web developers_ who need simple, terse and fast interfaces that use widely used and supported technology (ReST, JSON
- etc)
+etc)
 
-A tentative workplan for 'ANZSoilML 3' involves:
+The tentative workplan for 'ANZSoilML 3' involves:
 1. Converting the current GML Application Schema to a technology independent model that can be formally captured using
 Semantic Web data modelling tools and also be published using lightweight web tools
 2. Defining practices for publishing data in a manner best suited to web developers (particularly the use of JSON and
@@ -96,8 +96,13 @@ GeoJSON, and ReSTful interfaces)
 
 This work will begin in January 2019.
 
+> The OGC is conducting the [ELFIE](https://github.com/opengeospatial/ELFIE/) initiative - a series of Interoperability
+> Experiments (IEs) designed to promote web-friendly implementations of linked environmental data. Our vision for
+> ANZSoilML as a usable standard closely aligned with other environmental data standards matches the long term vision
+> for ELFIE. We are active participants and expect to use the findings of ELFIE to design implement and the new version.
+
 ## Contributors
-ANZSoilML is developed by an informal group of research organizations that have responsibility to deliver soil
+ANZSoilML is developed by an informal group of research organizations that have a responsibility to deliver soil
 information to their own scientists but also other agencies and the general public. They work in close consultation with
 various environmental Domain Working Groups within the [Open Geospatial Consortium](https://www.opengeospatial.org/)
 (OGC).
