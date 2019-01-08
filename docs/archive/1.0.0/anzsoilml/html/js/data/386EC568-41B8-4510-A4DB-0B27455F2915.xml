@@ -1,0 +1,7 @@
+tocTab[tocTab.length] = new Array("0.4:1", "", "ANZSoilML-SoilSample", "EARoot/EA4/EA522.htm", "175.png", "4461", "0", "", "Logical diagram0","{D21BADC0-2FF3-4c12-B9B3-7D8EAF23AD25}");
+tocTab[tocTab.length] = new Array("0.4:2", "", "ANZSoilML-SoilSample-Conceptual", "EARoot/EA4/EA524.htm", "175.png", "4462", "0", "", "Logical diagram0","{50B48014-88EF-4b68-8B68-24044948FD48}");
+tocTab[tocTab.length] = new Array("0.4:3", "", "Context Diagram : SoilSample", "EARoot/EA4/EA526.htm", "175.png", "4463", "0", "", "Class diagram0","{F58A33F9-E4C9-44ac-8974-8570F5EE8190}");
+tocTab[tocTab.length] = new Array("0.4:4", "", "Context Diagram : SoilSpecimen", "EARoot/EA4/EA528.htm", "175.png", "4464", "0", "", "Class diagram0","{1983948D-6BCD-4709-AB23-80A362F3CE81}");
+tocTab[tocTab.length] = new Array("0.4:5", "", "Package dependencies", "EARoot/EA4/EA530.htm", "176.png", "4465", "0", "", "Package diagram0","{F3B22C2D-89AE-4201-BC2C-7578EF0F220F}");
+tocTab[tocTab.length] = new Array("0.4:6", "", "«FeatureType» SoilSample", "EARoot/EA4/EA535.htm", "5.png", "8573", "0", "", "Class0","{202F3B21-D8EE-461f-B153-8C6AE9A23212}");
+tocTab[tocTab.length] = new Array("0.4:7", "", "«FeatureType» SoilSpecimen", "EARoot/EA4/EA536.htm", "5.png", "8576", "0", "", "Class0","{BA17B4A0-BF6D-4564-AF65-A0737BC86875}");
