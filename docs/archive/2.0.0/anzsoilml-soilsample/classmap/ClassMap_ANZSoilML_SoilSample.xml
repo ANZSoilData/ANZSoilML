@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:anzsmlss="http://xmlns.anzsoil.org/ANZSoilML-SoilSample/1.0"
+	xmlns="urn:x-auscope:xmlns:CSIRO:FullMoon:package-class-map:2.0"
+	xsi:schemaLocation="urn:x-auscope:xmlns:CSIRO:FullMoon:package-class-map:2.0 http://projects.arcs.org.au/svn/fullmoon/trunk/resources/dependency-util/package-class-map.xsd"
+	id="ClassMap_ANZSoilML_SoilSample_v1.xml">
+	<description>Provides a mapping of classes from the Soil Sample application schema of ANZSoilML_SoilSample to elements from ANZSoilML XML Schema Version 1.0.0</description>
+	<imports>
+		<schema prefix="anzsmlss" namespace="http://xmlns.anzsoil.org/ANZSoilML-SoilSample/1.0" schemaLocation="https://svnserv.csiro.au/svn/TernSoils/ANZSoilML/1.0.0/ANZSoilML_SoilSample/xsd/anzsoilml-soilsample.xsd" />  
+		<!-- Note prefix is "anzsmlss"  -->
+	</imports>
+<!-- ================================================================= -->
+<!-- SoilSample Features -->
+	
+	<!-- FeatureType SoilSample -->
+	<entry>
+		<umlClass>SoilSample</umlClass>
+		<umlStereotype>FeatureType</umlStereotype>
+		<gmlObjectElement>anzsmlss:SoilSample</gmlObjectElement>
+		<gmlType>anzsmlss:SoilSampleType</gmlType>
+		<gmlPropertyType>anzsmlss:SoilSamplePropertyType</gmlPropertyType>
+	</entry>
+	<!-- FeatureType SoilSpecimen -->
+	<entry>
+		<umlClass>SoilSpecimen</umlClass>
+		<umlStereotype>FeatureType</umlStereotype>
+		<gmlObjectElement>anzsmlss:SoilSpecimen</gmlObjectElement>
+		<gmlType>anzsmlss:SoilSpecimenType</gmlType>
+		<gmlPropertyType>anzsmlss:SoilSpecimenPropertyType</gmlPropertyType>
+	</entry>
+	
+
+
+</mapping>

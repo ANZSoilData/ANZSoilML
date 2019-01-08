@@ -1,0 +1,850 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:gsml32="http://xmlns.geosciml.org/GeoSciML-Core/3.2" xmlns:gsmlgu="http://xmlns.geosciml.org/GeologicUnit/3.2" xmlns:gsmlem="http://xmlns.geosciml.org/EarthMaterial/3.2" xmlns:gsmlpp="http://xmlns.geosciml.org/PhysicalProperties/3.2" xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.0" xmlns:anzsmlss="http://anzsoil.org/ns/soilsample/2.0.0" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:anzsmls="http://anzsoil.org/ns/soil/2.0.0" timeStamp="2014-01-28T09:07:14.313+10:00" xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+                http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+                http://xmlns.geosciml.org/GeologicUnit/3.2 http://schemas.geosciml.org/geologicunit/3.2/geologicUnit.xsd 
+                http://xmlns.geosciml.org/EarthMaterial/3.2 http://schemas.geosciml.org/earthmaterial/3.2/earthMaterial.xsd
+                http://xmlns.geosciml.org/PhysicalProperties/3.2 http://schemas.geosciml.org/physicalproperties/3.2/physicalProperties.xsd
+               http://anzsoil.org/ns/soil/2.0.0  http://anzsoil.org/def/schema/soil/2.0.0/anzsoilml-soil.xsd                    
+              http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+                " numberMatched="unknown" numberReturned="5">
+	<!-- 
+Placeholder for local and canonical schema location:
+http://www.clw.csiro.au/aclep/ANZSoilML/trunk/ANZSoilML_Soil/xsd/anzsoilml-soil.xsd  
+C://Repos/TernSoils/ANZSoilML/trunk/ANZSoilML_Soil/xsd/anzsoilml-soil.xsd
+https://svnserv.csiro.au/svn/TernSoils/ANZSoilML/trunk/ANZSoilML_Soil/xsd/anzsoilml-soil.xsd
+http://www.clw.csiro.au/aclep/ANZSoilML/trunk/ANZSoilML_Soil/xsd/anzsoilml-soil.xsd 
+xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+                http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+                http://xmlns.geosciml.org/GeologicUnit/3.2 http://schemas.geosciml.org/geologicunit/3.2/geologicUnit.xsd 
+                http://xmlns.geosciml.org/EarthMaterial/3.2 http://schemas.geosciml.org/earthmaterial/3.2/earthMaterial.xsd
+                http://xmlns.geosciml.org/PhysicalProperties/3.2 http://schemas.geosciml.org/physicalproperties/3.2/physicalProperties.xsd
+               http://xmlns.anzsoil.org/ANZSoilML-Soil/2.0  C://Repos/TernSoils/ANZSoilML/trunk/ANZSoilML_Soil/xsd/anzsoilml-soil.xsd                 
+              http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+
+http://anzsoil.org/def/schema/soil/2.0.0/anzsoilml-soil.xsd 
+                "
+-->
+	<!-- Instance document for ANZSoilML_Soil v2.0 SoilHorizon, SoilProfile and Soil features.
+Created by B. Simons, January 2014.
+CSIRO Land and Water
+-->
+	<!-- #################################
+             Need to finalise feature identifiers
+http://resources.anzsoil.org/aclep/soilfeature/
+http://resources.aclep.org/soilfeature/
+http://resources.anzsoil.org/features/aclep/soilfeature/
+######################################### -->
+	<!-- ========================= -->
+	<!-- First wfs:member is an instance example of a anzsmls:SoilHorizon SoilFeature -->
+	<!-- ========================= -->
+	<wfs:member>
+		<anzsmls:SoilHorizon gml:id="soil_horizon_103.EPA_CMP.SITE001.01">
+			<gml:description/>
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http://resources.aclep.org/soilfeature/soil_horizon_103.EPA_CMP.SITE001.01</gml:identifier>
+			<gml:name/>
+			<anzsml:occurrence>
+				<!-- anzsmls:SoilHorizon/anzsml:occurrence delivers the spatial location of the SoilFeature -->
+				<anzsml:SpatialEntity gml:id="spatial_entity_103.EPA_CMP.SITE001.01">
+					<gml:description>Some description of the spatial location</gml:description>
+					<anzsml:observationMethod xlink:href="http://resources.anzsoil.org/def/aclep/soilobservationmethod/soil_pit" xlink:title="Soil pit"/>
+					<!-- osmls:geometry delivers the spatial location of the osmlss:SoilProfile -->
+					<anzsml:geometry>
+						<gml:Point gml:id="point_103.EPA_CMP.SITE001.01" srsName="http://www.opengis.net/def/crs/EPSG/0/4283" srsDimension="2">
+							<gml:pos>-25.0 119.0</gml:pos>
+						</gml:Point>
+					</anzsml:geometry>
+					<anzsml:positionalAccuracy gco:nilReason="unknown"/>
+					<anzsml:resolutionScale gco:nilReason="unknown"/>
+					<!-- anzsml:SpatialEntity/anzsml:metadata = xlink:href to anzsmls:SoilHorizon/anzsmls:metadata -->
+					<anzsml:metadata xlink:href="#metadata_103.EPA_CMP"/>
+				</anzsml:SpatialEntity>
+			</anzsml:occurrence>
+			<anzsml:metadata>
+				<gmd:MD_Metadata id="metadata_103.EPA_CMP">
+					<!-- The first gmd:contact is the "originator" of the data.   -->
+					<gmd:contact>
+						<gmd:CI_ResponsibleParty>
+							<gmd:organisationName>
+								<gco:CharacterString>SA Department of Primary Industries</gco:CharacterString>
+							</gmd:organisationName>
+							<gmd:role>
+								<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_originator">originator</gmd:CI_RoleCode>
+							</gmd:role>
+						</gmd:CI_ResponsibleParty>
+					</gmd:contact>
+					<!-- The second gmd:contact is the provider of the data.  -->
+					<gmd:contact>
+						<gmd:CI_ResponsibleParty>
+							<gmd:organisationName>
+								<gco:CharacterString>Australian Soil Resource Information System</gco:CharacterString>
+							</gmd:organisationName>
+							<gmd:role>
+								<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_resourceProvider">resourceProvider</gmd:CI_RoleCode>
+							</gmd:role>
+						</gmd:CI_ResponsibleParty>
+					</gmd:contact>
+					<!-- The third gmd:contact is the custodian of the data. Example left empty where this is unknown or missing-->
+					<gmd:contact>
+						<gmd:CI_ResponsibleParty>
+							<gmd:organisationName>
+								<gco:CharacterString/>
+							</gmd:organisationName>
+							<gmd:role>
+								<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_custodian">custodian</gmd:CI_RoleCode>
+							</gmd:role>
+						</gmd:CI_ResponsibleParty>
+					</gmd:contact>
+					<!-- gmd:dateStamp  is the date that the metadata were created or last updated. Empty if unknown.  -->
+					<gmd:dateStamp/>
+					<!-- gmd:IdentificationInfo provides information about the dataset -->
+					<gmd:identificationInfo>
+						<gmd:MD_DataIdentification>
+							<gmd:citation>
+								<!-- Recommended reference to be used for the dataset for this Project -->
+								<gmd:CI_Citation id="citation_103.EPA_CMP">
+									<!-- Note any free text field with "&" will need to be replaced with "&amp;"-->
+									<gmd:title>
+										<gco:CharacterString>Adelaide Hills, Talunga &amp; Para Wirra, S.A.</gco:CharacterString>
+									</gmd:title>
+									<gmd:alternateTitle>
+										<gco:CharacterString>A Survey of the Physical Properties of Wheatland Soils in Eastern Australia, CSIRO Division of Soils, Divisional Report No. 78</gco:CharacterString>
+									</gmd:alternateTitle>
+									<gmd:date>
+										<gmd:CI_Date>
+											<gmd:date>
+												<gco:Date>1955-12-25</gco:Date>
+											</gmd:date>
+											<gmd:dateType>
+												<!-- gmd:dateType is the creation date. -->
+												<gmd:CI_DateTypeCode codeList="standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue="CI_DateTypeCode_creation">creation</gmd:CI_DateTypeCode>
+											</gmd:dateType>
+										</gmd:CI_Date>
+									</gmd:date>
+									<gmd:ISBN>
+										<gco:CharacterString>ISBN 0 7310 2366 8</gco:CharacterString>
+									</gmd:ISBN>
+								</gmd:CI_Citation>
+							</gmd:citation>
+							<!-- NatSoil SITES does not contain any gmd:abstract information on the Project dataset -->
+							<gmd:abstract/>
+							<!-- gmd:aggregationInfo allows aggregating different datasets. I have used it to aggragate data from the same Project -->
+							<gmd:aggregationInfo>
+								<gmd:MD_AggregateInformation>
+									<gmd:aggregateDataSetName xlink:href="#citation_103.EPA_CMP"/>
+									<!-- gmd:AssociationType allows specifying that the data is all from the same Project of type "project" -->
+									<gmd:associationType>
+										<gmd:DS_AssociationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="DS_AssociationTypeCode_source">source</gmd:DS_AssociationTypeCode>
+									</gmd:associationType>
+									<!--	gmd:initiativeType specifies that the initiative is a 'project'. -->
+									<gmd:initiativeType>
+										<gmd:DS_InitiativeTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeListValue="DS_InitiativeTypeCode_project" codeSpace="ISOTC211/19115">project</gmd:DS_InitiativeTypeCode>
+									</gmd:initiativeType>
+								</gmd:MD_AggregateInformation>
+							</gmd:aggregationInfo>
+							<gmd:language>
+								<!-- The language that the dataset is delivered in -->
+								<gmd:LanguageCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmx
+Codelists.xml#LanguageCode" codeListValue="eng">English</gmd:LanguageCode>
+							</gmd:language>
+							<gmd:topicCategory>
+								<gmd:MD_TopicCategoryCode>geoscientificInformation</gmd:MD_TopicCategoryCode>
+							</gmd:topicCategory>
+						</gmd:MD_DataIdentification>
+					</gmd:identificationInfo>
+				</gmd:MD_Metadata>
+			</anzsml:metadata>
+			<!-- This anzsml:relatedFeature relates LandscapeFeatures to each other. In this case a SoilHorizon to a SoilLandscape -->
+			<anzsml:relatedFeature>
+				<anzsml:LandscapeFeatureRelation gml:id="soil_relationship_soil_horizon_103.EPA_CMP.SITE001.01_soil_landscape_103.EPA_CMP.SITE001">
+					<anzsml:relationship xlink:href="http://resources.anzsoil.org/def/aclep/relationship_type/landscape_relationship/"/>
+					<anzsml:sourceRole xlink:href="http://resources.anzsoil.org/def/aclep/relation_role/associatedSoilFeature"/>
+					<anzsml:targetRole xlink:href="http://resources.anzsoil.org/def/aclep/relation_role/enclosingLandscape"/>
+					<!-- This anzsml:relatedFeature allows specifying the LandscapeFeature (SoilFeature, SoilLandscape, Vegetation) to the SoilHorizon -->
+					<anzsml:relatedFeature xlink:href="http://resources.aclep.org/landscapefeature/soil_landscape_103.EPA_CMP.SITE001.01.01"/>
+					<!-- anzsml:relatedFeature could be in-line. This is unlikely for SoilFeatures, which are more usefully related to each other using the relatedSoilFeature property:				
+				<anzsml:relatedFeature>
+					<anzsmll:Vegetation gml:id=""> <snip> -->
+				</anzsml:LandscapeFeatureRelation>
+			</anzsml:relatedFeature>
+			<!-- May be multiple anzsml:relatedFeatures or there may be none. If none use xsi:nil and nilReason -->
+			<anzsml:relatedFeature xsi:nil="true" nilReason="unknown"/>
+			<anzsmls:classifier>
+				<anzsmls:SoilClassification>
+					<anzsmls:value xlink:href="http://resources.anzsoil.org/def/aclep/soil_horizon_classification/A1" xlink:title="A1 horizon"/>
+					<anzsmls:reference>
+						<gmd:CI_Citation>
+							<gmd:title/>
+							<gmd:date/>
+						</gmd:CI_Citation>
+					</anzsmls:reference>
+					<anzsmls:confidence>All necessary analytical and/or morphological data are available</anzsmls:confidence>
+				</anzsmls:SoilClassification>
+			</anzsmls:classifier>
+			<!-- classifier is mandatory for a SoilHorizon -->
+			<!-- <anzsmls:classifier xsi:nil="true" nilReason="unknown"/> -->
+			<anzsmls:landformPosition xlink:href="http://resources.anzsoil.org/def/aclep/landform_position/bottom_third" xlink:title="bottom-third"/>
+			<anzsmls:purpose>instance</anzsmls:purpose>
+			<anzsmls:drainage xlink:href="http://resources.anzsoil.org/def/aclep/drainage/imperfectly_drained" xlink:title="imperfectly drained"/>
+			<anzsmls:observationMethod xlink:href="http://resources.anzsoil.org/def/aclep/soilobservationmethod/auger_boring" xlink:title="auger boring"/>
+			<anzsmls:soilColour xsi:nil="true" nilReason="missing"/>
+			<!-- physicalProperty is no longer a SoilFeature property
+			<anzsmls:physicalProperty>
+				<anzsmls:PhysicalPropertyValue>
+					<anzsmls:depthRange>
+						<anzsml:DepthQuantityRange> -->
+							<!-- Where the sample has only one depth, repeat it to populate upperBoundary and lowerBoundary properties -->
+					<!--		<anzsml:upperBoundary uom="http://qudt.org/vocab/unit#Meter" xlink:title="Metre">2.2</anzsml:upperBoundary>
+							<anzsml:lowerBoundary uom="http://qudt.org/vocab/unit#Meter" xlink:title="Metre">2.2</anzsml:lowerBoundary>
+						</anzsml:DepthQuantityRange>
+					</anzsmls:depthRange> -->
+					<!-- propertyName to come from the soil observed property vocabulary (http://resources.anzsoil.org/def/aclep/soil-property/) -->
+				<!--	<anzsmls:propertyName xlink:href="http://resources.anzsoil.org/def/aclep/soil-property/hydraulic_conductivity_soil" xlink:title="hydraulic conductivity of soil"/>
+					<anzsmls:propertyQuantityValue>
+						<swe:Quantity>
+							<swe:uom xlink:href="http://environment.data.gov.au/water/quality/def/unit/MillimeterPerDay" xlink:title="mm/day"/>
+							<swe:value>250</swe:value>
+						</swe:Quantity>
+					</anzsmls:propertyQuantityValue>
+					<anzsmls:propertyTermValue xlink:href="http://resources.anzsoil.org/def/aclep/permeability/3" xlink:title="moderately permeable"/>
+					<anzsmls:observationMethod xlink:href="http://resources.anzsoil.org/def/aclep/methods/ASLS_Field_Handbook" xlink:title="ASLS Field Handbook"/>
+					<anzsmls:resultQuality xsi:nil="true" gco:nilReason="unknown"/>
+				</anzsmls:PhysicalPropertyValue>
+			</anzsmls:physicalProperty> -->
+			<!-- pH is no longer a SoilFeature property -->
+		<!--	<anzsmls:pH>
+				<anzsmls:Field_pH>
+					<anzsmls:pHValue>7</anzsmls:pHValue>
+					<anzsmls:pHMethod>pH of 1:2.5 soil/water suspension</anzsmls:pHMethod>
+					<anzsmls:pHDepth>
+						<swe:Quantity>
+							<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+							<swe:value>2.2</swe:value>
+						</swe:Quantity>
+					</anzsmls:pHDepth>
+				</anzsmls:Field_pH>
+			</anzsmls:pH> -->
+			<!--<anzsmls:relatedSample xlink:href="http://resources.aclep.org/soilfeature/soil_sample_103.EPA_CMP.SITE001.01.01.01"/> -->
+			<!-- A test to see if anzsml:composition can be missing -->
+			<anzsmls:horizonRDepth>
+				<swe:Quantity>
+					<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+					<swe:value>3.6</swe:value>
+				</swe:Quantity>
+			</anzsmls:horizonRDepth>
+			
+			<anzsmls:associatedSubstrate>
+				<anzsmls:SoilSubstrateRelationship gml:id="substrate_relationship_103.EPA_CMP.SITE001.01">
+					<anzsmls:depth>
+						<swe:Quantity>
+							<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+							<swe:value>3.6</swe:value>
+						</swe:Quantity>
+					</anzsmls:depth>
+					<anzsmls:distanceFromProfile>
+						<swe:Quantity>
+							<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+							<swe:value>35</swe:value>
+						</swe:Quantity>
+					</anzsmls:distanceFromProfile>
+					<anzsmls:parentConfidence xlink:href="http://resources.anzsoil.org/def/aclep/confidence/certain" xlink:title="certain"/>
+					<anzsmls:associatedSubstrate>
+						<anzsmls:Substrate gml:id="substrate_103.EPA_CMP.SITE001.01">
+							<anzsmls:geologicDescription>
+								<gsmlgu:GeologicUnit gml:id="geologic_unit_103.EPA_CMP.SITE001.01">
+									<gsml32:observationMethod xsi:nil="true" nilReason="unknown"/>
+									<gsml32:purpose>instance</gsml32:purpose>
+									<gsml32:relatedFeature xsi:nil="true" nilReason="unknown"/>
+									<gsml32:classifier xsi:nil="true" nilReason="unknown"/>
+									<gsml32:metadata xsi:nil="true" gco:nilReason="missing"/>
+									<gsmlgu:geologicUnitType nilReason="unknown"/>
+									<gsmlgu:bodyMorphology xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:unitComposition xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:exposureColor xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:outcropCharacter xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:rank xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:unitThickness xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:composition>
+										<gsmlgu:CompositionPart>
+											<gsmlgu:role xlink:href="http://resource.geosciml.org/classifier/cgi/compoundmaterialconstituentpartrole/constituent_role_not_specified" xlink:title="Constituent role not specified"/>
+											<gsmlgu:material>
+												<gsmlem:RockMaterial gml:id="rock_material_103.EPA_CMP.SITE001.01">
+													<gsmlem:color xsi:nil="true" nilReason="unknown"/>
+													<gsmlem:purpose>instance</gsmlem:purpose>
+													<gsmlem:physicalProperty>
+														<gsmlpp:PhysicalDescription>
+															<gsmlpp:propertyName xlink:href="http://sweet.jpl.nasa.gov/2.0/physSolidConsistence.owl#Porosity" xlink:title="porosity"/>
+															<gsmlpp:propertyMeasure>
+																<swe:Quantity>
+																	<swe:description>porous</swe:description>
+																	<swe:uom xlink:href="http://www.opengis.net/def/nil/OGC/0/unknown"/>
+																</swe:Quantity>
+															</gsmlpp:propertyMeasure>
+														</gsmlpp:PhysicalDescription>
+													</gsmlem:physicalProperty>
+													<gsmlem:geochemistry xsi:nil="true" nilReason="unknown"/>
+													<gsmlem:metadata xsi:nil="true" gco:nilReason="missing"/>
+													<gsmlem:compositionCategory xsi:nil="true" nilReason="unknown"/>
+													<gsmlem:geneticCategory xsi:nil="true" nilReason="unknown"/>
+													<gsmlem:constituent>
+														<gsmlem:ConstituentPart gml:id="constituent_103.EPA_CMP.SITE001.01.01">
+															<gsmlem:proportion xsi:nil="true" nilReason="unknown"/>
+															<gsmlem:role xlink:href="http://resource.geosciml.org/classifier/cgi/compoundmaterialconstituentpartrole/constituent_role_not_specified" xlink:title="Constituent role not specified"/>
+															<gsmlem:material>
+																<gsmlem:Mineral gml:id="mineral_103.EPA_CMP.SITE001.01.01">
+																	<gsmlem:color/>
+																	<gsmlem:purpose>instance</gsmlem:purpose>
+																	<gsmlem:physicalProperty xsi:nil="true" nilReason="unknown"/>
+																	<gsmlem:geochemistry xsi:nil="true" nilReason="unknown"/>
+																	<gsmlem:metadata/>
+																	<gsmlem:mineralName xlink:href="http://resources.anzsoil.org/def/aclep/mineralname/D" xlink:title="Dark minerals"/>
+																</gsmlem:Mineral>
+															</gsmlem:material>
+															<gsmlem:particleGeometry xsi:nil="true" nilReason="unknown"/>
+															<gsmlem:relatedMaterial/>
+														</gsmlem:ConstituentPart>
+													</gsmlem:constituent>
+													<gsmlem:particleGeometry>
+														<gsmlem:ParticleGeometryDescription>
+															<gsmlem:particleType nilReason="unknown"/>
+															<gsmlem:aspectRatio xsi:nil="true" nilReason="unknown"/>
+															<gsmlem:shape xsi:nil="true" nilReason="unknown"/>
+															<gsmlem:size>
+																<swe:QuantityRange>
+																	<swe:uom code="mm" xlink:href="http://qudt.org/vocab/unit#Millimeter" xlink:title="Millimetre"/>
+																	<swe:value>0 0.06</swe:value>
+																</swe:QuantityRange>
+															</gsmlem:size>
+															<gsmlem:sorting xsi:nil="true" nilReason="unknown"/>
+															<gsmlem:sourceOrganism/>
+														</gsmlem:ParticleGeometryDescription>
+													</gsmlem:particleGeometry>
+													<gsmlem:consolidationDegree xlink:href="http://resources.anzsoil.org/def/aclep/strength/M" xlink:title="Moderately strong"/>
+													<gsmlem:lithology xlink:href="http://resources.anzsoil.org/def/aclep/lithology/AD" xlink:title="Adamellite"/>
+													<gsmlem:metamorphicProperties xsi:nil="true" nilReason="unknown"/>
+													<gsmlem:alterationProperties>
+														<gsmlem:AlterationDescription>
+															<gsmlem:alterationType xlink:href="http://resources.anzsoil.org/def/aclep/alteration/F" xlink:title="Ferruginized"/>
+															<gsmlem:alterationDegree xsi:nil="true" nilReason="unknown"/>
+															<gsmlem:alterationProduct xsi:nil="true" nilReason="unknown"/>
+															<gsmlem:alterationDistribution xsi:nil="true" nilReason="unknown"/>
+															<gsmlem:alterationEvent xsi:nil="true" nilReason="unknown"/>
+														</gsmlem:AlterationDescription>
+													</gsmlem:alterationProperties>
+													<gsmlem:fabric>
+														<gsmlem:FabricDescription>
+															<gsmlem:fabricType xlink:href="http://resources.anzsoil.org/def/aclep/fabric/T_A" xlink:title="Amorphous"/>
+														</gsmlem:FabricDescription>
+													</gsmlem:fabric>
+													<gsmlem:fabric>
+														<gsmlem:FabricDescription>
+															<gsmlem:fabricType xlink:href="http://resources.anzsoil.org/def/aclep/fabric/S_B" xlink:title="Bedded"/>
+														</gsmlem:FabricDescription>
+													</gsmlem:fabric>
+												</gsmlem:RockMaterial>
+											</gsmlgu:material>
+											<gsmlgu:proportion xsi:nil="true" nilReason="unknown"/>
+										</gsmlgu:CompositionPart>
+									</gsmlgu:composition>
+									<gsmlgu:metamorphicCharacter xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:part xsi:nil="true" nilReason="inapplicable"/>
+									<gsmlgu:physicalProperty xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:alterationCharacter xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:bedding xsi:nil="true" nilReason="unknown"/>
+									<gsmlgu:geochemistry xsi:nil="true" nilReason="unknown"/>
+								</gsmlgu:GeologicUnit>
+							</anzsmls:geologicDescription>
+							<anzsmls:geneticType xlink:href="http://resources.anzsoil.org/def/aclep/substratetype/alcrete" xlink:title="Alcrete"/>
+							<anzsmls:massStrength xlink:href="http://resources.anzsoil.org/def/aclep/strength/moderately_strong_rock" xlink:title="moderately strong rock"/>
+							<anzsmls:observationMethod xlink:href="http://resources.anzsoil.org/def/aclep/observationmethod/auger_boring" xlink:title="auger boring"/>
+							<anzsmls:discontinuities>
+								<anzsmls:Joint gml:id="joint_103.EPA_CMP.SITE001.01">
+									<anzsmls:spacing>
+										<swe:QuantityRange>
+											<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+											<swe:value> 0 50</swe:value>
+										</swe:QuantityRange>
+									</anzsmls:spacing>
+									<anzsmls:hostMaterial xlink:href="#substrate_103.EPA_CMP.SITE001.01"/>
+								</anzsmls:Joint>
+							</anzsmls:discontinuities>
+							<anzsmls:relatedSoilProfile xlink:href="#soil_profile_103.EPA_CMP.SITE001.01"/>
+						</anzsmls:Substrate>
+					</anzsmls:associatedSubstrate>
+				</anzsmls:SoilSubstrateRelationship>
+			</anzsmls:associatedSubstrate>
+			<anzsmls:composition xsi:nil="true" nilReason="missing"/>
+			<anzsmls:composition>
+				<anzsmls:SoilMaterial gml:id="soil_material_103.EPA_CMP.SITE001.01.01">
+					<gml:identifier codeSpace="http://www.asris.csiro.au">http://resources.aclep.org/soilmaterial/soil_material_103.EPA_CMP.SITE001.01.01</gml:identifier>
+					<gsmlem:color xsi:nil="true" nilReason="unknown"/>
+					<gsmlem:purpose>instance</gsmlem:purpose>
+					<gsmlem:physicalProperty xsi:nil="true" nilReason="unknown"/>
+					<gsmlem:geochemistry xsi:nil="true" nilReason="unknown"/>
+					<gsmlem:metadata xsi:nil="true" gco:nilReason="missing"/>
+					<gsmlem:compositionCategory>
+						<swe:Category>
+							<swe:identifier>http://resources.anzsoil.org/def/aclep/texture/2009/loamy_sand</swe:identifier>
+							<swe:codeSpace xlink:href="http://resources.anzsoil.org/def/aclep/texture/2009/loamy_sand" xlink:title="loamy sand"/>
+							<swe:value>loamy sand</swe:value>
+						</swe:Category>
+					</gsmlem:compositionCategory>
+					<gsmlem:geneticCategory xsi:nil="true" nilReason="inapplicable"/>
+					<gsmlem:constituent>
+						<!-- This constituent is used to describe the Coarse Fragments -->
+						<gsmlem:ConstituentPart gml:id="fragment_103.EPA_CMP.SITE001.01.01.01">
+							<gsmlem:proportion>
+								<swe:QuantityRange>
+									<swe:uom code="percent" xlink:title="%"/>
+									<swe:value>10 20</swe:value>
+								</swe:QuantityRange>
+							</gsmlem:proportion>
+							<gsmlem:role xlink:href="http://resources.anzsoil.org/def/aclep/soilconstituentrole/coarse_fragment" xlink:title="coarse fragment"/>
+							<gsmlem:material>
+								<gsmlem:RockMaterial gml:id="rock_material_103.EPA_CMP.SITE001.01.01.01">
+									<gsmlem:color xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:purpose>instance</gsmlem:purpose>
+									<gsmlem:physicalProperty xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:geochemistry xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:metadata xsi:nil="true" gco:nilReason="missing"/>
+									<gsmlem:compositionCategory xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:geneticCategory xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:constituent nilReason="unknown"/>
+									<!-- This particleGeometry could be used to describe the Coarse Fragments -->
+									<!-- gsmlem:ConstituentPart/gsmlem:material/gsmlem:RockMaterial/gsmlem:particleGeometry is empty because the particleGeometry is described as part of the ConstituentPart description -->
+									<gsmlem:particleGeometry xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:consolidationDegree xlink:href="http://resources.anzsoil.org/def/aclep/strength/M" xlink:title="Moderately strong"/>
+									<gsmlem:lithology xlink:href="http://resources.anzsoil.org/def/aclep/lithology/AD" xlink:title="Adamellite"/>
+									<gsmlem:metamorphicProperties xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:alterationProperties xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:fabric xsi:nil="true" nilReason="unknown"/>
+								</gsmlem:RockMaterial>
+							</gsmlem:material>
+							<!-- osmls:SoilMaterial/gsmlem:constituent/gsmlem:ConstituentPart/gsmlem:particleGeometry describes the Coarse Fragments particle geometries  -->
+							<gsmlem:particleGeometry>
+								<gsmlem:ParticleGeometryDescription>
+									<gsmlem:particleType xlink:href="http://resource.geosciml.org/classifier/cgi/particletype/granular_particle" xlink:title="Granular particle"/>
+									<gsmlem:aspectRatio xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:shape xlink:href="http://resource.geosciml.org/classifier/cgi/particleshape/angular" xlink:title="angular"/>
+									<gsmlem:size>
+										<swe:QuantityRange>
+											<swe:uom code="mm" xlink:href="http://qudt.org/vocab/unit#Millimeter" xlink:title="Millimetre"/>
+											<swe:value>2 6</swe:value>
+										</swe:QuantityRange>
+									</gsmlem:size>
+									<gsmlem:sorting xsi:nil="true" nilReason="unknown"/>
+									<gsmlem:sourceOrganism nilReason="inapplicable"/>
+								</gsmlem:ParticleGeometryDescription>
+							</gsmlem:particleGeometry>
+							<!--  osmls:SoilMaterial/gsmlem:relatedMaterial allows realting ConstituentParts. Not shown here -->
+							<gsmlem:relatedMaterial/>
+						</gsmlem:ConstituentPart>
+					</gsmlem:constituent>
+					<!-- anzsmls:SoilMaterial/gsmlem:particleGeometry describes the particle geometries for the primary soil material. -->
+					<gsmlem:particleGeometry xsi:nil="true" nilReason="unknown"/>
+					<anzsmls:coarseFragmentDistribution xlink:href="http://resources.anzsoil.org/def/aclep/coarsefragmentdistribution/dispersed" xlink:title="dispersed"/>
+					<anzsmls:textureQualification xlink:href="http://resources.anzsoil.org/def/aclep/texturequalification/heavy" xlink:title="heavy"/>
+					<anzsmls:waterRepellence xlink:href="http://resources.anzsoil.org/def/aclep/waterrepellance/strongly_water_repellent" xlink:title="strongly water repellent"/>
+					<anzsmls:soilConsistency>
+						<anzsmls:Consistence>
+							<anzsmls:plasticityDegree xlink:href="http://resources.anzsoil.org/def/aclep/plasticitydegree/moderately_plastic" xlink:title="moderately plastic"/>
+							<anzsmls:plasticityType xlink:href="http://resources.anzsoil.org/def/aclep/platicitytype/normal_plasticity" xlink:title="normal plasticity"/>
+							<anzsmls:stickiness xlink:href="http://resources.anzsoil.org/def/aclep/stickiness/moderately_sticky" xlink:title="moderately sticky"/>
+							<anzsmls:strength xlink:href="http://resources.anzsoil.org/def/aclep/strength/firm" xlink:title="firm"/>
+							<anzsmls:waterStatus xlink:href="http://resources.anzsoil.org/def/aclep/waterstatus/dry" xlink:title="dry"/>
+						</anzsmls:Consistence>
+					</anzsmls:soilConsistency>
+					<anzsmls:pedogenicSegregations>
+						<anzsmls:Segregations>
+							<anzsmls:type xlink:href="http://resources.anzsoil.org/def/aclep/segregationtype/aluminous" xlink:title="aluminous"/>
+							<anzsmls:abundance>
+								<swe:QuantityRange>
+									<swe:uom xlink:title="inapplicable" xlink:href="http://www.opengis.net/def/nil/OGC/0/inapplicable.html"/>
+									<swe:value>2 10</swe:value>
+								</swe:QuantityRange>
+							</anzsmls:abundance>
+							<anzsmls:form xlink:href="http://resources.anzsoil.org/def/aclep/segregationform" xlink:title="concretions"/>
+							<anzsmls:magnetism xlink:href="http://resources.anzsoil.org/def/aclep/magnetism/magnetic" xlink:title="magnetic"/>
+							<anzsmls:size>
+								<swe:QuantityRange>
+									<swe:uom code="mm" xlink:href="http://qudt.org/vocab/unit#Millimeter" xlink:title="Millimetre"/>
+									<swe:value>6 20</swe:value>
+								</swe:QuantityRange>
+							</anzsmls:size>
+							<anzsmls:strength xlink:href="http://resources.anzsoil.org/def/aclep/strength/firm" xlink:title="firm"/>
+						</anzsmls:Segregations>
+					</anzsmls:pedogenicSegregations>
+					<anzsmls:particleCoating>
+						<anzsmls:Cutans>
+							<anzsmls:type xlink:href="http://resources.anzsoil.org/def/aclep/cutantype/mangans" xlink:title="mangans"/>
+							<anzsmls:abundance>
+								<swe:QuantityRange>
+									<swe:description>Few; fewer than 10% of ped faces or walls coated</swe:description>
+									<swe:uom code="percent" xlink:title="%"/>
+									<swe:value>0 10</swe:value>
+								</swe:QuantityRange>
+							</anzsmls:abundance>
+							<anzsmls:distinctness xlink:href="http://resources.anzsoil.org/def/aclep/cutandistinctness/faint" xlink:title="faint"/>
+						</anzsmls:Cutans>
+					</anzsmls:particleCoating>
+					<anzsmls:fabric>
+						<gsmlem:FabricDescription>
+							<gsmlem:fabricType xlink:href="http://resources.anzsoil.org/def/aclep/fabric/earthy" xlink:title="Earthy"/>
+						</gsmlem:FabricDescription>
+					</anzsmls:fabric>
+				</anzsmls:SoilMaterial>
+			</anzsmls:composition>
+			<anzsmls:poreSpace>
+				<anzsmls:Crack gml:id="crack_103.EPA_CMP.SITE001.01.01.01">
+					<gsmlem:color nilReason="inapplicable" xsi:nil="true"/>
+					<gsmlem:purpose>instance</gsmlem:purpose>
+					<gsmlem:physicalProperty nilReason="inapplicable" xsi:nil="true"/>
+					<gsmlem:geochemistry nilReason="inapplicable" xsi:nil="true"/>
+					<gsmlem:metadata gco:nilReason="inapplicable" xsi:nil="true"/>
+					<anzsmls:crackWidth>
+						<swe:QuantityRange>
+							<swe:uom code="mm" xlink:href="http://qudt.org/vocab/unit#Millimeter" xlink:title="Millimetre"/>
+							<swe:value>5 10</swe:value>
+						</swe:QuantityRange>
+					</anzsmls:crackWidth>
+				</anzsmls:Crack>
+			</anzsmls:poreSpace>
+			<anzsmls:poreSpace>
+				<anzsmls:Pore gml:id="pore_103.EPA_CMP.SITE001.01.01.01">
+					<gsmlem:color nilReason="inapplicable" xsi:nil="true"/>
+					<gsmlem:purpose>instance</gsmlem:purpose>
+					<gsmlem:physicalProperty nilReason="inapplicable" xsi:nil="true"/>
+					<gsmlem:geochemistry nilReason="inapplicable" xsi:nil="true"/>
+					<gsmlem:metadata gco:nilReason="inapplicable" xsi:nil="true"/>
+					<anzsmls:macroporeAbundance>
+						<swe:QuantityRange>
+							<swe:uom code="m2" xlink:href="http://qudt.org/vocab/unit#SquareMeter" xlink:title="Square Meter"/>
+							<swe:value>0.0 1000</swe:value>
+						</swe:QuantityRange>
+					</anzsmls:macroporeAbundance>
+					<anzsmls:macroporeDiameter>
+						<swe:QuantityRange>
+							<swe:uom code="mm" xlink:href="http://qudt.org/vocab/unit#Millimeter" xlink:title="Millimetre"/>
+							<swe:value>4 50</swe:value>
+						</swe:QuantityRange>
+					</anzsmls:macroporeDiameter>
+				</anzsmls:Pore>
+			</anzsmls:poreSpace>
+			<!-- This anzsmls:relatedSoilFeature relates Soils to each other -->
+			<anzsmls:relatedSoilFeature xsi:nil="true" nilReason="unknown"/>
+			<anzsmls:relatedSoilFeature>
+				<anzsmls:SoilRelationship gml:id="soil_relationship_soil_horizon_103.EPA_CMP.SITE001.01_soil_103.EPA_CMP.SITE001.01.01">
+					<anzsmls:boundaryDistinctness xlink:href="http://resources.anzsoil.org/def/aclep/boundarydistinctness/abrupt" xlink:title="abrupt"/>
+					<anzsmls:boundaryShape xlink:href="http://resources.anzsoil.org/def/aclep/boundaryshape/broken" xlink:title="broken"/>
+					<anzsmls:proportion xsi:nil="true"/>
+					<anzsmls:relationship xlink:href="http://resources.anzsoil.org/def/aclep/soilrelationship/component" xlink:title="component"/>
+					<anzsmls:sourceRole xlink:href="http://resources.anzsoil.org/def/aclep/soilrole/soil_horizon" xlink:title=" soil horizon" xlink:role="s"/>
+					<anzsmls:targetRole xlink:href="http://resources.anzsoil.org/def/aclep/soilrole/soil" xlink:title=" soil body"/>
+					<!-- This anzsmls:relatedSoilFeature identifies the SoilFeature that is related to the SoilHorizon. it could be in-line or byReference -->
+					<anzsmls:relatedSoilFeature xlink:href="http://resources.aclep.org/soilfeature/soil_103.EPA_CMP.SITE001.01.01"/>
+				</anzsmls:SoilRelationship>
+			</anzsmls:relatedSoilFeature>
+			<anzsmls:colourPattern>
+				<anzsmls:Mottle>
+					<anzsmls:type xlink:href="http://resources.anzsoil.org/def/aclep/mottletype/mechanical" xlink:title="mechanical"/>
+					<anzsmls:abundance>
+						<swe:QuantityRange>
+							<swe:description>Few</swe:description>
+							<swe:uom xlink:title="inapplicable" xlink:href="http://www.opengis.net/def/nil/OGC/0/inapplicable.html"/>
+							<swe:value>2 10</swe:value>
+						</swe:QuantityRange>
+					</anzsmls:abundance>
+					<anzsmls:boundaries xlink:href="http://resources.anzsoil.org/def/aclep/mottleboundaries/sharp" xlink:title="sharp"/>
+					<anzsmls:contrast xlink:href="http://resources.anzsoil.org/def/aclep/mottlecontrast/distinct" xlink:title="distinct"/>
+					<anzsmls:size>
+						<swe:QuantityRange>
+							<swe:description>Medium</swe:description>
+							<swe:uom code="mm" xlink:href="http://qudt.org/vocab/unit#Millimeter" xlink:title="millimetre"/>
+							<swe:value>5 15</swe:value>
+						</swe:QuantityRange>
+					</anzsmls:size>
+					<anzsmls:mottleColour>
+						<anzsmls:Colour>
+							<anzsmls:value xlink:href="http://resources.anzsoil.org/def/aclep/colour/munsell/7.5YR42" xlink:title="brown"/>
+							<anzsmls:moistureStatus xlink:href="http://resources.anzsoil.org/def/aclep/moisturestatus/moderately_moist" xlink:title="moderately moist"/>
+						</anzsmls:Colour>
+					</anzsmls:mottleColour>
+				</anzsmls:Mottle>
+			</anzsmls:colourPattern>
+			<!-- reference to the feature that sampled the SoilHorizon -->
+			<anzsmls:samplingFeature>
+			<sam:SamplingFeatureComplex>
+				<sam:role xlink:title="paddock"></sam:role>
+				<sam:relatedSamplingFeature xlink:href="http://resources.aclep.org/samplingfeature/soil_profile_103.EPA_CMP.SITE001.01"></sam:relatedSamplingFeature>
+			</sam:SamplingFeatureComplex>
+			</anzsmls:samplingFeature>
+				<!-- or could be reference to in response feature -->
+				<!-- <anzsmls:samplingFeature xlink:href="#soil_profile_103.EPA_CMP.SITE001.01"/>-->
+				<!-- Or The SoilProfile could be included in-line:
+<anzsmls:SoilProfile>
+	<snip>
+</anzsmls:SoilProfile>
+-->
+			
+			<anzsmls:carbonateEffervescence xsi:nil="true" nilReason="missing"/>
+			<anzsmls:rootComponent xsi:nil="true" nilReason="missing"/>
+			<!-- panDescription is not provided, therefore leave out unless required:
+			<anzsmls:panDescription>
+			<anzsmls:SoilPan>
+				<anzsmls:type></anzsmls:type>
+				<anzsmls:cementation></anzsmls:cementation>
+				<anzsmls:continuity></anzsmls:continuity>
+				<anzsmls:structure></anzsmls:structure>
+			</anzsmls:SoilPan>
+			</anzsmls:panDescription> -->
+			<anzsmls:depthRange>
+				<anzsml:DepthQuantityRange>
+					<anzsml:upperBoundary>
+					<swe:Quantity>
+						<swe:uom xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"></swe:uom>
+					<swe:value>0.0</swe:value></swe:Quantity></anzsml:upperBoundary>
+					<anzsml:lowerBoundary> <swe:Quantity>
+						<swe:uom xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"></swe:uom>
+					<swe:value>1.2</swe:value></swe:Quantity>
+					</anzsml:lowerBoundary>
+				</anzsml:DepthQuantityRange>
+			</anzsmls:depthRange>
+			
+		</anzsmls:SoilHorizon>
+	</wfs:member>
+	<!-- ========================= -->
+	<!-- Second wfs:member is an instance example of a anzsmls:Soil SoilFeature -->
+	<!-- ========================= -->
+	<wfs:member>
+		<anzsmls:Soil gml:id="soil_103.EPA_CMP.SITE001.01">
+			<gml:description/>
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http://resources.aclep.org/soilfeature/soil_103.EPA_CMP.SITE001.01</gml:identifier>
+			<gml:name/>
+			<!-- anzsmls:Soil/anzsml:occurrence delivers the spatial location of the SoilFeature -->
+			<!-- In this example it re-uses the location of the SoilHorizon -->
+			<anzsml:occurrence xlink:href="#spatial_entity_103.EPA_CMP.SITE001.01"/>
+			<!-- In this example anzsml:metadata for the Soil re-uses the SoilHorizon metadata -->
+			<anzsml:metadata xlink:href="#metadata_103.EPA_CMP"/>
+			<!-- This anzsml:relatedFeature relates LandscapeFeatures to each other. In this case a Soil to a SoilLandscape -->
+			<anzsml:relatedFeature>
+				<anzsml:LandscapeFeatureRelation gml:id="soil_relationship_soil_103.EPA_CMP.SITE001.01_soil_landscape_103.EPA_CMP.SITE001">
+					<anzsml:relationship xlink:href="http://resources.anzsoil.org/def/aclep/relationship_type/landscape_relationship/"/>
+					<anzsml:sourceRole xlink:href="http://resources.anzsoil.org/def/aclep/relation_role/associatedSoilFeature"/>
+					<anzsml:targetRole xlink:href="http://resources.anzsoil.org/def/aclep/relation_role/enclosingLandscape"/>
+					<!-- This anzsml:relatedFeature allows specifying the LandscapeFeature (SoilFeature, SoilLandscape, Vegetation) to the SoilHorizon -->
+					<anzsml:relatedFeature xlink:href="http://resources.aclep.org/landscapefeature/soil_landscape_103.EPA_CMP.SITE001.01.01"/>
+					<!-- anzsml:relatedFeature could be in-line. This is unlikely for SoilFeatures, which are more usefully related to each other using the relatedSoilFeature property:				
+				<anzsml:relatedFeature>
+					<anzsmll:Vegetation gml:id=""> <snip> -->
+				</anzsml:LandscapeFeatureRelation>
+			</anzsml:relatedFeature>
+			<!-- May be multiple anzsml:relatedFeatures or there may be none. If none use xsi:nil and nilReason -->
+			<anzsml:relatedFeature xsi:nil="true" nilReason="unknown"/>
+			<anzsmls:classifier>
+				<anzsmls:SoilClassification>
+					<anzsmls:value xlink:href="http://resources.anzsoil.org/def/aclep/soil_horizon_classification/A1" xlink:title="A1 horizon"/>
+					<anzsmls:reference>
+						<gmd:CI_Citation>
+							<gmd:title/>
+							<gmd:date/>
+						</gmd:CI_Citation>
+					</anzsmls:reference>
+					<anzsmls:confidence>All necessary analytical and/or morphological data are available</anzsmls:confidence>
+				</anzsmls:SoilClassification>
+			</anzsmls:classifier>
+			<!-- Test that both classifier with content and missing data are allowed Example is of missing data-->
+			<!-- <anzsmls:classifier xsi:nil="true" nilReason="unknown"/> -->
+			<anzsmls:landformPosition xlink:href="http://resources.anzsoil.org/def/aclep/landform_position/bottom_third" xlink:title="bottom-third"/>
+			<anzsmls:purpose>instance</anzsmls:purpose>
+			<anzsmls:drainage xlink:href="http://resources.anzsoil.org/def/aclep/drainage/imperfectly_drained" xlink:title="imperfectly drained"/>
+			<anzsmls:observationMethod xlink:href="http://resources.anzsoil.org/def/aclep/soilobservationmethod/auger_boring" xlink:title="auger boring"/>
+			<anzsmls:soilColour xsi:nil="true" nilReason="missing"/>
+			<!--
+			<anzsmls:physicalProperty>
+				<anzsmls:PhysicalPropertyValue>
+					<anzsmls:depthRange>
+						<anzsml:DepthQuantityRange>
+							<anzsml:upperBoundary uom="http://qudt.org/vocab/unit#Meter" xlink:title="Metre">2.2</anzsml:upperBoundary>
+							<anzsml:lowerBoundary uom="http://qudt.org/vocab/unit#Meter" xlink:title="Metre">2.2</anzsml:lowerBoundary>
+						</anzsml:DepthQuantityRange>
+					</anzsmls:depthRange>
+					<anzsmls:propertyName xlink:href="http://resources.anzsoil.org/def/aclep/soil-property/hydraulic_conductivity_soil" xlink:title="hydraulic conductivity of soil"/>
+					<anzsmls:propertyQuantityValue>
+						<swe:Quantity>
+							<swe:uom xlink:href="http://environment.data.gov.au/water/quality/def/unit/MillimeterPerDay" xlink:title="mm/day"/>
+							<swe:value>250</swe:value>
+						</swe:Quantity>
+					</anzsmls:propertyQuantityValue>
+					<anzsmls:propertyTermValue xlink:href="http://resources.anzsoil.org/def/aclep/permeability/3" xlink:title="moderately permeable"/>
+					<anzsmls:observationMethod xlink:href="http://resources.anzsoil.org/def/aclep/methods/ASLS_Field_Handbook" xlink:title="ASLS Field Handbook"/>
+					<anzsmls:resultQuality xsi:nil="true" gco:nilReason="unknown"/>
+				</anzsmls:PhysicalPropertyValue>
+			</anzsmls:physicalProperty>
+-->
+<!--			<anzsmls:pH>
+				<anzsmls:Field_pH>
+					<anzsmls:pHValue>7</anzsmls:pHValue>
+					<anzsmls:pHMethod>pH of 1:2.5 soil/water suspension</anzsmls:pHMethod>
+					<anzsmls:pHDepth>
+						<swe:Quantity>
+							<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+							<swe:value>2.2</swe:value>
+						</swe:Quantity>
+					</anzsmls:pHDepth>
+				</anzsmls:Field_pH>
+			</anzsmls:pH>
+-->
+			<!--<anzsmls:relatedSample xlink:href="http://resources.aclep.org/soilfeature/soil_sample_103.EPA_CMP.SITE001.01.01.01"/> -->
+			<!-- A test to see if anzsml:composition can be missing -->
+			<anzsmls:horizonRDepth xsi:nil="true" nilReason="missing"></anzsmls:horizonRDepth>
+			<anzsmls:associatedSubstrate xsi:nil="true" nilReason="unknown"></anzsmls:associatedSubstrate>
+			<anzsmls:composition xsi:nil="true" nilReason="missing"/>
+			<!-- an internal link to the soilMaterial described in the SoilHorizon -->
+			<anzsmls:composition xlink:href="#soil_material_103.EPA_CMP.SITE001.01.01"/>
+			<!-- A new SoilMaterial description -->
+			<anzsmls:composition>
+				<anzsmls:SoilMaterial gml:id="soil_material_103.EPA_CMP.SITE001.01.01b">
+					<gml:identifier codeSpace="http://www.asris.csiro.au">http://resources.aclep.org/soilmaterial/soil_material_103.EPA_CMP.SITE001.01.01b</gml:identifier>
+					<gsmlem:color xlink:href="http://resources.anzsoil.org/def/aclep/colour/red" xlink:title="red"/>
+					<gsmlem:purpose>instance</gsmlem:purpose>
+					<gsmlem:physicalProperty xsi:nil="true" nilReason="unknown"/>
+					<gsmlem:geochemistry xsi:nil="true" nilReason="unknown"/>
+					<gsmlem:metadata xsi:nil="true" gco:nilReason="missing"/>
+					<gsmlem:compositionCategory>
+						<swe:Category>
+							<swe:identifier>http://resources.anzsoil.org/def/aclep/texture/2009/clay</swe:identifier>
+							<swe:codeSpace xlink:href="http://resources.anzsoil.org/def/aclep/texture/2009/clay" xlink:title="clay"/>
+							<swe:value>clay</swe:value>
+						</swe:Category>
+					</gsmlem:compositionCategory>
+					<gsmlem:geneticCategory xsi:nil="true" nilReason="inapplicable"/>
+					<gsmlem:constituent xsi:nil="true" nilReason="unknown"/>
+					<!-- anzsmls:SoilMaterial/gsmlem:particleGeometry describes the particle geometries for the primary soil material. -->
+					<gsmlem:particleGeometry xsi:nil="true" nilReason="unknown"/>
+					<anzsmls:coarseFragmentDistribution xlink:href="http://resources.anzsoil.org/def/aclep/coarsefragmentdistribution/dispersed" xlink:title="dispersed"/>
+					<anzsmls:textureQualification xlink:href="http://resources.anzsoil.org/def/aclep/texturequalification/heavy" xlink:title="heavy"/>
+					<anzsmls:waterRepellence xlink:href="http://resources.anzsoil.org/def/aclep/waterrepellance/strongly_water_repellent" xlink:title="strongly water repellent"/>
+					<anzsmls:soilConsistency xsi:nil="true" nilReason="unknown"/>
+					<!--	anzsmls:pedogenicSegregations are optional, therefore left out -->
+					<!-- anzsml:particleCoating is required, therefore use xsi:nil -->
+					<anzsmls:particleCoating xsi:nil="true" nilReason="unknown"/>
+					<anzsmls:fabric>
+						<gsmlem:FabricDescription>
+							<gsmlem:fabricType xlink:href="http://resources.anzsoil.org/def/aclep/fabric/earthy" xlink:title="Earthy"/>
+						</gsmlem:FabricDescription>
+					</anzsmls:fabric>
+				</anzsmls:SoilMaterial>
+			</anzsmls:composition>
+			<anzsmls:poreSpace xsi:nil="true" nilReason="unknown"/>
+			<!-- This anzsmls:relatedSoilFeature relates Soils to each other -->
+			<!-- In this case it relates the soil back to the SoilHorizon found within it. This could be done by xlink:href to the same relationship specified in the SoilHorizon. However, it is likely that Soils will have multiple relationships to Layers/Horizons, therefore these are given independent identity -->
+			<anzsmls:relatedSoilFeature xsi:nil="true" nilReason="unknown"/>
+			<anzsmls:relatedSoilFeature>
+				<anzsmls:SoilRelationship gml:id="soil_relationship_soil_103.EPA_CMP.SITE001.01_soil_horizon_103.EPA_CMP.SITE001.01.01">
+					<anzsmls:boundaryDistinctness xlink:href="http://resources.anzsoil.org/def/aclep/boundarydistinctness/abrupt" xlink:title="abrupt"/>
+					<anzsmls:boundaryShape xlink:href="http://resources.anzsoil.org/def/aclep/boundaryshape/broken" xlink:title="broken"/>
+					<anzsmls:proportion xsi:nil="true" nilReason="inapplicable"/>
+					<anzsmls:relationship xlink:href="http://resources.anzsoil.org/def/aclep/soilrelationship/component" xlink:title="component"/>
+					<anzsmls:sourceRole xlink:href="http://resources.anzsoil.org/def/aclep/soilrole/soil" xlink:title=" soil body"/>
+					<anzsmls:targetRole xlink:href="http://resources.anzsoil.org/def/aclep/soilrole/soil_horizon" xlink:title=" soil horizon"/>
+					<!-- This anzsmls:relatedSoilFeature identifies the SoilFeature that is related to the soilProfile. it could be in-line or byReference -->
+					<anzsmls:relatedSoilFeature xlink:href="http://resources.aclep.org/soilfeature/soil_horizon_103.EPA_CMP.SITE001.01.01"/>
+				</anzsmls:SoilRelationship>
+			</anzsmls:relatedSoilFeature>
+			<anzsmls:colourPattern>
+				<anzsmls:Mottle>
+					<anzsmls:type xlink:href="http://resources.anzsoil.org/def/aclep/mottletype/mechanical" xlink:title="mechanical"/>
+					<anzsmls:abundance>
+						<swe:QuantityRange>
+							<swe:description>Few</swe:description>
+							<swe:uom xlink:title="inapplicable" xlink:href="http://www.opengis.net/def/nil/OGC/0/inapplicable.html"/>
+							<swe:value>2 10</swe:value>
+						</swe:QuantityRange>
+					</anzsmls:abundance>
+					<anzsmls:boundaries xlink:href="http://resources.anzsoil.org/def/aclep/mottleboundaries/sharp" xlink:title="sharp"/>
+					<anzsmls:contrast xlink:href="http://resources.anzsoil.org/def/aclep/mottlecontrast/distinct" xlink:title="distinct"/>
+					<anzsmls:size>
+						<swe:QuantityRange>
+							<swe:description>Medium</swe:description>
+							<swe:uom code="mm" xlink:href="http://qudt.org/vocab/unit#Millimeter" xlink:title="millimetre"/>
+							<swe:value>5 15</swe:value>
+						</swe:QuantityRange>
+					</anzsmls:size>
+					<anzsmls:mottleColour>
+						<anzsmls:Colour>
+							<anzsmls:value xlink:href="http://resources.anzsoil.org/def/aclep/colour/munsell/7.5YR42" xlink:title="brown"/>
+							<anzsmls:moistureStatus xlink:href="http://resources.anzsoil.org/def/aclep/moisturestatus/moderately_moist" xlink:title="moderately moist"/>
+						</anzsmls:Colour>
+					</anzsmls:mottleColour>
+				</anzsmls:Mottle>
+			</anzsmls:colourPattern>
+			<anzsmls:samplingFeature>
+			<sam:SamplingFeatureComplex>
+				<sam:role xlink:role="soil profile"></sam:role>
+				<sam:relatedSamplingFeature xlink:href="#soil_profile_103.EPA_CMP.SITE001.01"/>
+			</sam:SamplingFeatureComplex>
+				
+			</anzsmls:samplingFeature>
+			<anzsmls:carbonateEffervescence xsi:nil="true" nilReason="missing"/>
+			<anzsmls:rootComponent xsi:nil="true" nilReason="unknown"/>
+				
+		</anzsmls:Soil>
+	</wfs:member>
+	<!-- ========================= -->
+	<!-- Third wfs:member is an instance example of a anzsmls:SoilProfile.
+In ANZSoilML v2 SoilProfile is not a SoilFeature, but a SF_SpatialSamplingFeature.
+It is therefore unlikely that it would be delivered in-line with SoilFeatures, such as SoiilLayer, SoilHorizon or Soil -->
+	<!-- ========================= -->
+	<wfs:member>
+		<anzsmls:SoilProfile gml:id="soil_profile_103.EPA_CMP.SITE001.01">
+			<gml:description>The profile was sampled in a soil pit dug just to the north of the farm gate.</gml:description>
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http://resources.aclep.org/samplingfeature/soil_profile_103.EPA_CMP.SITE001.01</gml:identifier>
+			<gml:name>Site 103.EPA_CMP.SITE001.01</gml:name>
+			<sam:type xlink:href="http://www.opengis.net/def/samplingFeatureType/OGC-OM/2.0/SF_SamplingCurve"/>
+			<sam:sampledFeature xlink:href="http://resources.aclep.org/soilfeature/soil_horizon_103.EPA_CMP.SITE001.01"/>
+			<!-- sam schema only allows one sampledFeature. UML indicates should be 1..*. Requires a change request 
+Commented out at the moment -->
+			<!--<sam:sampledFeature xlink:href="http://resources.aclep.org/soilfeature/soil_103.EPA_CMP.SITE001.01"/> -->
+			<!--
+If present, the attribute lineage:LI_Lineage shall describe the history and provenance of the SF_SamplingFeature. This might include information relating to the handling of the specimen, or details of the survey procedure of a spatial sampling feature.  
+-->
+			<sam:lineage/>
+			<!-- relatedObservation allows specifying other Observations relating to the samplingFeature -->
+			<sam:relatedObservation/>
+			<!-- relatedSamplingFeature allows relating samplingFeatures to each other, such as 2 SoilProfiles that sample the same Soil -->
+			<sam:relatedSamplingFeature>
+				<sam:SamplingFeatureComplex>
+					<sam:role/>
+					<sam:relatedSamplingFeature>
+					</sam:relatedSamplingFeature>
+				</sam:SamplingFeatureComplex>
+			</sam:relatedSamplingFeature>
+			<!-- Positioning metadata is commonly associated with sampling features defined in the context of field surveys. 
+If present, positionalAccuracy:DQ_PositionalAccuracy shall describe the accuracy of the positioning of the sampling feature. 
+Up to two instances of the attribute support the independent description of horizontal and vertical accuracy. -->
+			<sams:positionalAccuracy>
+				<gmd:DQ_AbsoluteExternalPositionalAccuracy>
+					<gmd:result/>
+				</gmd:DQ_AbsoluteExternalPositionalAccuracy>
+			</sams:positionalAccuracy>
+			<!-- sams:shape is the same as the SoilHorizon location so an internal reference is used. In practise this will probably be a different geometry with its own identity -->
+			<sams:shape xlink:href="#point_103.EPA_CMP.SITE001.01"/>
+			<anzsmls:classifier>
+				<!-- Soil classification from the Australian SoilClassification with codes concatanated -->
+				<anzsmls:SoilClassification>
+					<anzsmls:value xlink:href="http://resources.anzsoil.org/def/aclep/soil_profile_classification/CH_AA_AH_AT" xlink:title="Bleached, Eutrophic, Red, Chromool"/>
+					<anzsmls:reference>
+						<gmd:CI_Citation>
+							<gmd:title/>
+							<gmd:date/>
+						</gmd:CI_Citation>
+					</anzsmls:reference>
+					<anzsmls:confidence>All necessary analytical and/or morphologicval data are available</anzsmls:confidence>
+				</anzsmls:SoilClassification>
+			</anzsmls:classifier>
+		<!--	<anzsmls:microReliefComponent xlink:href="http://resources.anzsoil.org/def/aclep/microreliefcomponent/depression" xlink:title="depression"/> -->
+			<!-- example empty associatedSubstrate commented out: 
+							<anzsmls:associatedSubstrate xsi:nil="true" nilReason="unknown"></anzsmls:associatedSubstrate>-->
+			<!-- The following describes the geology of the associated substrate of the SoilProfile using GeoSciML. -->
+			</anzsmls:SoilProfile>
+	</wfs:member>
+</wfs:FeatureCollection>

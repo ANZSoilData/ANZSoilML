@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.0" 
+xmlns:gml="http://www.opengis.net/gml/3.2" 
+xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+xmlns:gco="http://www.isotc211.org/2005/gco" 
+xmlns:swe="http://www.opengis.net/swe/2.0" 
+targetNamespace="http://anzsoil.org/ns/soilcore/2.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.0">
+	<xs:import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+	<xs:import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
+	<xs:import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+	<xs:annotation>
+		<xs:documentation>This is a separate package to facilitate future integration within a broader environmental system, and to minimise dependencies between ANZSoilML packages.</xs:documentation>
+	</xs:annotation>
+	<xs:element name="DepthQuantityRange" type="anzsml:DepthQuantityRangeType" substitutionGroup="gml:AbstractObject">
+		<xs:annotation>
+			<xs:documentation>A data type to capture upper and lower depth boundary values.
+Treated as a special range for depths where the "upper" value will be numerically smaller than the "lower" depth as opposed to a (e.g.) "DiscreteQuantityRange" where the upper value will be larger than the lower value.
+Different from the INSPIRE "RangeType" dataType also used for depth values but where the deeper boundary is referred to as the "upperBoundary" (unless -ve values are used for depth).</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="DepthQuantityRangeType">
+		<xs:sequence>
+			<xs:element name="upperBoundary" nillable="true">
+				<xs:annotation>
+					<xs:documentation>The 'upper' depth boundary, that is the closest to the surface.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="swe:QuantityPropertyType">
+							<xs:attribute name="nilReason" type="gml:NilReasonType"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="lowerBoundary" nillable="true">
+				<xs:annotation>
+					<xs:documentation>The 'lower' depth boundary, that is the deepest or furthermost from the surface.</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:complexContent>
+						<xs:extension base="swe:QuantityPropertyType">
+							<xs:attribute name="nilReason" type="gml:NilReasonType"/>
+						</xs:extension>
+					</xs:complexContent>
+				</xs:complexType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="DepthQuantityRangePropertyType">
+		<xs:sequence>
+			<xs:element ref="anzsml:DepthQuantityRange"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</xs:complexType>
+	<xs:element name="LandscapeFeature" type="anzsml:LandscapeFeatureType" abstract="true" substitutionGroup="gml:AbstractFeature">
+		<xs:annotation>
+			<xs:documentation>An abstract parent class of those features that may be spatially located in the landscape. </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="LandscapeFeatureType" abstract="true">
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="occurrence" type="anzsml:SpatialEntityPropertyType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Points to any number of spatial entities that are occurrences of the Landscape feature.  Spatial entities may all be from a single map or from several maps.</xs:documentation>
+							<xs:appinfo>
+								<gml:reversePropertyName>anzsml:featureDescription</gml:reversePropertyName>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="metadata" type="gmd:MD_Metadata_PropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+					<xs:element name="relatedFeature" type="anzsml:LandscapeFeatureRelationPropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Relationship to allow relating features in the landscape to each other. For example, the relationship between soils and the landscape, vegetation and the landscape or soils and vegetation.</xs:documentation>
+						</xs:annotation>
+						<!--
+<element name="relatedFeature" type="gsml:GeologicFeatureRelationPropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded"> -->
+					</xs:element>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LandscapeFeaturePropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="anzsml:LandscapeFeature"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+		<!-- Manually added minOccurs =0 to get instance to validate. Change in UML? -->
+	</xs:complexType>
+	<xs:element name="LandscapeFeatureRelation" type="anzsml:LandscapeFeatureRelationType" abstract="false" substitutionGroup="gml:AbstractGML">
+		<xs:annotation>
+			<xs:documentation>Association class to allow relating features in the landscape to each other.</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="LandscapeFeatureRelationType" abstract="false">
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractGMLType">
+				<xs:sequence>
+					<xs:element name="relationship" type="gml:ReferenceType">
+						<xs:annotation>
+							<xs:documentation>A term from a controlled vocabulary to specify the relationship.</xs:documentation>
+							<xs:appinfo>
+								<gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Core/1.0/CodeList_LandscapeRelationshipTerm.xml#LandscapeRelationshipTerm</gml:defaultCodeSpace>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="sourceRole" type="gml:ReferenceType" nillable="true">
+						<xs:annotation>
+							<xs:documentation>specifies the role the source feature plays in the relationship (e.g. 'enclosing landscape', 'contained soil')</xs:documentation>
+							<xs:appinfo>
+								<gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Core/1.0/CodeList_RelationRoleTerm.xml#RelationRoleTerm</gml:defaultCodeSpace>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="targetRole" type="gml:ReferenceType" nillable="true">
+						<xs:annotation>
+							<xs:documentation>specifies the role the target feature plays in the relationship (e.g. 'enclosing landscape', 'contained soil')</xs:documentation>
+							<xs:appinfo>
+								<gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Core/1.0/CodeList_RelationRoleTerm.xml#RelationRoleTerm</gml:defaultCodeSpace>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="relatedFeature" type="anzsml:LandscapeFeaturePropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="LandscapeFeatureRelationPropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="anzsml:LandscapeFeatureRelation"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</xs:complexType>
+	<xs:element name="SpatialEntity" type="anzsml:SpatialEntityType" substitutionGroup="gml:AbstractFeature">
+		<xs:annotation>
+			<xs:documentation>A SpatialEntity is part of a soil description. 
+It provides a link between a notional feature (description package) and one spatial representation of it, or part of it. (Sites, Transects, Exposures, Surface Traces and Intercepts, etc)
+    * the specific bounded occurrence, such as a map polygon
+    * the SpatialEntity carries a geometry or shape
+          - the association with a Soil or Landscape Feature provides the specification of all the other descriptors
+          - the association with a Sampling Feature provides the context and dimensionality 
+
+A SpatialEntity is always associated with some sampling feature - e.g. a Soil Sample, a Landscape, a Soil Layer etc.  </xs:documentation>
+		</xs:annotation>
+	</xs:element>
+	<xs:complexType name="SpatialEntityType">
+		<xs:complexContent>
+			<xs:extension base="gml:AbstractFeatureType">
+				<xs:sequence>
+					<xs:element name="observationMethod" type="gml:ReferenceType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>SpatialEntity observationMethod is a metadata snippet indicating how the spatial extent of the mapped feature was determined. ObservationMethod is a convenience property that provides a quick and dirty approach to observation metadata when data are reported using a feature view (as opposed to observation view). This property corresponds (loosely) to ISO19115 Lineage.  (eg: digitised, Global Positioning System, published map, field observation,  aerial photography, field survey</xs:documentation>
+							<xs:appinfo>
+								<gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Core/1.0/CodeList_SpatialObservationMethodTerm.xml#SpatialObservationMethodTerm</gml:defaultCodeSpace>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="geometry" type="gml:GeometryPropertyType">
+						<xs:annotation>
+							<xs:documentation>Spatial representation (geometry)</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="positionalAccuracy" type="gmd:DQ_PositionalAccuracy_PropertyType" nillable="true" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Quantitative values define the radius of an uncertainty buffer around a mappedFeature (eg: a positionAccuracy of 100 m for a line feature defines a buffer polygon of total width 200 m centred on the line). Corresponds to ISO19115 DQ_PositionalAccuracy.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="resolutionScale" type="gmd:MD_RepresentativeFraction_PropertyType" nillable="true" minOccurs="1" maxOccurs="1">
+						<xs:annotation>
+							<xs:documentation>Reciprocal of equivalent scale of resolution for delineation of a feature's geometry. This is in contrast to positionalAccuracy which is a measure of how well a feature is located relative to other features in the geographic reference system.</xs:documentation>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="featureDescription" type="anzsml:LandscapeFeaturePropertyType" minOccurs="0" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:documentation>Points to the landscape features which describe the spatial entity.</xs:documentation>
+							<xs:appinfo>
+								<gml:reversePropertyName>anzsml:occurrence</gml:reversePropertyName>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>
+					<xs:element name="metadata" type="gmd:MD_Metadata_PropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="SpatialEntityPropertyType">
+		<xs:sequence minOccurs="0">
+			<xs:element ref="anzsml:SpatialEntity"/>
+		</xs:sequence>
+		<xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+		<xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+	</xs:complexType>
+</xs:schema>

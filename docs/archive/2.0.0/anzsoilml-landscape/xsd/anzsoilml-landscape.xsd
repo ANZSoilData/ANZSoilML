@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anzsmll="http://anzsoil.org/ns/soillandscape/2.0.0" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://anzsoil.org/ns/soillandscape/2.0.0" elementFormDefault="qualified" version="1.0.0">
+	<!--
+	<xs:include schemaLocation="http://www.clw.csiro.au/aclep/ANZSoilML/trunk/ANZSoilML_Landscape/xsd/vegetation.xsd"/>
+	<xs:include schemaLocation="http://www.clw.csiro.au/aclep/ANZSoilML/trunk/ANZSoilML_Landscape/xsd/landscape_leaf.xsd"/>
+	<xs:include schemaLocation="http://www.clw.csiro.au/aclep/ANZSoilML/trunk/ANZSoilML_Landscape/xsd/humanactivity.xsd"/>
+	<xs:include schemaLocation="http://www.clw.csiro.au/aclep/ANZSoilML/trunk/ANZSoilML_Landscape/xsd/climate.xsd"/>
+-->
+	<xs:include schemaLocation="http://anzsoil.org/def/schema/landscape/2.0.0/vegetation.xsd"/>
+	<xs:include schemaLocation="http://anzsoil.org/def/schema/landscape/2.0.0/soillandscape.xsd"/>
+	<xs:include schemaLocation="http://anzsoil.org/def/schema/landscape/2.0.0/humanactivity.xsd"/>
+	<xs:include schemaLocation="http://anzsoil.org/def/schema/landscape/2.0.0/climate.xsd"/>
+	<xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+	<xs:annotation>
+		<xs:documentation>Application schema to capture Landscape properties associated with Soils</xs:documentation>
+	</xs:annotation>
+</xs:schema>
