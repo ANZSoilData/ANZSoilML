@@ -30,4 +30,4 @@ Canonical schema are published at: [http://anzsoil.org/def/schema/](http://anzso
 
 | Version | Status | Local Copy | Published Location |
 | ------- | ------ | ---------- | ------------------ |
-| 1.0.0 | Published | [./archive/1.0.0/](archive/1.0.0/) ([html](archive/1.0.0/anzsoilml/html)) | [http://anzsoil.org/def/schema/anzsoilml/1.0.0/](http://anzsoil.org/def/schema/anzsoilml/1.0.0/) |
+| 1.0.0 | Published | [./archive/1.0.0/](archive/1.0.0/) ([html](https://anzsoildata.github.io/ANZSoilML/archive/1.0.0/anzsoilml/html/)) | [http://anzsoil.org/def/schema/anzsoilml/1.0.0/](http://anzsoil.org/def/schema/anzsoilml/1.0.0/) |
