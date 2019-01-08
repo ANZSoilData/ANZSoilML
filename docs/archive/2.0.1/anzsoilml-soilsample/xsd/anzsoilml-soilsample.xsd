@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anzsmlss="http://anzsoil.org/ns/soilsample/2.0.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.1" xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" xmlns:spec="http://www.opengis.net/samplingSpecimen/2.0" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:swe="http://www.opengis.net/swe/2.0" targetNamespace="http://anzsoil.org/ns/soilsample/2.0.1" elementFormDefault="qualified" version="2.0.1">
+    <xs:import namespace="http://www.isotc211.org/2005/gco" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd"/>
+    <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xs:import namespace="http://www.opengis.net/samplingSpecimen/2.0" schemaLocation="http://schemas.opengis.net/samplingSpecimen/2.0/specimen.xsd"/>
+    <xs:import namespace="http://www.opengis.net/samplingSpatial/2.0" schemaLocation="http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd"/>
+    <xs:import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+    <xs:import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
+    <xs:import namespace="http://anzsoil.org/ns/soilcore/2.0.1" schemaLocation="http://anzsoil.org/def/schema/soilcore/2.0.1/anzsoilml-core.xsd"/>
+    <xs:annotation>
+        <xs:documentation>Application Schema for soil sampling, soil specimens and related observations</xs:documentation>
+        <xs:documentation>Soil samples will be treated as SF_SamplingPoints, rather than specific SoilSample features.
+The geometry of the soil sample should be a 0D point, 1D profile or 2D polygon, not 3D volumes. Therefore the SF_SamplingPoint/parameter property has been used to capture the  depth range of the sample rather than being included in the geometry property. Where a 3D geometry is provided the parameter will duplicate the 3D geometry depth.
+The XML implementation of the depth range in the SF_SamplingPoint/parameter property will use the ANZSoilML-Core/DepthQuantityRange data type to capture anzsml:upperBoundary and anzsml:lowerBoundary.
+</xs:documentation>
+    </xs:annotation>
+    <xs:element name="SoilSpecimen" type="anzsmlss:SoilSpecimenType" substitutionGroup="spec:SF_Specimen">
+        <xs:annotation>
+            <xs:documentation>A specialisation of SF_Specimen to capture archived specimens. NatSoil archive indicates whether there is a coarse fraction (&gt;2mm) present in the specimen.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="SoilSpecimenType">
+        <xs:complexContent>
+            <xs:extension base="spec:SF_SpecimenType">
+                <xs:sequence>
+                    <xs:element name="coarseFragmentsPresent" type="xs:boolean" nillable="true" minOccurs="0" maxOccurs="1">
+                        <xs:annotation>
+                            <xs:documentation>Presence or absence of coarse fragment sample &gt;2mm</xs:documentation>
+                        </xs:annotation>
+                        <!--<xs:attribute name="nilReason" type="gml:NilReasonType"/>-->
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="SoilSpecimenPropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmlss:SoilSpecimen"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <!-- ################## -->
+    <xs:element name="SoilSample" type="anzsmlss:SoilSampleType" substitutionGroup="sams:SF_SpatialSamplingFeature">
+        <xs:annotation>
+            <xs:documentation>A specialisation of SF_SpatialSamplingFeature for soil sampling features.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="SoilSampleType">
+        <xs:complexContent>
+            <xs:extension base="sams:SF_SpatialSamplingFeatureType">
+                <xs:sequence/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="SoilSamplePropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmlss:SoilSample"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+</xs:schema>

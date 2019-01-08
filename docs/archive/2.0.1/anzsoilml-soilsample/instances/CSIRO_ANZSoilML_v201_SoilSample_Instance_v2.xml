@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:it.geosolutions="http://www.geo-solutions.it" xmlns:spec="http://www.opengis.net/samplingSpecimen/2.0" xmlns:gsmlla="http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0" xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.1" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:topp="http://www.openplans.org/topp" xmlns:gsmlem="http://xmlns.geosciml.org/EarthMaterial/3.2" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:anzsmlss="http://anzsoil.org/ns/soilsample/2.0.1" xmlns:anzsmls="http://anzsoil.org/ns/soil/2.0.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" timeStamp="2015-03-30T22:12:55.882Z" xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd 
+http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd 
+http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis.xsd 
+http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+http://anzsoil.org/ns/soilsample/2.0.1  http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd
+http://anzsoil.org/ns/soil/2.0.1 http://anzsoil.org/def/schema/soil/2.0.1/anzsoilml-soil.xsd 
+http://anzsoil.org/ns/soilcore/2.0.1 http://anzsoil.org/def/schema/soilcore/2.0.1/anzsoilml-core.xsd" numberMatched="unknown" numberReturned="1">
+	<!--
+xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+                http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+                http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd
+                http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd
+                http://www.isotc211.org/2005/gco http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd
+                http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd
+                http://www.opengis.net/samplingSpecimen/2.0 http://schemas.opengis.net/samplingSpecimen/2.0/specimen.xsd
+                http://xmlns.geosciml.org/EarthMaterial/3.0 http://schemas.geosciml.org/earthmaterial/3.0/earthMaterial.xsd
+                http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+                http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis-Specimen.xsd
+                http://anzsoil.org/ns/soilsample/2.0.1  http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd
+              "
+-->
+	<!-- ========================================= -->
+	<!-- This wfs:member example is for a anzsmlss:SoilSample -->
+	<!-- Deliver wfs:member/anzsmlss:SoilSample with references to contained anzsmls:Soil using sampledFeature  -->
+	<!-- anzsmlss:SoilSamples come from the OBSERVATIONS table each with a unique identifier from "soil_profile_"[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[ H_NO].[SAMP_NO]= SoilSample identifier -->
+	<wfs:member>
+		<!--gml:id for a SoilSample = "soil_sample_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO]" from SAMPLES -->
+		<!-- AGENCY_CODE =Varchar(3), PROJ_CODE = Varchar(10), S_ID = Varchar(10), O_ID= Varchar(2), H_NO = Integer, SAMP_NO = Integer --> -->
+		<!--<sams:SF_SpatialSamplingFeature gml:id="soil_sample_199.CAN.C1.1.1.1"> This is the same as a SoilSample, since a soil sample doesn't haven't anything extra-->
+		<anzsmlss:SoilSample gml:id="soil_sample_199.CAN.C1.1.1.1">
+			<!-- anzsmlss:SoilSample/gml:description = SAMPLES:SAMP_NOTES -->
+			<gml:description>Looks like just null values in that field</gml:description>
+			<!-- anzsmlss:SoilSample/gml:identifier codeSpace = "http://www.asris.csiro.au" value = "http://resources.aclep.org/soilfeature/"[gml:id] -->
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1</gml:identifier>
+			<!-- -->
+			<!-- sam:sampledFeature is the anzsmls:Soil or anzsmls:SoilHorizon or anzsmls:SoilLayer (always one of these, not anzsmls:SoilProfile or anzsmls:SoilSurface (in theory this could be a surface but the reality is -->
+			<!-- that a sample will come from a depth so therefore is some sort of layer or horizon)) that the anzsmlss:SoilSample samples. -->
+			<!-- sam:sampledFeature/xlink:href = "http://resources.aclep.org/soilfeature/soil_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID]" from SAMPLES  -->
+			<!-- sam:sampledFeature/xlink:href = "http://resources.aclep.org/soilfeature/soil_horizon_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO]" from SAMPLES where [HORIZONS:H_DESIG_MASTER] not Null -->
+			<!-- sam:sampledFeature/xlink:href = "http://resources.aclep.org/soilfeature/soil_layer_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO]" from SAMPLES where [HORIZONS:H_DESIG_MASTER] is Null -->
+			<sam:sampledFeature xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_horizon_199.CAN.C1.1.1"/>
+			<!---->
+			<!--Add sam:lineage here if it is needed, could be type of observation [OBSERVATIONS:O_TYPE]-->
+			
+			<!---->
+			<!-- relatedObservation allows describing lab results, which are related via SAMPLES:[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO] -->
+			<!-- Multiple sam:relatedObservations are allowed -->
+			<!-- These related observations refer to the observations service by [AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[LABR_NO].[LABM_CODE] from LAB_RESULTS-->
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.15_NR_CA"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.15_NR_K"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.15_NR_MG"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.15_NR_NA"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.15G1_H"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.15J_H"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.2_LOI"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.2A1"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.3A_TSS"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.4A1"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.5A2"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.7_NR"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.9A_HCL"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.P10_PB_C"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.P10_PB_CS"/>
+			<sam:relatedObservation xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/observation_199.CAN.C1.1.1.1.1.P10_PB_Z"/>
+			<!---->
+			<!--relatedSamplingFeature is used to identify any related sampling feature including anzsmlss:SoilSpecimen, anzsmls:SoilProfile, anzsmls:SoilLayer, anzsmlss:SoilSample associated with the SoilSample.-->
+			<sam:relatedSamplingFeature>
+				<sam:SamplingFeatureComplex>
+					<sam:role xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilsamplerole/archived_sample" xlink:title="archived specimen"/>
+						<!-- gml:id for a SoilSpecimen = "soil_specimen_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO].[SPEC_ID] from ARCHIVE_SAMPLES -->
+						<sam:relatedSamplingFeature xlink:href="http://resources.aclep.org/soilfeature/soil_specimen_199.CAN.C552.1.1.1.1.136"/>
+				</sam:SamplingFeatureComplex>
+			</sam:relatedSamplingFeature>
+			<sam:parameter>
+				<om:NamedValue>
+					<om:name xlink:href="http://data.anzsoil.org/def/property/x/depth"/>
+					<om:value>
+						<anzsml:DepthQuantityRange>
+							<anzsml:upperBoundary>
+								<swe:Quantity>
+									<swe:uom code="m" xlink:href="http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Meter"  xlink:title="Metre"/>
+									<swe:value>0.0</swe:value>
+								</swe:Quantity>
+							</anzsml:upperBoundary>
+							<anzsml:lowerBoundary>
+								<swe:Quantity>
+									<swe:uom code="m" xlink:href="http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Meter" xlink:title="Metre"/>
+									<swe:value>0.03</swe:value>
+								</swe:Quantity>
+							</anzsml:lowerBoundary>
+						</anzsml:DepthQuantityRange>
+					</om:value>
+				</om:NamedValue>
+			</sam:parameter>
+			<!---->
+			<!-- sams:shape specifies the location the anzsmlss:SoilSample was taken from -->
+			<sams:shape>
+			<!--  sams:shape/gml:Point/gml:id = sample_point_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID] -->
+				<gml:Point gml:id="sample_point_199.CAN.C1.1" srsDimension="2" srsName="http://www.opengis.net/gml/srs/epsg.xml#4283">
+				<!-- <gml:pos = [OBSERVATIONS:O_LATITUDE_GDA94]" "[OBSERVATIONS:O_LONGITUDE_GDA94] -->
+				<gml:pos>146.335 -34.5651</gml:pos>
+				</gml:Point>
+			</sams:shape>
+		</anzsmlss:SoilSample>
+	</wfs:member>
+</wfs:FeatureCollection>

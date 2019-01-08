@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:anzsmlg="http://anzsoil.org/ns/gsm/2.0.1" xmlns:anzsmls="http://anzsoil.org/ns/soil/2.0.1"
+           targetNamespace="http://anzsoil.org/ns/gsm/2.0.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+    <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xs:import namespace="http://anzsoil.org/ns/soil/2.0.1" schemaLocation="http://anzsoil.org/def/schema/soil/2.0.1/anzsoilml-soil.xsd"/>
+    <xs:annotation>
+        <xs:documentation>The ANZSoilML GlobalSoilMap application schema is an application of GML/Observations and Measurements (OM) that has been developed by members of the Oceania node of the GlobalSoilMap.net project (http://globalsoilmap.net/). It uses the ANZSoilML extensions of OM to create GML feature types that provide meta-data about:
+- GSM spatial entities as a special type of ANZSoilML SoilProfile (an OM SF_SpatialSamplingFeature)
+- The depth intervals as a special type of ANZSoilML SoilLayer (an OM SF_SpatialSamplingFeature)
+- The predicted values as an om:OM_Measure.
+This application schema conforms to version 2.3 of the GlobalSoilMap.net Specifications (http://globalsoilmap.net/specifications).
+Copyright (c) Landcare Research (NZ) Ltd 2015. All rights reserved.</xs:documentation>
+        <xs:documentation>Manually generated schema based on UML model at: https://svnserv.csiro.au/svn/ext/TernSoils/ANZSoilML/trunk/ANZSoilML_GSM/uml/ANZSoilML_GSM.xml</xs:documentation>
+    </xs:annotation>
+    <!-- ==================================== -->
+    <!-- ==== GSM_SpatialEntityType ========= -->
+    <!-- ==================================== -->
+    <xs:complexType name="GSM_SpatialEntityType" abstract="true">
+        <xs:annotation>
+            <xs:documentation>A GSM_SpatialEntity is an abstract feature describing the sampling regime for the soil property predictions (OM_Observations)
+			                  made by the GlobalSoilMap.net project. GSM_SpatialEntities are distributed on a regular 3-arc second grid and extend to a depth
+			                  of 200 cm. Each has six related SF_SpatialSampling features describing intervals of 0-5 cm, 5-15 cm, 15-30 cm, 30-60 cm,
+			                  60-100 cm and 100-200 cm. They may be related to soil property estimates made at a 'point' (GSM_PrimarySpatialEntity) or within
+			                  a volume (GSM_SecondarySpatialEntity).
+                              A GSM_SpatialEnity shall have two related OM_Observations holding estimates of these properties:
+									- 'Depth to Rock';
+									- 'Plant Exploitable (Effective) Depth'
+							  Each related SF_SpatialSamplingFeature shall have 10 related OM_Observations holding estimates of these properties:
+									- 'Organic Carbon';
+									- 'pHx10;
+									- 'Clay'
+									- 'Silt';
+									- 'Sand';
+									- 'Coarse Fragments';
+									- 'Effective Cation Exchange Capacity (ECEC)';
+									- 'Bulk Density (whole soil)';
+									- 'Bulk Density (fine earth)'; and
+									- 'Available Water Capacity'</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="anzsmls:SoilProfileType"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- .................. -->
+    <xs:element name="GSM_SpatialEntity" type="anzsmlg:GSM_SpatialEntityType" substitutionGroup="anzsmls:SoilProfile"/>
+    <!-- .................. -->
+    <xs:complexType name="GSM_SpatialEntityPropertyType">
+        <xs:sequence minOccurs="0">
+            <xs:element ref="anzsmlg:GSM_SpatialEntity"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </xs:complexType>
+    <!-- ==================================== -->
+    <!-- ==== GSM_PrimarySpatialEntity ====== -->
+    <!-- ==================================== -->
+    <xs:complexType name="GSM_PrimarySpatialEntityType" abstract="false">
+        <xs:annotation>
+            <xs:documentation>A GSM_PrimarySpatialEntity provides point spatial support. It is operationally defined as a volume of soil to a depth of 2 m
+			                  (or bedrock if bedrock occurs within less than 2 m) for a rectangular area with small and irregular horizontal dimensions of
+			                  less than 2 m by 2 m (effectively a pedon at point support) located at the centre of a defined global grid of 3 arc-seconds by
+			                  3 arc-seconds (approximately 93 m x 93 m at the equator). The point estimate of the GSM_PrimarySpatialEntity may be necessary
+			                  to produce estimates for the GSM_SecondarySpatialEntity.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="anzsmlg:GSM_SpatialEntityType"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- .................. -->
+    <xs:element name="GSM_PrimarySpatialEntity" type="anzsmlg:GSM_PrimarySpatialEntityType" substitutionGroup="anzsmls:SoilProfile"/>
+    <!-- .................. -->
+    <xs:complexType name="GSM_PrimarySpatialEntityPropertyType">
+        <xs:sequence minOccurs="0">
+            <xs:element ref="anzsmlg:GSM_PrimarySpatialEntity"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </xs:complexType>
+    <!-- ==================================== -->
+    <!-- ==== GSM_SecondarySpatialEntity ==== -->
+    <!-- ==================================== -->
+    <xs:complexType name="GSM_SecondarySpatialEntityType" abstract="false">
+        <xs:annotation>
+            <xs:documentation>The GSM_SecondarySpatialEntity is defined as a volume of soil to a depth of 2 m (or bedrock if bedrock occurs within less
+			                  than 2 m) for a rectangular area with regular, fixed horizontal dimensions of 100 m by 100 m located at the centre of a
+			                  defined global grid of 3 arc-seconds by 3 arc-seconds (approximately 93 m x 93 m at the equator).</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="anzsmlg:GSM_SpatialEntityType"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- .................. -->
+    <xs:element name="GSM_SecondarySpatialEntity" type="anzsmlg:GSM_SecondarySpatialEntityType" substitutionGroup="anzsmls:SoilProfile"/>
+    <!-- .................. -->
+    <xs:complexType name="GSM_SecondarySpatialEntityPropertyType">
+        <xs:sequence minOccurs="0">
+            <xs:element ref="anzsmlg:GSM_SecondarySpatialEntity"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </xs:complexType>
+    <!-- ==================================== -->
+    <!-- ==== GSM_Process ====== -->
+    <!-- ==================================== -->
+    <xs:complexType name="GSM_ProcessType" abstract="false">
+        <xs:annotation>
+            <xs:documentation>A GSM_Process is a placeholder class that provides an instance of an OM_Process that can be used to briefly describe
+							  (using gml:description) the process used to make a soil property prediction.</xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="gml:AbstractFeatureType"/>
+        </xs:complexContent>
+    </xs:complexType>
+    <!-- .................. -->
+    <xs:element name="GSM_Process" type="anzsmlg:GSM_ProcessType" substitutionGroup="gml:AbstractFeature"/>
+    <!-- .................. -->
+    <xs:complexType name="GSM_ProcessPropertyType">
+        <xs:sequence minOccurs="0">
+            <xs:element ref="anzsmlg:GSM_Process"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    </xs:complexType>
+</xs:schema>

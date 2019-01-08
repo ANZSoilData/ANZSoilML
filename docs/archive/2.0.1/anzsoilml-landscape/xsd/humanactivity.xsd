@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anzsmll="http://anzsoil.org/ns/soillandscape/2.0.1" xmlns:gml="http://www.opengis.net/gml/3.2"
+           targetNamespace="http://anzsoil.org/ns/soillandscape/2.0.1" elementFormDefault="qualified">
+    <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xs:annotation>
+        <xs:documentation>Properties related to Human activity</xs:documentation>
+    </xs:annotation>
+    <xs:element name="AnthropogenicActivity" type="anzsmll:AnthropogenicActivityType" substitutionGroup="gml:AbstractFeature">
+        <xs:annotation>
+            <xs:documentation>Placeholder to capture anthropogenic impact on the Landscape</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="AnthropogenicActivityType">
+        <xs:complexContent>
+            <xs:extension base="gml:AbstractFeatureType">
+                <xs:sequence>
+                    <xs:element name="landCover" nillable="true" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>The type of land cover and date observed. Uses placeholder data type rather than Observation to deliver the result as a term value and the time of the observation. The result of the Observation needs a Land Use Reference vocabulary</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="anzsmll:LandCoverValuePropertyType">
+                                    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="landManagement" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                        <xs:annotation>
+                            <xs:documentation>The land management practice and date observed.  Uses placeholder Data type rather than Observation to deliver the result as a term value and the time of the observation. The result of the Observation needs a Land Management Reference vocabulary reference and value</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="anzsmll:LandManagementValuePropertyType">
+                                    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="landUse" nillable="true" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>The type of land use and date observed. Uses placeholder data type rather than Observation to deliver the result as a term value and the time of the observation. The result of the Observation needs a Land Use Reference vocabulary</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="anzsmll:LandUseValuePropertyType">
+                                    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="siteDisturbance" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Indicates the level of site disturbance ASLS p128</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="AnthropogenicActivityPropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:AnthropogenicActivity"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <xs:element name="TermValue_Date" type="anzsmll:TermValue_DateType" substitutionGroup="gml:AbstractObject">
+        <xs:annotation>
+            <xs:documentation>Data type to capture an observation result term and the date the observation was made without using the full OM_Observation</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="TermValue_DateType">
+        <xs:sequence>
+            <xs:element name="resultTime" type="gml:TimeInstantPropertyType">
+                <xs:annotation>
+                    <xs:documentation>The time and/or date the assertion was made</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TermValue_DatePropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:TermValue_Date"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <xs:element name="LandUseValue" type="anzsmll:LandUseValueType" substitutionGroup="anzsmll:TermValue_Date">
+        <xs:annotation>
+            <xs:documentation>A Union class to allow resultValues to be either from Land cover, land management or land use vocabularies</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="LandUseValueType">
+        <xs:complexContent>
+            <xs:extension base="anzsmll:TermValue_DateType">
+                <xs:sequence>
+                    <xs:element name="resultValue" type="gml:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>A term from a land use vocabulary</xs:documentation>
+                            <xs:appinfo>
+                                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0/CodeList_LandUseTerm.xml#LandUseTerm</gml:defaultCodeSpace>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="LandUseValuePropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:LandUseValue"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <xs:element name="LandManagementValue" type="anzsmll:LandManagementValueType" substitutionGroup="anzsmll:TermValue_Date">
+        <xs:annotation>
+            <xs:documentation>A Union class to allow resultValues to be either from Land cover, land management or land use vocabularies</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="LandManagementValueType">
+        <xs:complexContent>
+            <xs:extension base="anzsmll:TermValue_DateType">
+                <xs:sequence>
+                    <xs:element name="resultValue" type="gml:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>A term from a land management vocabulary</xs:documentation>
+                            <xs:appinfo>
+                                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0/CodeList_LandManagementTerm.xml#LandManagementTerm</gml:defaultCodeSpace>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="LandManagementValuePropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:LandManagementValue"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <xs:element name="LandCoverValue" type="anzsmll:LandCoverValueType" substitutionGroup="anzsmll:TermValue_Date">
+        <xs:annotation>
+            <xs:documentation>A Union class to allow resultValues to be either from Land cover, land management or land use vocabularies</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="LandCoverValueType">
+        <xs:complexContent>
+            <xs:extension base="anzsmll:TermValue_DateType">
+                <xs:sequence>
+                    <xs:element name="resultValue" type="gml:ReferenceType">
+                        <xs:annotation>
+                            <xs:documentation>A term from a land cover vocabulary</xs:documentation>
+                            <xs:appinfo>
+                                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0/CodeList_LandCoverTerm.xml#LandCoverTerm</gml:defaultCodeSpace>
+                            </xs:appinfo>
+                        </xs:annotation>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="LandCoverValuePropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:LandCoverValue"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+</xs:schema>

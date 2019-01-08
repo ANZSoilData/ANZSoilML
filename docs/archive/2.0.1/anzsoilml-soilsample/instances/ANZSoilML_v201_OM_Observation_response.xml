@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns:wfs="http://www.opengis.net/wfs/2.0" 
+xmlns:it.geosolutions="http://www.geo-solutions.it" 
+xmlns:spec="http://www.opengis.net/samplingSpecimen/2.0" 
+xmlns:gsmlla="http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0" 
+xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.1" 
+xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+xmlns:gco="http://www.isotc211.org/2005/gco" 
+xmlns:topp="http://www.openplans.org/topp" 
+xmlns:gsmlem="http://xmlns.geosciml.org/EarthMaterial/3.2" 
+xmlns:gsmlgu="http://xmlns.geosciml.org/GeologicUnit/3.2" 
+xmlns:swe="http://www.opengis.net/swe/2.0" 
+xmlns:sam="http://www.opengis.net/sampling/2.0" 
+xmlns:anzsmlss="http://anzsoil.org/ns/soilsample/2.0.1" 
+xmlns:anzsmls="http://anzsoil.org/ns/soil/2.0.1" 
+xmlns:xlink="http://www.w3.org/1999/xlink" 
+xmlns:om="http://www.opengis.net/om/2.0" 
+xmlns:gml="http://www.opengis.net/gml/3.2" 
+xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+timeStamp="2015-03-30T21:19:54.889Z" 
+xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd 
+http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd 
+http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis.xsd 
+http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+http://anzsoil.org/ns/soilsample/2.0.1  http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd
+http://anzsoil.org/ns/soil/2.0.1 http://anzsoil.org/def/schema/soil/2.0.1/anzsoilml-soil.xsd
+ http://anzsoil.org/ns/soilcore/2.0.1  http://anzsoil.org/def/schema/soilcore/2.0.1/anzsoilml-core.xsd" numberMatched="unknown" numberReturned="1">
+<!--
+xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+                http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+                http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd
+                http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd
+                http://www.isotc211.org/2005/gco http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd
+                http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd
+                http://www.opengis.net/samplingSpecimen/2.0 http://schemas.opengis.net/samplingSpecimen/2.0/specimen.xsd
+                  http://xmlns.geosciml.org/EarthMaterial/3.0 http://schemas.geosciml.org/earthmaterial/3.0/earthMaterial.xsd
+              http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+             http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis-Specimen.xsd
+              http://anzsoil.org/ns/soilsample/2.0.1  http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd
+             
+              " 
+xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://csisstst2-cdc.it.csiro.au:8082/geoserver/schemas/gml/3.2.1/gml.xsd 
+http://www.opengis.net/wfs/2.0 http://csisstst2-cdc.it.csiro.au:8082/geoserver/schemas/wfs/2.0/wfs.xsd 
+http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis.xsd 
+http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd"-->
+	<wfs:member>
+		<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.15_NR_CA">
+			<om:phenomenonTime nilReason="unknown"/>
+			<om:resultTime>
+				<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.15_NR_CA_07101953">
+					<gml:timePosition>07101953  </gml:timePosition>
+				</gml:TimeInstant>
+			</om:resultTime>
+			<om:procedure>
+				<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.15_NR_CA">
+					<gml:description>Exch. basic cations (Ca++) - meq per 100g of soil - Not recorded</gml:description>
+					<gml:name>Exch. Ca++</gml:name>
+					<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15_NR_CA" xlink:title="Exch. basic cations (Ca++) - meq per 100g of soil - Not recorded"/>
+					<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+					<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+				</gsmlla:AnalyticalProcess>
+			</om:procedure>
+			<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_CA"/>
+			<om:featureOfInterest>
+				<sams:SF_SpatialSamplingFeature gml:id="soil_sample_199.CAN.C1.1.1.1">
+					<gml:identifier codeSpace="http://www.asris.csiro.au">http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1</gml:identifier>
+					<sam:sampledFeature xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_horizon_199.CAN.C1.1.1"/>
+					<sam:parameter>
+						<om:NamedValue>
+							<om:name xlink:href="http://data.anzsoil.org/def/property/x/depth"/>
+							<om:value>
+								<anzsml:DepthQuantityRange>
+									<anzsml:upperBoundary>
+										<swe:Quantity>
+											<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+											<swe:value>0.0</swe:value>
+										</swe:Quantity>
+									</anzsml:upperBoundary>
+									<anzsml:lowerBoundary>
+										<swe:Quantity>
+											<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+											<swe:value>0.03</swe:value>
+										</swe:Quantity>
+									</anzsml:lowerBoundary>
+								</anzsml:DepthQuantityRange>
+							</om:value>
+						</om:NamedValue>
+					</sam:parameter>
+					<sams:shape>
+						<gml:Point gml:id="point_199.CAN.C1.1.1.1" srsDimension="2" srsName="http://www.opengis.net/gml/srs/epsg.xml#4283">
+							<gml:pos>146.335 -34.5651</gml:pos>
+						</gml:Point>
+					</sams:shape>
+				</sams:SF_SpatialSamplingFeature>
+			</om:featureOfInterest>
+			<om:result xsi:type="gml:MeasureType" uom="meq/100g">4.9</om:result>
+		</om:OM_Observation>
+	</wfs:member>
+</wfs:FeatureCollection>

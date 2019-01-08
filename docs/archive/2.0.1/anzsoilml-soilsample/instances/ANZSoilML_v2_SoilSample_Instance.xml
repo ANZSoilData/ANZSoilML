@@ -1,0 +1,1580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns="http://www.w3.org/2001/XMLSchema" 
+xmlns:wfs="http://www.opengis.net/wfs/2.0" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+xmlns:xlink="http://www.w3.org/1999/xlink" 
+xmlns:gml="http://www.opengis.net/gml/3.2" 
+xmlns:gco="http://www.isotc211.org/2005/gco" 
+xmlns:gmd="http://www.isotc211.org/2005/gmd" 
+xmlns:anzsmlss="http://anzsoil.org/ns/soilsample/2.0.1"
+xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.1"
+xmlns:swe="http://www.opengis.net/swe/2.0" 
+xmlns:spec="http://www.opengis.net/samplingSpecimen/2.0" 
+xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" 
+xmlns:gsmlem="http://xmlns.geosciml.org/EarthMaterial/3.0" 
+xmlns:sam="http://www.opengis.net/sampling/2.0" 
+xmlns:om="http://www.opengis.net/om/2.0" 
+xmlns:gsmlla="http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0" 
+timeStamp="2012-05-18T09:07:14.313+10:00" 
+xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+                http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+                http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd
+                http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd
+                http://www.isotc211.org/2005/gco http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd
+                http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd
+                http://www.opengis.net/samplingSpecimen/2.0 http://schemas.opengis.net/samplingSpecimen/2.0/specimen.xsd
+                  http://xmlns.geosciml.org/EarthMaterial/3.0 http://schemas.geosciml.org/earthmaterial/3.0/earthMaterial.xsd
+              http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+             http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis-Specimen.xsd
+              http://anzsoil.org/ns/soilsample/2.0.1  http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd
+              http://anzsoil.org/ns/soilcore/2.0.1  http://anzsoil.org/def/schema/soilcore/2.0.1/anzsoilml-core.xsd
+                " numberMatched="unknown" numberReturned="5">
+	<!--  http://xmlns.anzsoil.org/ANZSoilML_SoilSample/1.0 https://svnserv.csiro.au/svn/TernSoils/ANZSoilML/trunk/ANZSoilML_SoilSample/xsd/anzsoilml-soilsample.xsd
+C:\Repos\TernSoils\ANZSoilML\trunk\ANZSoilML_SoilSample\xsd\anzsoilml-soilsample.xsd
+C:\Repos\TernSoils\ANZSoilML\trunk\ANZSoilML_SoilSample\xsd\anzsoilml-soilsample.xsd
+C:\Repos\TernSoils\ANZSoilML\trunk\ANZSoilML_SoilSample\xsd\anzsoilml-soilsample.xsd
+http://www.clw.csiro.au/aclep/ANZSoilML/trunk/ANZSoilML_SoilSample/xsd/anzsoilml-soilsample.xsd
+http://anzsoil.org/def/schema/soilsample/2.0.0/anzsoilml-soilsample.xsd
+                -->
+	<!-- ========================= -->
+	<!-- This is an example containing two anzsmlss:SoilSamples.
+The first is an example delivering data out of the LAB_RESULTS tables
+The second delivers grainsizes and proportions based on the Texture classification -->
+	<!-- ========================= -->
+	<!-- Some overall checks:
+Note any free text field with "&" will need to be replaced with "&amp;"
+Any free text with % will need to be replaced with  -->
+	<!-- xlink:href="http://www.opengis.net/def/nil/OGC/0/unknown" -->
+	<!-- ========================= -->
+	<!-- Comments are designed to help the mapping between the NatSoil database and the ANZSoilML schema -->
+	<!-- ========================= -->
+	<!-- Delivering wfs:members as Soil Samples from SAMPLES with Observations from LAB_RESULTS and SoilSpecimens from ARCHIVE_SAMPLE -->
+	<!-- SoilProfiles, SoilLayers, SoilHorizons are by reference (xlink:href) -->
+	<!-- NEII require Observations as top level wfs:member then the service will need to be re-configured accordingly -->
+	<wfs:member>
+		<!-- gml:id for a SoilSample = "soil_sample_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO]" from SAMPLES -->
+		<!-- AGENCY_CODE =Varchar(3), PROJ_CODE = Varchar(10), S_ID = Varchar(10), O_ID= Varchar(2), H_NO = Integer, SAMP_NO = Integer -->
+		<anzsmlss:SoilSample gml:id="soil_sample_103.EPA_CMP.SITE001.01.01.01">
+			<!-- anzsmlss:SoilSample/gml:description = SAMPLES:SAMP_NOTES -->
+			<gml:description>From SAMPLES:SAMP_NOTES </gml:description>
+			<!-- anzsmlss:SoilSample/gml:identifier CodeSpace = "http://www.asris.csiro.au" value = "http://resources.aclep.org/soilfeature/"[gml:id] -->
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http://resources.aclep.org/soilfeature/soil_sample_103.EPA_CMP.SITE001.01.01.01</gml:identifier>
+			<!-- anzsmlss:SoilSample does not have any gml:name property. Not mandatory so leave out -->
+			<gml:name/>
+			<!-- sam:sampledFeature is the anzsmlss:SoilHorizon or SoilLayer (always one of these, not anzsmlss:SoilProfile or anzsmlss:SoilSurface) that the anzsmlss:SoilSample samples. -->
+			<!-- sam:sampledFeature/xlink:href = "http://resources.aclep.org/soilfeature/soil_horizon_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO]" from SAMPLE where HORIZONS:H_DESIG_MASTER not Null -->
+			<!-- sam:sampledFeature/xlink:href = "http://resources.aclep.org/soilfeature/soil_layer_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO]" from SAMPLE where HORIZONS:H_DESIG_MASTER is Null -->
+			<sam:sampledFeature xlink:href="http://resources.aclep.org/soilfeature/soil_horizon_103.EPA_CMP.SITE001.01.01"/>
+			<!-- relatedObservation allows describing lab results, which are related via SAMPLES:[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO] -->
+			<!-- Multiple sam:relatedObservations are allowed -->
+			<sam:relatedObservation>
+				<!-- gml:id for om:OM_Observation = "lab_result_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[LABM_CODE].[LAB_NO] from LAB_RESULTS -->
+				<om:OM_Observation gml:id="lab_result_103.EPA_CMP.SITE001.01.01.01.10_HCL.1">
+					<!-- om:phenomenonTime from LAB_RESULTS:LABR_DATE -->
+					<om:phenomenonTime>
+						<!-- gml:TimeInstant/gml:id= "time_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO]_[LAB_RESULTS:LABR_DATE] -->
+						<gml:TimeInstant gml:id="time_103.EPA_CMP.SITE001.01.01.01_1978">
+							<!-- gml:timeposition = [LAB_RESULTS:LABR_DATE] -->
+							<gml:timePosition>1978</gml:timePosition>
+						</gml:TimeInstant>
+					</om:phenomenonTime>
+					<!-- om:resultTime is the same as om:phenomenonTime. Use xlink:href to link  to om:phenomenonTime/gml:TimeInstant/gml:id -->
+					<om:resultTime xlink:href="#time_103.EPA_CMP.SITE001.01.01.01_1978"/>
+					<om:procedure>
+						<!-- om:procedure/gml:id = "lab_method_[LAB_METHODS:LABM_CODE] -->
+						<gsmlla:AnalyticalProcess gml:id="lab_method_10_HCL">
+							<!-- gsmlla:AnalyticalMethods/gml:description = [LAB_METHODS:LABM_NAME] -->
+							<gml:description>Total element - S(%) - By boiling HCl</gml:description>
+							<!-- gsmlla:AnalyticalMethods/gml:name = [LAB_METHODS:LABM_SHORT_NAME] -->
+							<gml:name>Total S (HCl)</gml:name>
+							<!-- om:procedure/gsmlla:AnalyticalProcess/gsmlla:method/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/[LAB_METHODS:LABM_CODE] -->
+							<!-- om:procedure/gsmlla:AnalyticalProcess/gsmlla:method/xlink:title = [LAB_METHODS:LABM_NAME] -->
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/10_HCL" xlink:title="Total element - S(%) - By boiling HCl"/>
+							<!-- Can put a gsmlla:AnalyticalSession in here, but I don't think NatSoil has this data. Use gsmlla:acquisition/nilReason="missing"  xsi:nill="true"-->
+							<gsmlla:acquisition nilReason="missing" xsi:nil="true"/>
+							<!--  gsmlla:computation is used to describe the computational process used to get a result. Uses LI_ProcessStep.
+Could be used for converting Soil Classifications to percent clay eg -->
+							<!-- For om:procedure/gsmlla:AnalyticalProcess/gsmlla:computation  xsi:nil="true" gco:nilReason="missing" -->
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<!-- om:observedProperty xlink:href = "[URI]" where [URI] is a match between values at some URI defining the property and LAB_METHODS:LABM_CODE -->
+					<!--  work required to identify and map external vocabularies to the NatSoil values -->
+					<!-- First phase mapping:
+If [LAB_METHODS:LABM_SHORT_NAME] = "Total S"* then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Sulfur" xlink title = "total S"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable S" && [LAB_METHODS:LSABM_CODE] != "11A1" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Sulfur" xlink title = "extractable S"
+If [LAB_METHODS:LABM_CODE] = "11A1" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Gypsum" xlink title = "total gypsum"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Total Cu" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Copper" xlink title = "total Cu"
+If [LAB_METHODS:LABM_SHORT_NAME] = "total Mn" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Manganese" xlink title = "total Mn"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Total Zn" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Zinc" xlink title = "total Zn"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Total Fe" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Iron" xlink title = "total Fe"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Total K" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Potassium" xlink title = "total K"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Total Nitrogen" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Nitrogen" xlink title = "total N"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Total P" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Phosphorus" xlink title = "total P"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable Al" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Aluminium" xlink title = "extractable Al"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable Cu" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Copper" xlink title = "extractable Cu"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable Fe" || "Extractable Fe(%)" || "Extractable Fe(Free)" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Iron" xlink title = "extractable Fe"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable Mn" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Manganese" xlink title = "extractable Mn"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable Fe2O3" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Iron" xlink title = "extractable Fe2O3"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable Zn" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Zinc" xlink title = "extractable Zn"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable B" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Boron" xlink title = "extractable B"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable Si" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Silicon" xlink title = "extractable Si"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable K" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Potassium" xlink title = "extractable K"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Extractable P" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Phosphorus" xlink title = "extractable P"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Moisture content" then om:observedProperty/xlink:href="http://www.engineeringtoolbox.com/moisture-content-d_1821.html" xlink title = "moisture content"
+If [LAB_METHODS:LABM_SHORT_NAME] = "EC" then om:observedProperty/xlink:href="http://www.waterwatch.org.au/publications/module4/electrical.html" xlink title = "electrical conductivity"
+If [LAB_METHODS:LABM_SHORT_NAME] = "pH"* then om:observedProperty/xlink:href="http://sweet.jpl.nasa.gov/2.0/chemAcidity.owl#pH" xlink title = "pH"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Water soluble Cl" then om:observedProperty/xlink:href="http://www.engineeringtoolbox.com/gases-solubility-water-d_1148.html" xlink title = "water soluble Cl"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Organic carbon" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Total_organic_carbon" xlink title = "organic C"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Clay" then om:observedProperty/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="clay"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Sand" then om:observedProperty/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="sand"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Coarse Sand" ||"Coarse sand" then om:observedProperty/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="coarse sand"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Fine Sand" || "Fine sand" then om:observedProperty/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="fine sand"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Silt" then om:observedProperty/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="silt"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Gravel" then om:observedProperty/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/gravel" xlink:title="gravel"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Bulk density" then om:observedProperty/xlink:href="http://www.geology.iupui.edu/research/SoilsLab/procedures/bulk/" xlink:title="bulk density"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Macro Porosity" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Porosity" xlink:title="macro porosity"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Total Porosity" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Porosity" xlink:title="total porosity"
+If [LAB_METHODS:LABM_SHORT_NAME] = "Saturated Moisture" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Water_content" xlink:title="saturated moisture"
+If [LAB_METHODS:LABM_SHORT_NAME] = *"BAR Moisture" then om:observedProperty/xlink:href="http://en.wikipedia.org/wiki/Water_content" xlink:title="moisture release"
+
+-->
+					<!-- David - Need further checking for these (plus some others I've missed):
+[LAB_METHODS:LABM_SHORT_NAME] = *"micron" 
+[LAB_METHODS:LABM_SHORT_NAME] = "Buffering capacity" 
+[LAB_METHODS:LABM_SHORT_NAME] = "CEC"*  && "ECEC"
+[LAB_METHODS:LABM_SHORT_NAME] = "Cole" 
+[LAB_METHODS:LABM_SHORT_NAME] = "Exch."* 
+
+[LABP_CODE] = "CLAY_MINERAL"
+-->
+					<om:observedProperty xlink:href="http://sweet.jpl.nasa.gov/2.0/chemAcidity.owl#pH" xlink:title="pH"/>
+					<!-- om:featureOfInterest is the anzsmlss:SoilSample. Therefore it is an internal xlink:href to gml:id = soil_sample_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO] -->
+					<om:featureOfInterest xlink:href="#soil_sample_103.EPA_CMP.SITE001.01.01.01"/>
+					<!-- Could use swe:quality instead of om:resultQuality -->
+					<om:resultQuality>
+						<gmd:DQ_QuantitativeAttributeAccuracy>
+							<!-- 			 nameOfMeasure = [LAB_METHOD:LABM_NAME]  -->
+							<gmd:nameOfMeasure>
+								<gco:CharacterString>pH of soil - pH of 1:2.5 soil/water suspension</gco:CharacterString>
+							</gmd:nameOfMeasure>
+							<gmd:result>
+								<gmd:DQ_QuantitativeResult>
+									<gmd:valueUnit>
+										<!-- gml:id = "lab_method_[LAB_METHOD:LABP_CODE]  -->
+										<!-- Unit of Measure (uom) match between ucum values and LAB_METHODS:LABM_UNITS. Database looks like LABM_UNITS is empty so a mapping will be required between LAB_METHODS:LABM_CODE and ucum uom to populate the gml:UnitIdentifier properties -->
+										<gml:UnitDefinition gml:id="lab_method_pH">
+											<gml:identifier codeSpace="http://www.ietf.org/rfc/rfc2616">http://aurora.regenstrief.org/~ucum/ucum.html#para-45</gml:identifier>
+											<!--  <gml:identifier codeSpace="http://aurora.regenstrief.org/~ucum/ucum.html#para-45">pH</gml:identifier>
+Check which of these two forms is correct 
+													   -->
+											<gml:name>acidity</gml:name>
+											<!-- gml:quantityType = om:observedProperty -->
+											<gml:quantityType xlink:href="http://sweet.jpl.nasa.gov/2.0/chemAcidity.owl#pH" xlink:title="pH"/>
+											<gml:catalogSymbol>pH</gml:catalogSymbol>
+										</gml:UnitDefinition>
+									</gmd:valueUnit>
+									<gmd:errorStatistic>
+										<gco:CharacterString>lower value</gco:CharacterString>
+									</gmd:errorStatistic>
+									<!--	 for gmd:errorStatistic/gco:CharacterString = "lower value" gmd:value/gco:Record/gml:measure = [LAB_RESULTS:LABR_LOW_VALUE] -->
+									<gmd:value>
+										<gco:Record>
+											<!-- gml:measure/uom from gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gmd:UnitDefinition/gml:id -->
+											<gml:measure uom="#lab_method_pH">5.7</gml:measure>
+										</gco:Record>
+									</gmd:value>
+								</gmd:DQ_QuantitativeResult>
+							</gmd:result>
+							<gmd:result>
+								<gmd:DQ_QuantitativeResult>
+									<!-- gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit for second result (upper value) from gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gmd:UnitDefinition/gml:id -->
+									<gmd:valueUnit xlink:href="#lab_method_pH"/>
+									<gmd:errorStatistic>
+										<gco:CharacterString>upper value</gco:CharacterString>
+									</gmd:errorStatistic>
+									<gmd:value>
+										<!--	 for gmd:errorStatistic/gco:CharacterString = "upper value" gmd:value/gco:Record/gml:measure = [LAB_RESULTS:LABR_HIGH_VALUE] -->
+										<gco:Record>
+											<!-- gml:measure/uom from gmd:result/gmd:DQ_QuantitativeResult/gmd:valueUnit/gmd:UnitDefinition/gml:id -->
+											<gml:measure uom="#lab_method_pH">6.3</gml:measure>
+										</gco:Record>
+									</gmd:value>
+								</gmd:DQ_QuantitativeResult>
+							</gmd:result>
+						</gmd:DQ_QuantitativeAttributeAccuracy>
+					</om:resultQuality>
+					<!--	<om:result xsi:type="gml:MeasureType" uom="http://www.opengis.net/def/uom/UCUM/0/pH">6.0</om:result> -->
+					<om:result>
+						<swe:Quantity>
+							<!-- om:result/swe:Quantity/swe:uom xlink:href = "[URI]" where [URI] is a match between values at some URI defining the uom and LAB_METHODS:LABM_UNITS -->
+							<!-- Unit of Measure (uom) match between ucum values and LAB_METHODS:LABM_UNITS. Database looks like LABM_UNITS is empty so a mapping will be required between LABM_CODE and ucum uom -->
+							<!-- some work will be required to identify and map external vocabularies to the NatSoil values but some (eg pH, m, kg) are at http://aurora.regenstrief.org/~ucum/ucum.html -->
+							<swe:uom code="pH" xlink:href="http://www.opengis.net/def/uom/UCUM/0/ph" xlink:title="pH"/>
+							<swe:constraint>
+								<swe:AllowedValues>
+									<!-- swe:constraint/swe:AllowedValues/swe:value = [LAB_METHODS:LABM_LOW_VALUE]" "[LAB_METHODS:LABM_HIGH_VALUE] -->
+									<swe:interval>0 14</swe:interval>
+								</swe:AllowedValues>
+							</swe:constraint>
+							<!-- om:result/swe:Quantity/swe:value = [LAB_RESULTS:LABR_VALUE] -->
+							<swe:value>6.0</swe:value>
+						</swe:Quantity>
+					</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<!-- relatedSamplingFeature is used to identify any archived samples (SoilSpecimens) associated with the SoilSample. This replaces SoilSample:archivedSpecimen in version 1 -->
+			<sam:relatedSamplingFeature>
+				<sam:SamplingFeatureComplex>
+					<sam:role xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilsamplerole/archived_sample" xlink:title="archived specimen"/>
+					<sam:relatedSamplingFeature>
+						<!-- gml:id for a SoilSpecimen = "soil_specimen_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO] from ARCHIVE_SAMPLES -->
+						<anzsmlss:SoilSpecimen gml:id="soil_specimen_103.EPA_CMP.SITE001.01.01.01.02">
+				<!-- anzsmlss:SoilSpecimen/gml:identifier CodeSpace = "http://www.asris.csiro.au" value = "http://resources.aclep.org/soilfeature/"[gml:id] -->
+			 
+						<gml:metaDataProperty>
+								<gml:GenericMetaData>
+									<gmd:CI_ResponsibleParty>
+										<gmd:organisationName>
+											<!-- For gmd:role/gmd:CI_RoleCode = "owner"  gmd:organisationName = "CSIRO Land and Water"-->
+											<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+										</gmd:organisationName>
+										<gmd:role>
+											<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_owner">owner</gmd:CI_RoleCode>
+										</gmd:role>
+									</gmd:CI_ResponsibleParty>
+								</gml:GenericMetaData>
+							</gml:metaDataProperty>
+							<!-- NatSoil does not have any soil specimen gml:description or gml:name properties. Leave out -->
+							<gml:description/>
+							<gml:identifier codeSpace="http://www.asris.csiro.au">http://resources.aclep.org/soilfeature/soil_specimen_103.EPA_CMP.SITE001.01.01.01.02</gml:identifier>
+							<gml:name/>
+							 
+<!-- sam:sampledFeature is the anzsmlss:SoilHorizon or SoilLayer (always one of these, not anzsmlss:SoilProfile or anzsmlss:SoilSurface) that the anzsmlss:SoilSample samples. -->
+							<!-- anzsmlss:SoilSpecimen/sam:sampledFeature/xlink:href = "http:///resources.aclep.org/soilfeature/soil_horizon_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO]" from SAMPLE where HORIZONS:H_DESIG_MASTER not Null -->
+							<!-- anzsmlss:SoilSpecimen/sam:sampledFeature/xlink:href = "http:///resources.aclep.org/soilfeature/soil_layer_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO]" from SAMPLES where HORIZONS:H_DESIG_MASTER is Null -->
+							<!-- Need to add xlink:role reference to feature definition -->
+							<sam:sampledFeature xlink:href="http:///resources.aclep.org/soilfeature/soil_horizon_103.EPA_CMP.SITE001.01.01"/>
+							<!-- spec:materialClass according to http://schemas.opengis.net/samplingSpecimen/2.0/specimen.xsd shall provide a basic classification of the material type of the specimen. EXAMPLE
+								soil, water, rock, aqueous, liquid, tissue, vegetableMatter, food, gas, solid. A basic register of material-classes may be provided by OGC should be at http://www.opengis.net/def/material/OGC-OM/2.0/  but isn't -->
+							<spec:materialClass xlink:href="http://www.opengis.net/def/material/OGC-OM/2.0/" xlink:title="soil"/>
+							<!-- anzsmlss:SoilSpecimen/spec:samplingTime is unknown -->
+							<spec:samplingTime xsi:nil="true" nilReason="unknown"/>
+							<!-- if anzsmlss:SoilSpecimen is in-line with anzsmlss:SoilSample as in this example then an xlink:href"#" is required. Otherwise use the commented out mapping -->
+							<spec:samplingLocation xlink:href="#point_103.EPA_CMP.SITE001.01">
+								<!--  spec:samplingLocation/gml:Point/gml:id = point_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID] -->
+								<gml:Point gml:id="point_103.EPA_CMP.SITE001.01" srsName="http://www.opengis.net/def/crs/EPSG/0/4283" srsDimension="2">
+									<!-- <gml:pos = [OBSERVATIONS:O_LATITUDE_GDA94]" " [OBSERVATIONS:O_LONGITUDE_GDA94] -->
+									<gml:pos>-25.0 119.0</gml:pos>
+								</gml:Point>
+							</spec:samplingLocation>
+							<!-- anzsmlss:SoilSpecimen/spec:size =[ARCHIVE_SAMPLES:WEIGHT} -->
+							<spec:size uom="http://aurora.regenstrief.org/~ucum/ucum.html#para-28">10</spec:size>
+							<!-- spec:currentLocation identifies the current location of the specimen -->
+							<spec:currentLocation>
+								<gmd:EX_GeographicDescription>
+									<gmd:geographicIdentifier>
+										<gmd:MD_Identifier>
+											<gmd:authority>
+												<gmd:CI_Citation>
+													<gmd:title/>
+													<gmd:date/>
+													<gmd:citedResponsibleParty>
+														<gmd:CI_ResponsibleParty>
+															<gmd:organisationName>
+																<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+															</gmd:organisationName>
+															<gmd:role>
+																<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_custodian">custodian</gmd:CI_RoleCode>
+															</gmd:role>
+														</gmd:CI_ResponsibleParty>
+													</gmd:citedResponsibleParty>
+												</gmd:CI_Citation>
+											</gmd:authority>
+											<gmd:code>
+												<!-- anzsmlss:SoilSpecimen/spec:currentLocation/gco:CharacterString = [ARCHIVE_SAMPLES:LOCATION] -->
+												<gco:CharacterString>TOPSHELF1</gco:CharacterString>
+											</gmd:code>
+										</gmd:MD_Identifier>
+									</gmd:geographicIdentifier>
+								</gmd:EX_GeographicDescription>
+							</spec:currentLocation>
+							<!-- anzsmlss:SoilSpecimen/spec:specimenType from ARCHIVE_SAMPLE:SAMP_TYPE:C_AS_SAMP_TYPE -->
+							<!-- xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilsampletype/"[C_AS_SAMP_TYPE:Value] -->
+							<!-- xlink:title = C_AS_SAMP_TYPE:Description -->
+							<spec:specimenType xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilsampletype/WS" xlink:title="whole soil"/>
+							<!-- anzsmlss:coarseFragmentsPresent from ARCHIVE_SAMPLES:>2mm true = "Y", false = "N" -->
+							<anzsmlss:coarseFragmentsPresent>false</anzsmlss:coarseFragmentsPresent>
+						</anzsmlss:SoilSpecimen>
+					</sam:relatedSamplingFeature>
+				</sam:SamplingFeatureComplex>
+			</sam:relatedSamplingFeature>
+
+
+<sam:parameter>
+<om:NamedValue>
+<om:name xlink:href="http://data.anzsoil.org/def/property/x/depth"/><om:value>
+<anzsml:DepthQuantityRange>
+<anzsml:upperBoundary>
+<swe:Quantity>
+<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="metre"/>
+<swe:value>0.0</swe:value>
+</swe:Quantity>
+</anzsml:upperBoundary>
+<anzsml:lowerBoundary>
+<swe:Quantity>
+<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="metre"/>
+<swe:value>0.03</swe:value>
+</swe:Quantity>
+</anzsml:lowerBoundary>
+</anzsml:DepthQuantityRange>
+</om:value>
+</om:NamedValue></sam:parameter>xlink:href="http://data.anzsoil.org/def/property/x/depth"/><om:value><anzsml:DepthQuantityRange><anzsml:upperBoundary><swe:Quantity><swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/><swe:value>0.0</swe:value></swe:Quantity></anzsml:upperBoundary><anzsml:lowerBoundary><swe:Quantity><swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/><swe:value>0.03</swe:value></swe:Quantity></anzsml:lowerBoundary></anzsml:DepthQuantityRange></om:value>
+</om:NamedValue></sam:parameter>
+
+			
+
+<!-- sams:shape specifies the location the anzsmlss:SoilSample was taken from -->
+			<sams:shape>
+				<!--  sams:shape/gml:Point/gml:id = point_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID] -->
+				<gml:Point gml:id="point_103.EPA_CMP.SITE001.01a" srsName="http://www.opengis.net/def/crs/EPSG/0/4283" srsDimension="2">
+					<!-- <gml:pos = [OBSERVATIONS:O_LATITUDE_GDA94]" " [OBSERVATIONS:O_LONGITUDE_GDA94] -->
+					<gml:pos>-25.0 119.0</gml:pos>
+				</gml:Point>
+			</sams:shape>
+			<!--
+			<anzsmlss:depth>
+				<anzsml:DepthQuantityRange>
+						
+					<anzsml:upperBoundary>
+					<swe:Quantity>
+						<swe:uom xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"></swe:uom>
+					<swe:value>0.0</swe:value></swe:Quantity></anzsml:upperBoundary>
+					<anzsml:lowerBoundary> <swe:Quantity>
+						<swe:uom xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"></swe:uom>
+					<swe:value>1.2</swe:value></swe:Quantity>
+					</anzsml:lowerBoundary>
+					
+				</anzsml:DepthQuantityRange>
+			</anzsmlss:depth>
+				-->
+		</anzsmlss:SoilSample>
+	</wfs:member>
+	<wfs:member>
+		<!-- ======================================================== -->
+		<!-- The second anzsmls:SoilHorizon/anzsmls:relatedFeature is a SoilSample in order to provide particle size information based on [HORIZONS:H_TEXTURE:C_H_TEXTURE] mapping -->
+		<!-- This is not  essential but an aspirational aim to be able to deliver the soil particle size and proportion based on the field texture classification. It could be delivered as part of anzsmls:SoilHorizon/anzsmls:SoilMaterial/ConstituentPart, but this does not allow specifying the process used to calculate the grain sizes and percentages. Using anzsmlss:SoilSample allows the use of om:OM_Observation to indicate that these results are estimates. This mapping provides the results as gsmlem:ConstituentParts but do not specify a related anzsmls:SoilMaterial  -->
+		<!-- anzsmlss:SoilSample/gml:id = "soil_sample_"[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO] -->
+		<anzsmlss:SoilSample gml:id="soil_sample_103.EPA_CMP.SITE001.01.01">
+			<!-- anzsmlss:SoilSample/gml:identifier CodeSpace = "http://www.asris.csiro.au" value = "http:///resources.aclep.org/soilfeature/"[gml:id] -->
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http:///resources.aclep.org/soilfeature/soil_sample_103.EPA_CMP.SITE001.01.01</gml:identifier>
+			<!-- anzsmlss:SoilSample/sam:sampledFeature is the anzsmlss:SoilHorizon that the anzsmlss:SoilSample samples. -->
+			<!-- Because this anzsmlss:SoilSample is in-line it will be an internal xlink:href to the enclosing anzsmls:SoilHorizon gml:id  -->
+			<!-- sam:sampledFeature xlink:href="#soil_horizon_"[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO] -->
+			<sam:sampledFeature xlink:href="#soil_horizon_103.EPA_CMP.SITE001.01.01"/>
+			<sam:relatedObservation>
+				<!--  anzsmlss:SoilSample/sam:relatedObservation/om:OM_Observation/gml:id="composition_estimate_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO] -->
+				<om:OM_Observation gml:id="composition_estimate_103.EPA_CMP.SITE001.01.01">
+					<!-- anzsmlss:SoilSample/sam:relatedObservation/om:OM_Observation/om:phenomenonTime = [OBSERVATIONS:O_DATE_DESC] -->
+					<om:phenomenonTime nilReason="unknown"/>
+					<!-- om:OM_Observation/om:phenomenonTime/gml:TimeInstant/gml:id= "time_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[O_DATE_DESC] -->
+					<!--	<gml:TimeInstant gml:id="time_103.EPA_CMP.SITE001.01.01121978"> -->
+					<!-- om:OM_Observation/om:phenomenonTime/gml:TimeInstant/gml:timeposition = [OBSERVATIONS:O_DATE_DESC] -->
+					<!-- <gml:timePosition>01121978</gml:timePosition> -->
+					<!--	</gml:TimeInstant>
+							</om:phenomenonTime> -->
+					<!-- om:OM_Observation/om:resultTime is the time of this calculation. Can this be populated with the date of the WFS response? If not leave out -->
+					<om:resultTime/>
+					<!-- anzsmlss:SoilSample/sam:relatedObservation/om:OM_Observation/om:procedure/gco:CharacterString = "Grain size estimation based on field texture description" -->
+					<om:procedure>
+						<gco:CharacterString>Grain size estimation based on field texture description</gco:CharacterString>
+					</om:procedure>
+					<!-- anzsmlss:SoilSample/sam:relatedObservation/om:OM_Observation/om:observedProperty xlink:href="http://www.geosciml.org/geosciml/3.0/doc/GeoSciML/EarthMaterial/ParticleGeometryDescription.html#size" xlink:title="particle size" -->
+					<om:observedProperty xlink:href="http://www.geosciml.org/geosciml/3.0/doc/GeoSciML/EarthMaterial/ParticleGeometryDescription.html#size" xlink:title="particle size"/>
+					<!-- om:featureOfInterest is the anzsmlss:SoilSample. Therefore it is an internal xlink:href to gml:id = soil_sample_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO] -->
+					<om:featureOfInterest xlink:href="#soil_sample_103.EPA_CMP.SITE001.01.01"/>
+					<!-- The anzsmlss:SoilSample/sam:relatedObservation/om:OM_Observation/om:result is 1 or 3 gsmlem:ConstituentParts corresponding to the sand, silt and clay content based on the mapping of the Texture code   -->
+					<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+					<!-- Mapping between [HORIZONS:H_TEXTURE:C_H_TEXTURE] and clay, silt and sand components -->
+					<!-- Where the soils are Organic no gsmlem:constituents are present. These correspond to the following C_H_TEXTURE values: IP, HP, AP, SP, LP, CP, GP.  -->
+					<!-- Each gsmlem:ConstituentPart will have the following values vary according to the mapping: -->
+					<!-- gsmlem:ConstituentPart/gml:id -->
+					<!--  gsmlem:ConstituentPart/gsmlem:proportion/swe:value -->
+					<!-- gsmlem:ConstituentPart/gsmlem:size/swe:value -->
+					<!-- gsmlem:ConstituentPart/gsmlem:particleType/xlink:href -->
+					<!-- gsmlem:ConstituentPart/gsmlem:particleType/xlink:title -->
+					<!-- C_H_TEXTURE = SS	Pure sand  = One (1) gsmlem:ConstituentPart: 
+gsmlem:ConstituentPart/gml:id = "Sand_SS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "100 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand" -->
+					<!-- C_H_TEXTURE = FSS	Fine pure sand  = One (1) gsmlem:ConstituentPart: 
+gsmlem:ConstituentPart/gml:id = "Sand_FSS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "100 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand" -->
+					<!-- C_H_TEXTURE = MSS	Medium pure sand = One (1) gsmlem:ConstituentPart: 
+gsmlem:ConstituentPart/gml:id = "Sand_MSS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "100 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand" -->
+					<!-- C_H_TEXTURE = KSS	Coarse pure sand  = One (1) gsmlem:ConstituentPart: 
+gsmlem:ConstituentPart/gml:id = "Sand_KSS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "100 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand" -->
+					<!-- C_H_TEXTURE = S	Sand = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_S_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "88 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_S_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 7"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_S_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 8"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"  -->
+					<!-- C_H_TEXTURE = FS	Fine sand = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "88 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 7"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 8"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"  -->
+					<!-- C_H_TEXTURE = MS	Medium sand = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "88 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 7"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 8"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"  -->
+					<!-- C_H_TEXTURE = KS	Coarse sand = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "88 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 7"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 8"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"  -->
+					<!-- C_H_TEXTURE = LS	Loamy sand = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_LS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_LS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_LS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "5 5"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = LFS	Loamy fine sand = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_LFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_LFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_LFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "5 5"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = LMS	Loamy medium sand = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_LMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_LMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_LMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "5 5"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = LKS	Loamy coarse sand = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_LKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_LKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_LKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "5 5"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = CS	Clayey sand  = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_CS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_CS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_CS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "5 12"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = CFS	Clayey fine sand   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_CFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_CFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_CFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "5 12"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = CMS	Clayey medium sand   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_CMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_CMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_CMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "5 12"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = CKS	Clayey coarse sand   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_CKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_CKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_CKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "5 12"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = SL	Sandy loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_SL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "70 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_SL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_SL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "8 21"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = FSL	Fine sandy loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "70 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "8 21"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MSL	Medium sandy loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "70 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "8 21"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = KSL	Coarse sandy loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "70 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KSL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "8 21"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = L	Loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_L_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "50 77"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_L_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "10 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_L_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "10 26"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = LFSY	Loam fine sandy   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_LFSY_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "50 77"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_LFSY_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "10 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_LFSY_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "10 26"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = ZL	Silty loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_ZL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_ZL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "25 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_ZL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 26"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = SCL	Sandy clay loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_SCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 80"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_SCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 10"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_SCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "20 30"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = FSCL	Fine sandy clay loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 80"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 10"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "20 30"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MSCL	Medium sandy clay loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 80"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 10"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "20 30"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = KSCL	Coarse sandy clay loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 80"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 10"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KSCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "20 30"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = SCLFS	Sandy clay loam, fine sandy = FSCL	Fine sandy clay loam -->
+					<!-- C_H_TEXTURE = CL	Clay loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_CL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "36 70"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_CL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "6 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_CL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "21 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = CLFS	Clay loam, fine sandy   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_CLFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "36 70"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_CLFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "6 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_CLFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "21 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = CLMS	Clay loam, medium sandy   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_CLMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "36 70"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_CLMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "6 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_CLMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "21 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = CLKS	Clay loam, coarse sandy   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_CLKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "36 70"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_CLKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "6 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_CLKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "21 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = CLS	Clay loam, sandy = CL	Clay loam  -->
+					<!-- C_H_TEXTURE = ZCL	Silty clay loam   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_ZCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 50"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_ZCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "25 74"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_ZCL_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "26 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = LC	Light clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_LC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "35 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_LC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_LC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "35 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = SLC	Sandy light clay =  LC	Light clay  -->
+					<!-- C_H_TEXTURE = FSLC	Fine sandy light clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "35 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "35 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MSLC	Medium sandy light clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "35 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "35 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = KSLC	Coarse sandy light clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "35 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KSLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "35 40"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = ZLC	Silty light clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_ZLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_ZLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "25 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_ZLC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = ZC	Silty clay   =   ZLC	Silty light clay -->
+					<!-- C_H_TEXTURE = SC	Sandy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_SC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "50 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_SC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 6"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_SC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "26 50"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = FSC	Fine sandy clay    = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "50 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 6"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "26 50"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MSC	Medium sandy clay  = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "50 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 6"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "26 50"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = KSC	Coarse sandy clay  = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "50 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 6"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KSC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "26 50"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = LMC	Light medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_LMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "33 57"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_LMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "2 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_LMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 45"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = SLMC	Sandy light medium clay = LMC	Light medium clay -->
+					<!-- C_H_TEXTURE = FSLMC	Fine sandy light medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "33 57"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "2 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 45"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MSLMC	Medium sandy light medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "33 57"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "2 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 45"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = KSLMC	Coarse sandy light medium clayy   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "33 57"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "2 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KSLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 45"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = ZLMC	Silty light medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_ZLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_ZLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "25 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_ZLMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MC	Medium clay = SMC	Sandy medium clay -->
+					<!-- C_H_TEXTURE = SMC	Sandy medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_SMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "20 57"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_SMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_SMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "45 55"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = FSMC	Fine sandy medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "20 57"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "45 55"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MSMC	Medium sandy medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "20 57"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "45 55"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = KSMC	Coarse sandy medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "20 57"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KSMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "45 55"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = ZMC	Silty medium clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_ZMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_ZMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "25 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_ZMC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MHC	Medium heavy clay = SMHC	Sandy medium heavy clay -->
+					<!-- C_H_TEXTURE = SMHC	Sandy medium heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_SMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "10 45"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_SMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_SMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "55 65"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = FSMHC	Fine sandy medium heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "10 45"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "55 65"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MSMHC	Medium sandy medium heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "10 45"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "55 65"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = KSMHC	Coarse sandy medium heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "10 45"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KSMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "55 65"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = ZMHC	Silty medium heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_ZMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_ZMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "25 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_ZMHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE =HC	Heavy clay = SHC	Sandy heavy clay -->
+					<!-- C_H_TEXTURE = SHC	Sandy heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_SHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_SHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_SHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = FSHC	Fine sandy heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_FSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_FSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_FSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = MSHC	Medium sandy heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_MSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_MSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_MSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = KSHC	Coarse sandy heavy clay   = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_KSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_KSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_KSHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 100"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = ZHC	Silty heavy clay  = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_ZHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 35"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_ZHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "25 60"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_ZHC_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "40 75"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = VWCFS	Very weak clayey fine sand  = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_VWCFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 0.2"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_VWCFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_VWCFS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 12"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = WCFS	Weak clayey fine sand = VWCFS	Very weak clayey fine sand -->
+					<!-- C_H_TEXTURE = VWCKS	Very weak clayey coarse sand  = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_VWCKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/coarse_sand" xlink:title="Coarse Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_VWCKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_VWCKS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 12"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = WCKS	Weak clayey coarse sand = VWCKS	Very weak clayey coarse sand -->
+					<!-- C_H_TEXTURE = VWCMS	Very weak clayey medium sand  = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_VWCMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.2 0.5"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/medium_sand" xlink:title="Medium Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_VWCMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_VWCMS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 12"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = WCMS	Weak clayey medium sand = VWCMS	Very weak clayey medium sand -->
+					<!-- C_H_TEXTURE = VWCS	Very weak clayey sand  = Three (3) gsmlem:ConstituentParts: 
+ConstituentPart 1:
+gsmlem:ConstituentPart/gml:id = "Sand_VWCS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "65 92"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.02 2.0"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="Sand"
+ConstituentPart 2:
+gsmlem:ConstituentPart/gml:id = "Silt_VWCS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "4 25"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.002 0.02"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"
+ConstituentPart 3:
+gsmlem:ConstituentPart/gml:id = "Clay_VWCS_"[HORIZONS:S.ID].[O_ID].[H_NO]
+gsmlem:ConstituentPart/gsmlem:proportion/swe:value = "0 12"
+gsmlem:ConstituentPart/gsmlem:size/swe:value = "0.0 0.002"
+gsmlem:ConstituentPart/gsmlem:particleType/xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"   -->
+					<!-- C_H_TEXTURE = WCS	Weak clayey sand = VWCS	Very weak clayey sand -->
+					<!--
+GR	Gravel
+ST	Stones
+-->
+					<!-- +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++ -->
+					<om:result>
+						<!-- Each of the Clay, Silt and Sand fractions will need to be identified as separate gsmlem:ConstituenPart with their own unique gml:id for each anzsmls:SoilMaterial -->
+						<!-- anzsmlss:SoilSample/sam:relatedObservation/om:OM_Observation/om:result/gsmlem:ConstituentPart/gml:id = {"Sand" or "Silt" or "Clay"}_[HORIZONS:H_TEXTURE:C_H_TEXTURE]_[HORIZONS:AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO]  -->
+						<!-- Example is for C_H_TEXTURE = "FS" -->
+						<gsmlem:ConstituentPart gml:id="Sand_FS_103.EPA_CMP.SITE001.01.01">
+							<gsmlem:proportion>
+								<swe:QuantityRange>
+									<!-- gsmlem:ConstituentPart/swe:uom code="percent" xlink:title="%" -->
+									<swe:uom code="percent" xlink:title="%"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:proportion/swe:value determined by mapping from CH_TEXTURE -->
+									<swe:value>88 100</swe:value>
+								</swe:QuantityRange>
+							</gsmlem:proportion>
+							<!-- gsmlem:ConstituentPart/gsmlem:role/xlink:href="http://resource.geosciml.org/classifier/cgi/compoundmaterialconstituentpartrole/granular_framework_constituent" xlink:title="Granular framework constituent"/> -->
+							<gsmlem:role xlink:href="http://resource.geosciml.org/classifier/cgi/compoundmaterialconstituentpartrole/granular_framework_constituent" xlink:title="Granular framework constituent"/>
+							<!-- gsmlem:material provides a link back to EarthMaterial to specify what material (eg Mineral) the particle is made of. For NatSoil SITES SoilHorizons this is unknown -->
+							<!-- gsmlem:ConstituentPart/gsmlem:material xsi:nil="true" nilReason="unknown" -->
+							<gsmlem:material xsi:nil="true" nilReason="unknown"/>
+							<gsmlem:particleGeometry>
+								<gsmlem:ParticleGeometryDescription>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:particleType to indicate whether the sand, clay or silt component -->
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:particleType determined by mapping from C_H_TEXTURE -->
+									<gsmlem:particleType xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/fine_sand" xlink:title="Fine Sand"/>
+									<!-- Should possibly use particletypeTerms such as:							
+								<gsmlem:particleType xlink:href="http://resource.geosciml.org/classifier/cgi/particletype/mineral_clast" xlink:title="Mineral clast"/> -->
+									<!-- GeoSciML notes state:
+"Terms to specify the nature of individual particles of each constituent in an Earth Material aggregation, based mostly on their genesis.  If applied on ParticleDescription for CompoundMaterial, then would characterize all particles in aggregate. Use this property on CompoundMaterial to distinguish rocks composed of crystals (crystalline rocks) from rocks composed of granular particles (clasts, fragments). Examples include oolith, crystals, pore space. Constituent type is determined based on the nature of the particles, and ideally is independent of the relationship between particles in a compound material aggregation." -->
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:aspectRatio xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:aspectRatio xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:shape xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:shape xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:size example for 'fine sand'. use the C_H_TEXTURE mapping for size values -->
+									<gsmlem:size>
+										<swe:QuantityRange>
+											<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:size/swe:QuantityRange/swe:uom code="mm" xlink:href="http://www.opengis.net/def/uom/UCUM/0/mm" xlink:title="millimetre" -->
+											<swe:uom code="mm" xlink:href="http://www.opengis.net/def/uom/UCUM/0/mm" xlink:title="millimetre"/>
+											<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:size/swe:QuantityRange/swe:value determined by mapping from C_H_TEXTURE -->
+											<swe:value>0.02 0.2</swe:value>
+										</swe:QuantityRange>
+									</gsmlem:size>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:sorting xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:sorting xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:sourceOrganism nilReason="inapplicable" -->
+									<gsmlem:sourceOrganism nilReason="inapplicable"/>
+								</gsmlem:ParticleGeometryDescription>
+							</gsmlem:particleGeometry>
+							<!-- gsmlem:ConstituentPart/gsmlem:relatedMaterial indicates the other components that make up this SoilMaterial. These are xlink:href to the other Cnstituents -->
+							<gsmlem:relatedMaterial xlink:href="#Silt_FS_103.EPA_CMP.SITE001.01.01"/>
+							<gsmlem:relatedMaterial xlink:href="#Clay_FS_103.EPA_CMP.SITE001.01.01"/>
+						</gsmlem:ConstituentPart>
+						<!-- =========================== -->
+						<!-- The second Constituent for C_H_TEXTURE = FS -->
+						<gsmlem:ConstituentPart gml:id="Silt_FS_103.EPA_CMP.SITE001.01.01">
+							<gsmlem:proportion>
+								<swe:QuantityRange>
+									<!-- gsmlem:ConstituentPart/swe:uom code="percent" xlink:title="%" -->
+									<swe:uom code="percent" xlink:title="%"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:proportion/swe:value determined by mapping from C_H_TEXTURE -->
+									<swe:value>0 7</swe:value>
+								</swe:QuantityRange>
+							</gsmlem:proportion>
+							<!-- gsmlem:ConstituentPart/gsmlem:role/xlink:href="http://resource.geosciml.org/classifier/cgi/compoundmaterialconstituentpartrole/granular_framework_constituent" xlink:title="Granular framework constituent"/> -->
+							<gsmlem:role xlink:href="http://resource.geosciml.org/classifier/cgi/compoundmaterialconstituentpartrole/granular_framework_constituent" xlink:title="Granular framework constituent"/>
+							<!-- gsmlem:material provides a link back to EarthMaterial to specify what material (eg Mineral) the particle is made of. For NatSoil SITES SoilHorizons this is unknown -->
+							<!-- gsmlem:ConstituentPart/gsmlem:material xsi:nil="true" nilReason="unknown" -->
+							<gsmlem:material xsi:nil="true" nilReason="unknown"/>
+							<gsmlem:particleGeometry>
+								<gsmlem:ParticleGeometryDescription>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:particleType to indicate whether the sand, clay or silt component -->
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:particleType determined by mapping from C_H_TEXTURE -->
+									<gsmlem:particleType xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="Silt"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:aspectRatio xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:aspectRatio xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:shape xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:shape xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:size example for 'fine sand'. use the C_H_TEXTURE mapping for size values -->
+									<gsmlem:size>
+										<swe:QuantityRange>
+											<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:size/swe:QuantityRange/swe:uom code="mm" xlink:href="http://www.opengis.net/def/uom/UCUM/0/mm" xlink:title="millimetre" -->
+											<swe:uom code="mm" xlink:href="http://www.opengis.net/def/uom/UCUM/0/mm" xlink:title="millimetre"/>
+											<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:size/swe:QuantityRange/swe:value determined by mapping from CH_TEXTURE -->
+											<swe:value>0.002 0.02</swe:value>
+										</swe:QuantityRange>
+									</gsmlem:size>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:sorting xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:sorting xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:sourceOrganism nilReason="inapplicable" -->
+									<gsmlem:sourceOrganism nilReason="inapplicable"/>
+								</gsmlem:ParticleGeometryDescription>
+							</gsmlem:particleGeometry>
+							<!-- gsmlem:ConstituentPart/gsmlem:relatedMaterial indicates the other components that make up this SoilMaterial. These are xlink:href to the other Cnstituents -->
+							<gsmlem:relatedMaterial xlink:href="#Sand_FS_103.EPA_CMP.SITE001.01.01"/>
+							<gsmlem:relatedMaterial xlink:href="#Clay_FS_103.EPA_CMP.SITE001.01.01"/>
+						</gsmlem:ConstituentPart>
+						<!-- =========================== -->
+						<!-- The third Constituent for C_H_TEXTURE = FS -->
+						<gsmlem:ConstituentPart gml:id="Clay_FS_103.EPA_CMP.SITE001.01.01">
+							<gsmlem:proportion>
+								<swe:QuantityRange>
+									<!-- gsmlem:ConstituentPart/swe:uom code="percent" xlink:title="%" -->
+									<swe:uom code="percent" xlink:title="%"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:proportion/swe:value determined by mapping from C_H_TEXTURE -->
+									<swe:value>0 8</swe:value>
+								</swe:QuantityRange>
+							</gsmlem:proportion>
+							<!-- gsmlem:ConstituentPart/gsmlem:role/xlink:href="http://resource.geosciml.org/classifier/cgi/compoundmaterialconstituentpartrole/granular_framework_constituent" xlink:title="Granular framework constituent"/> -->
+							<gsmlem:role xlink:href="http://resource.geosciml.org/classifier/cgi/compoundmaterialconstituentpartrole/granular_framework_constituent" xlink:title="Granular framework constituent"/>
+							<!-- gsmlem:material provides a link back to EarthMaterial to specify what material (eg Mineral) the particle is made of. For NatSoil SITES SoilHorizons this is unknown -->
+							<!-- gsmlem:ConstituentPart/gsmlem:material xsi:nil="true" nilReason="unknown" -->
+							<gsmlem:material xsi:nil="true" nilReason="unknown"/>
+							<gsmlem:particleGeometry>
+								<gsmlem:ParticleGeometryDescription>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:particleType to indicate whether the sand, clay or silt component -->
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:particleType determined by mapping from C_H_TEXTURE -->
+									<gsmlem:particleType xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="Clay"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:aspectRatio xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:aspectRatio xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:shape xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:shape xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:size example for 'fine sand'. use the C_H_TEXTURE mapping for size values -->
+									<gsmlem:size>
+										<swe:QuantityRange>
+											<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:size/swe:QuantityRange/swe:uom code="mm" xlink:href="http://www.opengis.net/def/uom/UCUM/0/mm" xlink:title="millimetre" -->
+											<swe:uom code="mm" xlink:href="http://www.opengis.net/def/uom/UCUM/0/mm" xlink:title="millimetre"/>
+											<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:size/swe:QuantityRange/swe:value determined by mapping from CH_TEXTURE -->
+											<swe:value>0.0 0.002</swe:value>
+										</swe:QuantityRange>
+									</gsmlem:size>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:sorting xsi:nil="true" nilReason="unknown" -->
+									<gsmlem:sorting xsi:nil="true" nilReason="unknown"/>
+									<!-- gsmlem:ConstituentPart/gsmlem:particleGeometry/gsmlem:ParticleGeometryDescription/gsmlem:sourceOrganism nilReason="inapplicable" -->
+									<gsmlem:sourceOrganism nilReason="inapplicable"/>
+								</gsmlem:ParticleGeometryDescription>
+							</gsmlem:particleGeometry>
+							<!-- gsmlem:ConstituentPart/gsmlem:relatedMaterial indicates the other components that make up this SoilMaterial. These are xlink:href to the other Cnstituents -->
+							<gsmlem:relatedMaterial xlink:href="#Sand_FS_103.EPA_CMP.SITE001.01.01"/>
+							<gsmlem:relatedMaterial xlink:href="#Silt_FS_103.EPA_CMP.SITE001.01.01"/>
+						</gsmlem:ConstituentPart>
+					</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<!-- anzsmlss:SoilSample/sams:shape provides the spatial location of the SoilSample. This will come from the related anzsmlss:SoilProfile -->
+			<!-- Because this anzsmlss:SoilSample is in-line it will be an internal xlink:href to the enclosing anzsmls:SoilHorizon gml:id  -->
+			<!-- sams:shape xlink:href="#point_"[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID] -->
+			<sams:shape xlink:href="#point_103.EPA_CMP.SITE001.01"/>
+			<anzsmlss:depth>
+				<anzsml:DepthQuantityRange>
+				<!-- anzsmlss:SoilSample/anzsmlss:depth/anzsml:upperBoundary from SAMPLES:SAMP_UPPER_DEPTH   -->			
+					<anzsml:upperBoundary>
+					
+					</anzsml:upperBoundary>
+					<!-- anzsmlss:SoilSample/anzsmlss:depth/anzsml:lowerBoundary from SAMPLES:SAMP_LOWER_DEPTH  -->
+			<!-- If upper or lower depth is missing then still need to populate uom attribute, as well as xsi:nil and nilReason -->
+					<anzsml:lowerBoundary></anzsml:lowerBoundary>
+				</anzsml:DepthQuantityRange>
+			</anzsmlss:depth>
+
+		</anzsmlss:SoilSample>
+		<!-- End of example for mapping Sand, Silt and Clay content to anzsmls:SoilHorizon -->
+		<!-- =================================== -->
+	</wfs:member>
+</wfs:FeatureCollection>

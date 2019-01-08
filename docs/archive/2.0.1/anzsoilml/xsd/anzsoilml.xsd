@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:anzsoilml="http://anzsoil.org/ns/anzsoilml/2.0.1" xmlns:anzsmls="http://anzsoil.org/ns/soil/2.0.1" xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.1" xmlns:anzsmll="http://anzsoil.org/ns/soillandscape/2.0.1" xmlns:anzsmlss="http://anzsoil.org/ns/soilsample/2.0.1" xmlns:anzsmlg="http://anzsoil.org/ns/gsm/2.0.1" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://anzsoil.org/ns/anzsoilml/2.0.1" elementFormDefault="qualified" attributeFormDefault="unqualified" version="2.0.1">
+    <annotation>
+        <documentation>Summary schema to import all related application schemas for ANZSoilML v2.0.1.
+ANZSoilML is an application schema that specifies a set of feature-types and supporting structures for information used in the Australian and New Zealand soil sciences.
+ANZSoilML v2.0.1 is scoped to the information specified in:
+    AUS: Australian Soil and Land Survey Field Handbook, Third edition, 2009, The National Committee on Soil and Terrain.
+    NZL: Soil Description, Revised edition, 1995, Milne, J.D.G., Clayden, B., Singleton, P.L., Wilson, A.D.
+ANZSoilML v2.0.1 is primarily concerned with observed properties of Soils and associated Landscapes.
+ANZSoilML v2.0.1 is factored into a set of sub-packages that are maintained separately. 
+---
+ANZSoilML v2.0.1 improves the concepts and properties in ANZSoilML v1, which was developed under the auspices of the Australian Collaborative Land Evaluation Program (ACLEP) http://www.clw.csiro.au/aclep/, and Landcare Research, New Zealand.
+Copyright (c) CSIRO 2015. All rights reserved.
+        </documentation>
+    </annotation>
+    <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <import namespace="http://anzsoil.org/ns/soil/2.0.1" schemaLocation="http://anzsoil.org/def/schema/soil/2.0.1/anzsoilml-soil.xsd"/>
+    <import namespace="http://anzsoil.org/ns/soilcore/2.0.1" schemaLocation="http://anzsoil.org/def/schema/soilcore/2.0.1/anzsoilml-core.xsd"/>
+    <import namespace="http://anzsoil.org/ns/soillandscape/2.0.1" schemaLocation="http://anzsoil.org/def/schema/landscape/2.0.1/anzsoilml-landscape.xsd"/>
+    <import namespace="http://anzsoil.org/ns/soilsample/2.0.1" schemaLocation="http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd"/>
+    <import namespace="http://anzsoil.org/ns/gsm/2.0.1" schemaLocation="http://anzsoil.org/def/schema/gsm/2.0.1/anzsoilml-gsm.xsd"/>
+</schema>

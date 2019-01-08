@@ -1,0 +1,592 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:it.geosolutions="http://www.geo-solutions.it" xmlns:spec="http://www.opengis.net/samplingSpecimen/2.0" xmlns:gsmlla="http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0" xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.1" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:topp="http://www.openplans.org/topp" xmlns:gsmlem="http://xmlns.geosciml.org/EarthMaterial/3.2" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:anzsmlss="http://anzsoil.org/ns/soilsample/2.0.1" xmlns:anzsmls="http://anzsoil.org/ns/soil/2.0.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" timeStamp="2015-03-30T22:12:55.882Z" xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd 
+http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd 
+http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis.xsd 
+http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+http://anzsoil.org/ns/soilsample/2.0.1  http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd
+http://anzsoil.org/ns/soil/2.0.1 http://anzsoil.org/def/schema/soil/2.0.1/anzsoilml-soil.xsd 
+http://anzsoil.org/ns/soilcore/2.0.1 http://anzsoil.org/def/schema/soilcore/2.0.1/anzsoilml-core.xsd" numberMatched="unknown" numberReturned="1">
+	<!--
+xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd
+                http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+                http://www.opengis.net/swe/2.0 http://schemas.opengis.net/sweCommon/2.0/swe.xsd
+                http://www.isotc211.org/2005/gmd http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd
+                http://www.isotc211.org/2005/gco http://schemas.opengis.net/iso/19139/20070417/gco/gco.xsd
+                http://www.opengis.net/samplingSpatial/2.0 http://schemas.opengis.net/samplingSpatial/2.0/spatialSamplingFeature.xsd
+                http://www.opengis.net/samplingSpecimen/2.0 http://schemas.opengis.net/samplingSpecimen/2.0/specimen.xsd
+                http://xmlns.geosciml.org/EarthMaterial/3.0 http://schemas.geosciml.org/earthmaterial/3.0/earthMaterial.xsd
+                http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+                http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis-Specimen.xsd
+                http://anzsoil.org/ns/soilsample/2.0.1  http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd
+              "
+-->
+	<!-- ========================================= -->
+	<!--  This wfs:member example is for a anzsmls:SoilProfile -->
+	<!-- Deliver wfs:member/anzsmls:SoilProfile with references to contained anzsmls:Soil using sampledFeature  -->
+	<!-- anzsmls:SoilProfiles come from the OBSERVATIONS table each with a unique identifier from "soil_profile_"[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID] = SoilProfile identifier -->
+	<wfs:member>
+		<anzsmls:SoilProfile gml:id="soil_profile_199.CAN.C552.1">
+			<!-- anzsmls:SoilProfile/gml:identifier codeSpace = "http://www.asris.csiro.au", value = "http://environment.data.gov.au/soil/feature/soilprofile/""soil_profile_"[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID] -->
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http://environment.data.gov.au/soil/feature/soilprofile/soil_profile_199.CAN.C552.1</gml:identifier>
+			<!-- sam:sampledFeature is the anzsmls:Soil (not anzsmls:SoilHorizon or anzsmls:SoilSurface) that the anzsmls:SoilProfile describes. -->
+			<!-- sam:sampledFeature/xlink:href = "http://resources.aclep.org/soilfeature/soil_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID]" -->
+			<sam:sampledFeature xlink:href="http://environment.data.gov.au/soil/feature/soil_199.CAN.C552.1"/>
+			<!-- Can use sam:relatedSamplingFeature to specify SoilSpecimens associated with the SoilProfile. However, probably best to not do this but point to the associated SoilProfile from the SoilSpecimen (by using SoilSpecimen/relatedSamplingFeature -->
+			<!--<sam:relatedSamplingFeature>
+		<sam:SamplingFeatureComplex>
+			<sam:role></sam:role>
+			<sam:relatedSamplingFeature xlink:href="http://environment.data.gov.au/soil/feature/soil_specimen/[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID]"></sam:relatedSamplingFeature>
+		</sam:SamplingFeatureComplex>
+	</sam:relatedSamplingFeature>		-->
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="soil_obs_199.CAN.C552.1">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<!--time_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID]_[O_DATE_DESC] -->
+						<gml:TimeInstant gml:id="time_199.CAN.C552.1_01121961">
+							<gml:timePosition>01121961</gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C552.1.1.1.1.2A1">
+							<gml:description>Air-dry moisture content</gml:description>
+							<gml:name>Moisture content</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/2A1" xlink:title="Air-dry moisture content"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://www.engineeringtoolbox.com/moisture-content-d_1821.html" xlink:title="MOISTURE_CONTENT"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">1.9</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<!-- Need to delete this date and add a relatedObservation as per UML note -->
+			<!-- Going to use sam:parameter to specify the time that the SF_SpatialSamplingFeature (SoilSample or SoilProfile) was sampled -->
+			<sam:parameter>
+				<om:NamedValue>
+					<!-- For sam:parameter/om:value/gco:Date om:name xlink:href="http://data.anzsoil.org/def/property/x/date" -->
+					<om:name xlink:href="http://data.anzsoil.org/def/property/x/date"/>
+					<om:value>
+						<!-- gco:Date in format DDMMYYYY (to be checked) from [OBSERVATIONS.O_DATE_DESC] -->
+						<gco:Date>31032015</gco:Date>
+					</om:value>
+				</om:NamedValue>
+			</sam:parameter>
+			<!-- Upper and lower depth values use the sam:parameter -->
+			<sam:parameter>
+				<om:NamedValue>
+					<!-- For sam:parameter/om:valueanzsml:DepthQuantityRange om:name xlink:href="http://data.anzsoil.org/def/property/x/depth" -->
+					<om:name xlink:href="http://data.anzsoil.org/def/property/x/depth"/>
+					<om:value>
+						<anzsml:DepthQuantityRange>
+							<anzsml:upperBoundary>
+								<swe:Quantity>
+									<!-- swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="metre" -->
+									<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="metre"/>
+									<!-- anzsml:DepthQuantityRange/anzsml:upperBoundary/swe:Quantity/swe:value = -->
+									<!-- In NatSoil SITES database Depths are only available for SoilHorizons/SoilLayers and SoilSamples. 
+                                           At a future date a SoilProfile depth range could be created by calculating top and bottom values from the associated SoilHorizons/Soil Layers -->
+									<swe:value>0.0</swe:value>
+								</swe:Quantity>
+							</anzsml:upperBoundary>
+							<anzsml:lowerBoundary>
+								<swe:Quantity>
+									<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="metre"/>
+									<swe:value>0.03</swe:value>
+								</swe:Quantity>
+							</anzsml:lowerBoundary>
+						</anzsml:DepthQuantityRange>
+					</om:value>
+				</om:NamedValue>
+			</sam:parameter>
+			<!-- osmla:SpatialEntity/gml:id = spatial_entity_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID]-->
+			<sams:shape>
+				<!-- sams:shape/gml:Point//gml:id = point_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID]-->
+				<gml:Point gml:id="point_103.EPA_CMP.SITE001.01" srsName="http://www.opengis.net/def/crs/EPSG/0/4283" srsDimension="2">
+					<!-- Check EPSG and use appropriate one for either AMG or Latitude/Longitude -->
+					<!-- <gml:pos = [OBSERVATIONS:O_LATITUDE_GDA94]" " [OBSERVATIONS:O_LONGITUDE_GDA94] -->
+					<gml:pos>-25.0 119.0</gml:pos>
+				</gml:Point>
+			</sams:shape>
+			<anzsmls:classifier>
+				<anzsmls:SoilClassification>
+					<!-- anzsmls:SoilProfile/anzsmls:classifier/anzsmls:SoilClassification/anzsmls:role from OBSERVATION where:
+if anzsmls:value from [OBSERVATION:O_ASC_ORD], anzsmls:role = "order"; anzsmls:value/xlink:title = [C_O_ASC:Description]; 
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC:Value]
+if anzsmls:value from [OBSERVATION:O_ASC_SUBORD], anzsmls:role = "suborder"; anzsmls:value/xlink:title = C_O_ASC:Description; 
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC:Value] 
+if anzsmls:value from [OBSERVATION:O_ASC_GG], anzsmls:role = "group"; anzsmls:value/xlink:title = [C_O_ASC:Description];
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC:Value]
+if anzsmls:value from [OBSERVATION:O_ASC_SUBG], anzsmls:role = "subgroup"; anzsmls:value/xlink:title = [C_O_ASC:Description];
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC:Value]
+if anzsmls:value from [OBSERVATION:O_ASC_FAM1], anzsmls:role = "family 1"; anzsmls:value/xlink:title = [C_O_ASC_FAM:Description];
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC_FAM:Value]
+if anzsmls:value from [OBSERVATION:O_ASC_GG], anzsmls:role = "group"; anzsmls:value/xlink:title = [C_O_ASC:Description];
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC_FAM:Value]
+if anzsmls:value from [OBSERVATION:O_ASC_FAM2], anzsmls:role = "family 2"; anzsmls:value/xlink:title = [C_O_ASC_FAM:Description];
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC_FAM:Value]
+if anzsmls:value from [OBSERVATION:O_ASC_FAM3], anzsmls:role = "family 3"; anzsmls:value/xlink:title = [C_O_ASC_FAM:Description];
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC_FAM:Value]
+if anzsmls:value from [OBSERVATION:O_ASC_FAM4], anzsmls:role = "family 4"; anzsmls:value/xlink:title = [C_O_ASC_FAM:Description];
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC_FAM:Value]
+if anzsmls:value from [OBSERVATION:O_ASC_FAM5], anzsmls:role = "family 5"; anzsmls:value/xlink:title = [C_O_ASC_FAM:Description];
+	anzsmls:value/xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/"[C_O_ASC_FAM:Value]
+if anzsmls:value from O_PPF, O_GSG, O_UNI_SOIL_CLASS, O_SOIL_TAXONOMY, O_TAX_UNIT_TYPE, or O_TAX_UNIT_NAME then anzsmls:role = "general" -->
+					<!--	<anzsmls:role>order</anzsmls:role> -->
+					<!-- if anzsmls:value from O_PPF, O_UNI_SOIL_CLASS, or O_TAX_UNIT_NAME 
+then anzsmls:value/xlink:href = "http://www.opengis.net/def/nil/OGC/0/unknown" anzsmls:value/xlink:title = O_PPF, O_UNI_SOIL_CLASS, or O_TAX_UNIT_NAME -->
+					<!-- if anzsmls:value from O_GSG, O_SOIL_TAXONOMY, or  O_TAX_UNIT_TYPE,
+then anzsmls:value/xlink:href = "http://www.opengis.net/def/nil/OGC/0/unknown" -->
+					<!-- if anzsmls:value from [O_GSG] then anzsmls:value/xlink:title = [O_GSG:C_O_GSG:Description] -->
+					<!-- if anzsmls:value from [O_UNI_SOIL_CLASS] then anzsmls:value/xlink:title = [O_UNI_SOIL_CLASS:C_O_SOIL_TAXONOMY:Description], -->
+					<!-- if anzsmls:value from [O_TAX_UNIT_TYPE] then anzsmls:value/xlink:title =  [O_TAX_UNIT_TYPE:C_O_TAX_UNIT_TYPE:Description] -->
+					<!-- If using a single combined classification approach, then : -->
+					<anzsmls:value xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/CH-AA-CV-EO" xlink:title="Sodic, Hypocalcic, Red Chromosol"/>
+					<!-- Where anzsmls:value from OBSERVATION:O_ASC_ORD, O_ASC_SUBORD, O_ASC_GG, O_ASC_SUBG, or O_ASC_FAM1-5 
+	then anzsmls:reference/gmd:Citation/gmd:title/gco:CharacterString = [C_O_ASC_VERSION/Description]  -->
+					<!-- Where anzsmls:value from OBSERVATION:O_PPF, O_GSG, O_UNI_SOIL_CLASS, O_SOIL_TAXONOMY, O_TAX_UNIT_TYPE, or O_TAX_UNIT_NAME 
+	then anzsmls:reference/gco:nilReason = "missing" and no gmd:CI_Citation is provided  -->
+					<anzsmls:reference>
+						<gmd:CI_Citation>
+							<gmd:title>
+								<gco:CharacterString>The Australian Soil Classification Revised Edition</gco:CharacterString>
+							</gmd:title>
+							<gmd:date gco:nilReason="missing"/>
+						</gmd:CI_Citation>
+					</anzsmls:reference>
+					<!-- Where anzsmls:value from OBSERVATION:O_ASC_ORD, O_ASC_SUBORD, O_ASC_GG, O_ASC_SUBG, or O_ASC_FAM1-5 
+	then anzsmls:confidence = [C_O_ASC_CONF:Description]-->
+					<anzsmls:confidence>All necessary analytical data are available.</anzsmls:confidence>
+				</anzsmls:SoilClassification>
+			</anzsmls:classifier>
+			<!-- If using multiple classifier approach -->
+			<anzsmls:classifier>
+				<anzsmls:SoilClassification>
+					<anzsmls:value xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/CH" xlink:title="Chromosol"/>
+				</anzsmls:SoilClassification>
+			</anzsmls:classifier>
+			<anzsmls:classifier>
+				<anzsmls:SoilClassification>
+					<anzsmls:value xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/AA" xlink:title="Red"/>
+				</anzsmls:SoilClassification>
+			</anzsmls:classifier>
+			<anzsmls:classifier>
+				<anzsmls:SoilClassification>
+					<anzsmls:value xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/CV" xlink:title="Hypocalcic"/>
+				</anzsmls:SoilClassification>
+			</anzsmls:classifier>
+			<anzsmls:classifier>
+				<anzsmls:SoilClassification>
+					<anzsmls:value xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilclassifier/EO" xlink:title="Sodic"/>
+				</anzsmls:SoilClassification>
+			</anzsmls:classifier>
+		</anzsmls:SoilProfile>
+	</wfs:member>
+	<wfs:member>
+		<sams:SF_SpatialSamplingFeature gml:id="soil_sample_199.CAN.C1.1.1.1">
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1</gml:identifier>
+			<sam:sampledFeature xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_horizon_199.CAN.C1.1.1"/>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.15_NR_CA">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.15_NR_CA_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.15_NR_CA">
+							<gml:description>Exch. basic cations (Ca++) - meq per 100g of soil - Not recorded</gml:description>
+							<gml:name>Exch. Ca++</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15_NR_CA" xlink:title="Exch. basic cations (Ca++) - meq per 100g of soil - Not recorded"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_CA"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">4.9</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.15_NR_K">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.15_NR_K_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.15_NR_K">
+							<gml:description>Exch. basic cations (K++) - meq per 100g of soil - Not recorded</gml:description>
+							<gml:name>Exch. K++</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15_NR_K" xlink:title="Exch. basic cations (K++) - meq per 100g of soil - Not recorded"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_K"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">1.1</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.15_NR_MG">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.15_NR_MG_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.15_NR_MG">
+							<gml:description>Exch. basic cations (Mg++) - meq per 100g of soil - Not recorded</gml:description>
+							<gml:name>Exch. Mg++</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15_NR_MG" xlink:title="Exch. basic cations (Mg++) - meq per 100g of soil - Not recorded"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_MG"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">3.5</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.15_NR_NA">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.15_NR_NA_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.15_NR_NA">
+							<gml:description>Exch. basic cations (Na++) - meq per 100g of soil - Not recorded</gml:description>
+							<gml:name>Exch. Na++</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15_NR_NA" xlink:title="Exch. basic cations (Na++) - meq per 100g of soil - Not recorded"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_NA"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">0.62</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.15G1_H">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.15G1_H_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.15G1_H">
+							<gml:description>Hydrogen Cation - meq per 100g of soil - 1M KCl Exch. Acidity By titration to pH 8.0</gml:description>
+							<gml:name>Exch. Acidity (H)</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15G1_H" xlink:title="Hydrogen Cation - meq per 100g of soil - 1M KCl Exch. Acidity By titration to pH 8.0"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_H"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">5.5</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.15J_H">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.15J_H_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.15J_H">
+							<gml:description>Sum of Ex. cations + Ex. acidity - Sum of basic exch. cations and exch. (Hydrogen)</gml:description>
+							<gml:name>ECEC</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15J_H" xlink:title="Sum of Ex. cations + Ex. acidity - Sum of basic exch. cations and exch. (Hydrogen)"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="ECEC"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">15.6</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.2_LOI">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.2_LOI_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.2_LOI">
+							<gml:description>Loss on Ignition (%)</gml:description>
+							<gml:name>Loss on Ignition</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/2_LOI" xlink:title="Loss on Ignition (%)"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="LOSS_ON_IGNITION"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">5.2</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.2A1">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.2A1_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.2A1">
+							<gml:description>Air-dry moisture content</gml:description>
+							<gml:name>Moisture content</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/2A1" xlink:title="Air-dry moisture content"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://www.engineeringtoolbox.com/moisture-content-d_1821.html" xlink:title="MOISTURE_CONTENT"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">1.9</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.3A_TSS">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.3A_TSS_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.3A_TSS">
+							<gml:description>Electrical conductivity or soluble salts - Total soluble salts %</gml:description>
+							<gml:name>EC</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/3A_TSS" xlink:title="Electrical conductivity or soluble salts - Total soluble salts %"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://www.waterwatch.org.au/publications/module4/electrical.html" xlink:title="EC"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">0.022</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.4A1">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.4A1_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.4A1">
+							<gml:description>pH of 1:5 soil/water suspension</gml:description>
+							<gml:name>pH Soil/water</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/4A1" xlink:title="pH of 1:5 soil/water suspension"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://sweet.jpl.nasa.gov/2.0/chemAcidity.owl#pH" xlink:title="PH"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="-">6.8</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.5A2">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.5A2_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.5A2">
+							<gml:description>Chloride - 1:5 soil/water extract, automated colour</gml:description>
+							<gml:name>Water soluble Cl</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/5A2" xlink:title="Chloride - 1:5 soil/water extract, automated colour"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://www.engineeringtoolbox.com/gases-solubility-water-d_1148.html" xlink:title="CHLORIDE"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="mg/kg">60.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.7_NR">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.7_NR_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.7_NR">
+							<gml:description>Total nitrogen (%) - Not recorded</gml:description>
+							<gml:name>Total Nitrogen</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/7_NR" xlink:title="Total nitrogen (%) - Not recorded"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://en.wikipedia.org/wiki/Nitrogen" xlink:title="NITROGEN"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">0.145</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.9A_HCL">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.9A_HCL_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.9A_HCL">
+							<gml:description>Total element - P(%) - By boiling HCl</gml:description>
+							<gml:name>Total P</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/9A_HCL" xlink:title="Total element - P(%) - By boiling HCl"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://en.wikipedia.org/wiki/Phosphorus" xlink:title="PHOSPHORUS"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">0.022</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.P10_PB_C">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.P10_PB_C_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.P10_PB_C">
+							<gml:description>Clay (%) - Plummet balance</gml:description>
+							<gml:name>Clay</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_PB_C" xlink:title="Clay (%) - Plummet balance"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/clay" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">22.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.P10_PB_CS">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.P10_PB_CS_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.P10_PB_CS">
+							<gml:description>Coarse sand (%) - Plummet balance</gml:description>
+							<gml:name>Coarse sand</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_PB_CS" xlink:title="Coarse sand (%) - Plummet balance"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">14.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.P10_PB_FS">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.P10_PB_FS_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.P10_PB_FS">
+							<gml:description>Fine sand (%) - Plummet balance</gml:description>
+							<gml:name>Fine sand</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_PB_FS" xlink:title="Fine sand (%) - Plummet balance"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/sand" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">44.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_199.CAN.C1.1.1.1.1.P10_PB_Z">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+						<gml:TimeInstant gml:id="time_199.CAN.C1.1.1.1.1.P10_PB_Z_07101953">
+							<gml:timePosition>07101953  </gml:timePosition>
+						</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_199.CAN.C1.1.1.1.1.P10_PB_Z">
+							<gml:description>Silt (%) - Plummet balance</gml:description>
+							<gml:name>Silt</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_PB_Z" xlink:title="Silt (%) - Plummet balance"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/silt" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_199.CAN.C1.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">18.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:parameter>
+				<om:NamedValue>
+					<om:name xlink:href="http://data.anzsoil.org/def/property/x/depth"/>
+					<om:value>
+						<anzsml:DepthQuantityRange>
+							<anzsml:upperBoundary>
+								<swe:Quantity>
+									<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+									<swe:value>0.0</swe:value>
+								</swe:Quantity>
+							</anzsml:upperBoundary>
+							<anzsml:lowerBoundary>
+								<swe:Quantity>
+									<swe:uom code="m" xlink:href="http://qudt.org/vocab/unit#Meter" xlink:title="Metre"/>
+									<swe:value>0.03</swe:value>
+								</swe:Quantity>
+							</anzsml:lowerBoundary>
+						</anzsml:DepthQuantityRange>
+					</om:value>
+				</om:NamedValue>
+			</sam:parameter>
+			<sams:shape>
+				<gml:Point gml:id="point_199.CAN.C1.1.1.1-copy" srsDimension="2" srsName="http://www.opengis.net/gml/srs/epsg.xml#4283">
+					<gml:pos>146.335 -34.5651</gml:pos>
+				</gml:Point>
+			</sams:shape>
+		</sams:SF_SpatialSamplingFeature>
+	</wfs:member>
+</wfs:FeatureCollection>

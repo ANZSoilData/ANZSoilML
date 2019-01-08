@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anzsmll="http://anzsoil.org/ns/soillandscape/2.0.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.1"
+           xmlns:swe="http://www.opengis.net/swe/2.0" targetNamespace="http://anzsoil.org/ns/soillandscape/2.0.1" elementFormDefault="qualified">
+    <xs:import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+    <xs:import namespace="http://anzsoil.org/ns/soilcore/2.0.1" schemaLocation="http://anzsoil.org/def/schema/soilcore/2.0.1/anzsoilml-core.xsd"/>
+    <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xs:annotation>
+        <xs:documentation>Package to capture Vegetation related classes and Properties</xs:documentation>
+    </xs:annotation>
+    <xs:element name="Floristics" type="anzsmll:FloristicsType" substitutionGroup="gml:AbstractObject">
+        <xs:annotation>
+            <xs:documentation>The vegetation species present in the Landscape Equivalent to 'Species' in "Yellow Book"</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="FloristicsType">
+        <xs:sequence>
+            <xs:element name="speciesAbundance" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The abundance of the species</xs:documentation>
+                    <xs:appinfo>
+                        <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0/CodeList_SpeciesAbundanceTerm.xml#SpeciesAbundanceTerm</gml:defaultCodeSpace>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="speciesName" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Genus and Species name. The value should come from a controlled vocabulary that should also provide the abbreviated species codes.</xs:documentation>
+                    <xs:appinfo>
+                        <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0/CodeList_SpeciesTerm.xml#SpeciesTerm</gml:defaultCodeSpace>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FloristicsPropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:Floristics"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <xs:element name="ForestComponents" type="anzsmll:ForestComponentsType" substitutionGroup="gml:AbstractObject">
+        <xs:annotation>
+            <xs:documentation>The species and their role that make up the forest. To handle "floristic composition of tallest stratum trees", "rainforest emergents" and the "sclerophylls present in the canopy"</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="ForestComponentsType">
+        <xs:sequence>
+            <xs:element name="role" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The role the species play in the forest</xs:documentation>
+                    <xs:appinfo>
+                        <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0/CodeList_ForestComponentRoleTerm.xml#ForestComponentRoleTerm</gml:defaultCodeSpace>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="speciesComponents" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:documentation>The species that make up the forest playing a similar role</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="anzsmll:FloristicsPropertyType">
+                            <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ForestComponentsPropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:ForestComponents"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <xs:element name="Rainforest" type="anzsmll:RainforestType" substitutionGroup="anzsmll:Vegetation">
+        <xs:annotation>
+            <xs:documentation>Description of the rainforest</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="RainforestType">
+        <xs:complexContent>
+            <xs:extension base="anzsmll:VegetationType">
+                <xs:sequence>
+                    <xs:element name="forestType" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Type of forest </xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="rainforestComplexity" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Complexity of Rainforest (p77)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="rainforestGrowth" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Indicator of Rainforest growth form p84 (2nd Ed)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="rainforestLeafSize" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>Rainforest leaf size of tallest stratum trees p81 (2nd Ed)</xs:documentation>
+                        </xs:annotation>
+                    </xs:element>
+                    <xs:element name="floristicComponent" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="anzsmll:ForestComponentsPropertyType">
+                                    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="RainforestPropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:Rainforest"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <xs:element name="Vegetation" type="anzsmll:VegetationType" substitutionGroup="anzsml:LandscapeFeature">
+        <xs:annotation>
+            <xs:documentation>The vegetation found in the landscape that is of relevance to the soil scientist.
+This is a placeholder until vegetation features are defined by the appropriate domain.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="VegetationType">
+        <xs:complexContent>
+            <xs:extension base="anzsml:LandscapeFeatureType">
+                <xs:sequence>
+                    <xs:element name="vegetationStructure" nillable="true" minOccurs="0">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="anzsmll:VegetationFormationPropertyType">
+                                    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                    <xs:element name="floristicDescription" nillable="true" minOccurs="0" maxOccurs="unbounded">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="anzsmll:FloristicsPropertyType">
+                                    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="VegetationPropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:Vegetation"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+    <xs:element name="VegetationFormation" type="anzsmll:VegetationFormationType" substitutionGroup="gml:AbstractObject">
+        <xs:annotation>
+            <xs:documentation>The 'structure' of the vegetation</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="VegetationFormationType">
+        <xs:sequence>
+            <xs:element name="coverClassification" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The crown and foliage cover classification</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="coverPercentage" nillable="true" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The percentage of cover </xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="swe:QuantityPropertyType">
+                            <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="growthForm" type="gml:ReferenceType" nillable="true" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The growth form of the vegetation</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="heightRange" nillable="true" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>The height range of the vegetation</xs:documentation>
+                </xs:annotation>
+                <xs:complexType>
+                    <xs:complexContent>
+                        <xs:extension base="swe:QuantityRangePropertyType">
+                            <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                        </xs:extension>
+                    </xs:complexContent>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="VegetationFormationPropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:VegetationFormation"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+</xs:schema>

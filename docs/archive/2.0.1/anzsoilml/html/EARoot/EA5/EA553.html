@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title></title>
+<link href="../../css/ea.css" rel="stylesheet" type="text/css" />
+<script>
+function initPage(src) {	
+	if(parent==this&&(this.location+"").indexOf('EARoot')!=-1)
+		document.location=(this.location+"").substring(0,(this.location+"").indexOf('EARoot'))+"index"+(this.location+"").substring((this.location+"").lastIndexOf('.'))+"?goto="+((this.location+"").substring((this.location+"").indexOf('EARoot')+7,(this.location+"").lastIndexOf('.')).replace(/\//g,':').replace(/EA/g,""));
+	else
+		parent.initPage(src);
+}
+
+function nameClassifier(name, separator)
+{
+  var str = name;
+  var classifierName;
+  var node = document.getElementById('name_classifier');
+  if(node != null)
+  {
+    classifierName = node.innerHTML;
+  }
+  if(classifierName != "")
+  {
+   str += separator + classifierName;
+  }
+  
+  return str;
+}
+</script>
+</head>
+<body onload="initPage(this);" class="Content">
+<div class="pageHeader"></div>
+<div class="PageBody">
+	<div id="name_classifier" style="display: none;"></div>
+	<span class="ObjectTitle"><script type="text/javascript">document.write(nameClassifier("", " : "))</script>  : Public   Note</span>
+	<table border="0" cellpadding="0" cellspacing="0" class="ObjectDetails">
+		<tr>
+			<td width="15%" class="ObjectDetailsTopic">Created:</td>
+			<td width="85%" class="ObjectDetailsValue">2015.02.05 09:45:19</td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic">Modified:</td>
+			<td class="ObjectDetailsValue">2015.02.05 10:05:16</td>
+		</tr>
+		<tr style="height: 10px"><td colspan="2"></td></tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../images/plus03.gif" align="absmiddle" id="proj" onclick="parent.toggleData(this.id)" />Project:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Author:</td>
+			<td class="ObjectDetailsValue">ritchiea</td>
+		</tr>
+		<tr id="proj01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Version:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj02" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Phase:</td>
+			<td class="ObjectDetailsValue">1.0</td>
+		</tr>
+		<tr id="proj03" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Status:</td>
+			<td class="ObjectDetailsValue">Proposed</td>
+		</tr>
+		<tr id="proj04" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Complexity:</td>
+			<td class="ObjectDetailsValue">Easy</td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Difficulty:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj06" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Priority:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="proj05" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Multiplicity:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr>
+			<td class="ObjectDetailsTopic"><img src="../../images/plus03.gif" align="absmiddle" id="adv" onclick="parent.toggleData(this.id)" />Advanced:</td>
+			<td class="ObjectDetailsValue"></td>
+		</tr>
+		<tr id="adv00" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">UUID:</td>
+			<td class="ObjectDetailsValue">{8BC9A321-9B45-48d9-A76F-B060FB937541}</td>
+		</tr>
+		<tr id="adv01" style="display: none;">
+			<td class="ObjectDetailsTopic" style="padding-left: 18px;">Appears In:</td>
+			<td class="ObjectDetailsValue"><a href="EA550.html">Summary: GSM</a></td>
+		</tr>
+	</table>
+	<div class="ObjectDetailsNotes">&lt;b&gt;Constraints&lt;/b&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;To be documented in conformance classes.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;1.&lt;/b&gt; A GSM_SpatialEntity shall have an associated parameter with the name &#39;non soil&#39; and a value of 0 or 1.&lt;sup&gt;1&lt;/sup&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;2.1&lt;/b&gt; If the &#39;non soil&#39; parameter value is 0 then a GSM_SpatialEntity shall have two related om:OM_Observations (list observed properties - new constraint?) and six related anzsmls;SoilLayers. Each anzsmls;SoilLayer shall have ten related om:OM_Observations (list observed properties - new constraint?).&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;2.2&lt;/b&gt; If the &#39;non soil&#39; parameter value is 1 then a GSM_SpatialEntity shall have one nil-ed (inapplicable) related om:OM_Observations one nil-ed (inapplicable) related. Their absence should be reinforced with a nil xlink:href denoting nil:inapplicable.&lt;sup&gt;2&lt;/sup&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;3. &lt;/b&gt;The sampledFeature for a GSM_SpatialEntity shall be an anzsmls:Soil.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;4.&lt;/b&gt; om:OM_Observations shall be of type OM_Measurement.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;5.1&lt;/b&gt; The result of an om:OM_Observation shall be of type gml:Measure. Is this explicit in 4?&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;5.2&lt;/b&gt; The result quality value shall be an UncertML DQ_UncertaintyResult.&lt;sup&gt;3&lt;/sup&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;6.&lt;/b&gt; The procedure for an om:OM_Observation shall be a reference to a controlled concept description the pedo-transfer function used to generate the value.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;7.&lt;/b&gt; All unit of measure values shall be references to the UCUM scheme.&lt;sup&gt;4&lt;/sup&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;8.&lt;/b&gt; The handling of nil values shall conform to GML-nil.&lt;sup&gt;5&lt;/sup&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;i&gt;Notes&lt;/i&gt;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;sup&gt;1&lt;/sup&gt; See GSM Specification 1.5 &#39;Excluded Non-soil Areas&#39;&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;sup&gt;2&lt;/sup&gt; Depending on final status of GML-nil.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;sup&gt;3&lt;/sup&gt; See https://wiki.aston.ac.uk/foswiki/bin/view/UncertWeb/OandMProfiles. Need to discuss variation from the profile.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;sup&gt;4&lt;/sup&gt; perhaps have a observedProperty/UoM constraint explicitly mapping one t&#39;other.&lt;br /&gt;&lt;/p&gt;&lt;p&gt;&lt;sup&gt;5&lt;/sup&gt; Discuss state of GML-nil.&lt;br /&gt;&lt;/p&gt;</div>
+
+<div class="pageFooter"></div>
+ 
+</body>
+</html>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anzsmll="http://anzsoil.org/ns/soillandscape/2.0.1" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0"
+           targetNamespace="http://anzsoil.org/ns/soillandscape/2.0.1" elementFormDefault="qualified">
+    <xs:import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+    <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+    <xs:annotation>
+        <xs:documentation>Climate related classes</xs:documentation>
+    </xs:annotation>
+    <xs:element name="Climate" type="anzsmll:ClimateType" substitutionGroup="gml:AbstractFeature">
+        <xs:annotation>
+            <xs:documentation>The local climate that impacts on the Soil development and attributes. This is a placeholder until climate related features are defined by the appropriate domain.</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:complexType name="ClimateType">
+        <xs:complexContent>
+            <xs:extension base="gml:AbstractFeatureType">
+                <xs:sequence>
+                    <xs:element name="annualRainfall" nillable="true" minOccurs="0">
+                        <xs:annotation>
+                            <xs:documentation>The estimated annual rainfall that falls on the landscape based on nearest surface records</xs:documentation>
+                        </xs:annotation>
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="swe:QuantityPropertyType">
+                                    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    <xs:complexType name="ClimatePropertyType">
+        <xs:sequence>
+            <xs:element ref="anzsmll:Climate"/>
+        </xs:sequence>
+        <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+        <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    </xs:complexType>
+</xs:schema>

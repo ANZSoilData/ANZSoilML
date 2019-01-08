@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:it.geosolutions="http://www.geo-solutions.it" xmlns:spec="http://www.opengis.net/samplingSpecimen/2.0" xmlns:gsmlla="http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0" xmlns:anzsml="http://anzsoil.org/ns/soilcore/2.0.1" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:topp="http://www.openplans.org/topp" xmlns:gsmlem="http://xmlns.geosciml.org/EarthMaterial/3.2" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:anzsmlss="http://anzsoil.org/ns/soilsample/2.0.1" xmlns:anzsmls="http://anzsoil.org/ns/soil/2.0.1" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:om="http://www.opengis.net/om/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" timeStamp="2015-03-30T22:12:55.882Z" xsi:schemaLocation="http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd 
+http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd 
+http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0 http://schemas.geosciml.org/laboratoryanalysis-specimen/3.0/laboratoryAnalysis.xsd 
+http://www.opengis.net/om/2.0 http://schemas.opengis.net/om/2.0/observation.xsd
+http://anzsoil.org/ns/soilsample/2.0.1  http://anzsoil.org/def/schema/soilsample/2.0.1/anzsoilml-soilsample.xsd
+http://anzsoil.org/ns/soil/2.0.1 http://anzsoil.org/def/schema/soil/2.0.1/anzsoilml-soil.xsd 
+http://anzsoil.org/ns/soilcore/2.0.1 http://anzsoil.org/def/schema/soilcore/2.0.1/anzsoilml-core.xsd" numberMatched="unknown" numberReturned="1">
+	<!-- ========================================= -->
+	<!--  This wfs:member example is for a anzsmlss:SoilSpecimen -->
+	<!-- Deliver wfs:member/anzsmlss:SoilSpecimen ############ with references to contained anzsmls:Soil using sampledFeature  -->
+	<!-- anzsmlss:SoilSpecimen come from the ARCHIVE_SAMPLES table each with a unique gml:id from "soil_specimen_"[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO].[SPEC_ID] = SoilSpecimen identifier. Where SPEC_ID = "null" make the SPEC_ID = 0  (SPEC_ID is the spectral ID which tells us that there is a sub-sample specimen)-->
+	<wfs:member>
+		<anzsmlss:SoilSpecimen gml:id="soil_specimen_199.CAN.C552.1.1.1.1.0">
+			<!-- Use this metaDataProperty to represent the data specimen provider, data custodian, archive location etc, set up different roles for different responsible parties-->
+			<gml:metaDataProperty>
+				<gml:GenericMetaData>
+					<gmd:CI_ResponsibleParty>
+						<gmd:organisationName>
+							<!-- For gmd:role/gmd:CI_RoleCode = "owner"  gmd:organisationName = "CSIRO Land and Water"-->
+							<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+						</gmd:organisationName>
+						<gmd:role>
+							<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_owner">owner</gmd:CI_RoleCode>
+						</gmd:role>
+					</gmd:CI_ResponsibleParty>
+					<gmd:CI_ResponsibleParty>
+						<gmd:organisationName>
+							<!-- For gmd:role/gmd:CI_RoleCode = "custodian"  gmd:organisationName = "CSIRO Land and Water"-->
+							<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+						</gmd:organisationName>
+						<gmd:role>
+							<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_custodian">custodian</gmd:CI_RoleCode>
+						</gmd:role>
+					</gmd:CI_ResponsibleParty>
+					<gmd:CI_ResponsibleParty>
+						<gmd:organisationName>
+							<!-- For gmd:role/gmd:CI_RoleCode = "originator"  gmd:organisationName = "NSW Department of Agriculture"-->
+							<!-- organisationName comes from [ARCHIVE_SAMPLES:AGENCY_CODE] and resolved by [AGENCIES:AGENCY_NAME] in the materialised view or better still an agency code vocabulary??-->
+							<gco:CharacterString >NSW Department of Agriculture</gco:CharacterString>
+						</gmd:organisationName>
+						<gmd:role>
+							<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_originator">originator</gmd:CI_RoleCode>
+						</gmd:role>
+					</gmd:CI_ResponsibleParty>
+				</gml:GenericMetaData>
+			</gml:metaDataProperty>
+			<!-- anzsmlss:SoilSpecimen/gml:identifier codeSpace = "http://www.asris.csiro.au", value = "http://environment.data.gov.au/soil/feature/soilspecimen/""soil_specimen_"[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO].[SPEC_ID] -->
+			<gml:identifier codeSpace="http://www.asris.csiro.au"> http://environment.data.gov.au/soil/feature/soilspecimen/soil_specimen_199.CAN.C552.1.1.1.1.0</gml:identifier>
+			<!-- sam:sampledFeature is the anzsmls:SoilFeature. -->
+			<!-- sam:sampledFeature xlink:href = "http://resources.aclep.org/soilfeature/soil_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID]" and/or sam:sampledFeature xlink:href = "http://resources.aclep.org/soilfeature/soil_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO]"-->
+			<sam:sampledFeature xlink:href="http://environment.data.gov.au/soil/feature/soil/soil_199.CAN.C552.1"/>
+			<sam:sampledFeature xlink:href="http://environment.data.gov.au/soil/feature/soil/soil_horizon_199.CAN.C552.1.1"/>
+			<!---->
+			<sam:relatedSamplingFeature>
+				<sam:SamplingFeatureComplex>
+					<sam:role xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilfeaturerole/soil_sample" xlink:title="soil sample"/>
+					<!--The related sampling feature is a soil sample xlink:href for a SoilSample = "http://resources.aclep.org/soilfeature/soil_sample_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO]" from SAMPLES-->
+					<sam:relatedSamplingFeature xlink:href="http://resources.aclep.org/soilfeature/soil_sample_199.CAN.C552.1.1.1"/>
+				</sam:SamplingFeatureComplex>
+			</sam:relatedSamplingFeature>
+			<sam:relatedSamplingFeature>
+				<sam:SamplingFeatureComplex>
+					<sam:role xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilfeaturerole/related_specimen" xlink:title="related specimen"/>
+					<!--This related sampling feature is a soil specimen xlink:href for a SoilSpecimen = "http://resources.aclep.org/soilfeature/soil_specimen_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO].[SPEC_ID]" from [ARCHIVE_SAMPLES] where the specimen is a subsample from that jar-->
+					<sam:relatedSamplingFeature xlink:href="http://resources.aclep.org/soilfeature/soil_sample_199.CAN.C552.1.1.1.1.136"/>
+				</sam:SamplingFeatureComplex>
+			</sam:relatedSamplingFeature>
+			<sam:relatedSamplingFeature>
+				<sam:SamplingFeatureComplex>
+					<sam:role xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilfeaturerole/related_specimen" xlink:title="related specimen"/>
+					<!--This related sampling feature is a soil specimen xlink:href for a SoilSpecimen = "http://resources.aclep.org/soilfeature/soil_specimen_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO].[SPEC_ID]" from [ARCHIVE_SAMPLES] where the specimen is another jar of the same sample-->
+					<sam:relatedSamplingFeature xlink:href="http://resources.aclep.org/soilfeature/soil_sample_199.CAN.C552.1.1.1.2.0"/>
+				</sam:SamplingFeatureComplex>
+			</sam:relatedSamplingFeature>
+			<!---->
+			<!--Specimen depth is recorded as a sams:SF_SamplingFeature parameter-->
+			<sam:parameter>
+				<om:NamedValue>
+					<om:name xlink:href="http://data.anzsoil.org/def/property/x/depth"/>
+					<om:value>
+						<anzsml:DepthQuantityRange>
+							<anzsml:upperBoundary>
+								<swe:Quantity>
+									<swe:uom code="m" xlink:href="http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Meter"  xlink:title="Metre"/>
+									<swe:value>0.0</swe:value>
+								</swe:Quantity>
+							</anzsml:upperBoundary>
+							<anzsml:lowerBoundary>
+								<swe:Quantity>
+									<swe:uom code="m" xlink:href="http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Meter" xlink:title="Metre"/>
+									<swe:value>0.03</swe:value>
+								</swe:Quantity>
+							</anzsml:lowerBoundary>
+						</anzsml:DepthQuantityRange>
+					</om:value>
+				</om:NamedValue>
+			</sam:parameter>
+			<!-- spec:materialClass according to http://schemas.opengis.net/samplingSpecimen/2.0/specimen.xsd shall provide a basic classification of the material type of the specimen. EXAMPLE
+								soil, water, rock, aqueous, liquid, tissue, vegetableMatter, food, gas, solid. A basic register of material-classes may be provided by OGC should be at http://www.opengis.net/def/material/OGC-OM/2.0/  but isn't -->
+			<spec:materialClass xlink:href="http://www.opengis.net/def/material/OGC-OM/2.0/soil" xlink:title="soil"/>
+			<!-- anzsmlss:SoilSpecimen/spec:samplingTime is from [OBSERVATIONS:O_DATE_DESC] or where there is a subsample spectral id [ARCHIVE_SAMPLES:SPEC_ID] is not "null" then from [ARCHIVE_SAMPLES:SUBSAMPLE_DATE]-->
+			<spec:samplingTime>
+				<!--gml:id = "samplingtime_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO].[SPEC_ID].[O_DATE_DESC] or gml:id = "samplingtime_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO].[SPEC_ID].[SUBSAMPLE_DATE]-->
+				<gml:TimeInstant gml:id="samplingtime_199.CAN.C552.1.1.1.1.0.04101969">
+					<gml:timePosition>04101969</gml:timePosition>
+				</gml:TimeInstant>
+			</spec:samplingTime>
+			<!--  -->
+			<spec:samplingLocation>
+				<!--  spec:samplingLocation/gml:Point/gml:id = specimen_point_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID] -->
+				<gml:Point gml:id="specimen_point_199.CAN.C552.1" srsName="http://www.opengis.net/def/crs/EPSG/0/4283" srsDimension="2">
+					<!-- <gml:pos = [OBSERVATIONS:O_LATITUDE_GDA94]" " [OBSERVATIONS:O_LONGITUDE_GDA94] -->
+					<gml:pos>-25.0 119.0</gml:pos>
+				</gml:Point>
+			</spec:samplingLocation>
+			<!-- anzsmlss:SoilSpecimen/spec:size =[ARCHIVE_SAMPLES:WEIGHT} -->
+			<spec:size uom="http://www.qudt.org/qudt/owl/1.0.0/unit/Instances.html#Gram" xlink:title="Gram">10</spec:size>
+			<!---->
+			<!--This is not needed, it relates more to daily archive management processes-->
+			<!-- spec:currentLocation identifies the current location of the specimen -->
+			<!--<spec:currentLocation>
+				<gmd:EX_GeographicDescription>
+					<gmd:geographicIdentifier>
+						<gmd:MD_Identifier>
+                           <gmd:authority>
+								<gmd:CI_Citation>
+									<gmd:title/>
+									<gmd:date/>
+									<gmd:citedResponsibleParty>
+										<gmd:CI_ResponsibleParty>
+											<gmd:organisationName>
+												<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+											</gmd:organisationName>
+											<gmd:role>
+												<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_custodian">custodian</gmd:CI_RoleCode>
+											</gmd:role>
+										</gmd:CI_ResponsibleParty>
+									</gmd:citedResponsibleParty>
+								</gmd:CI_Citation>
+							</gmd:authority>-
+							<gmd:code>
+								anzsmlss:SoilSpecimen/spec:currentLocation/gco:CharacterString = [ARCHIVE_SAMPLES:LOCATION]
+								<gco:CharacterString>7-2-3</gco:CharacterString>
+							</gmd:code>
+						</gmd:MD_Identifier>
+					</gmd:geographicIdentifier>
+				</gmd:EX_GeographicDescription>
+			</spec:currentLocation>-->
+			<!-- anzsmlss:SoilSpecimen/spec:specimenType from [ARCHIVE_SAMPLES:SAMP_TYPE] -->
+			<!-- xlink:href = "http://resource.soilinformationstandards.org/classifier/aclep/soilspecimentype/[ARCHIVE_SAMPLES:SAMP_TYPE]"-->
+			<!-- xlink:title = [C_AS_SAMP_TYPE:Description] -->
+			<spec:specimenType xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilspecimentype/WS" xlink:title="whole soil"/>
+			<!--Coarse Fragments come from [ARCHIVE_SAMPLES:>2mm]-->
+			<anzsmlss:coarseFragmentsPresent>false</anzsmlss:coarseFragmentsPresent>
+		</anzsmlss:SoilSpecimen>
+	</wfs:member>
+</wfs:FeatureCollection>

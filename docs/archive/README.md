@@ -14,6 +14,7 @@ Project file the model was developed in.
 | ------ | ------- | ----------- |
 | anzsoilml | package | The 'all components' package. Linking to the all components anzsoilml.xsd should import all other XSDs. |
 | anzsoilml-core | package | Core classes used by all packages. |
+| anzsoilml-gsm | package | Classes for [Global Soil Map](http://globalsoilmap.net/) Spatial Entities. |
 | anzsoilml-landscape | package | Classes describing landscape, land use, climate and vegetation features. |
 | anzsoilml-soil | package | Classes describing the classification and composition of soils and their horizons. |
 | anzsoilml-soilsample | package | Classes describing soil sampling and analysis. |
