@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:anzsmlss="http://xmlns.anzsoil.org/ANZSoilML-SoilSample/1.0.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gsmlla="http://xmlns.geosciml.org/LaboratoryAnalysis-Specimen/3.0" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:asd="asdf" xmlns:sam="http://www.opengis.net/sampling/2.0" xmlns:om="http://www.opengis.net/om/2.0" xmlns:sams="http://www.opengis.net/samplingSpatial/2.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:spec="http://www.opengis.net/samplingSpecimen/2.0" xmlns:SoilLocation="http://SoilLocation" xmlns:test="http://test.org" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:osmlss="http://xmlns.aclep.org/OzSoilML_SoilSample/1.0" timeStamp="2013-03-05T22:49:05.167Z" xsi:schemaLocation="http://xmlns.anzsoil.org/ANZSoilML-SoilSample/1.0.0 http://anzsoil.org/anzsoilml/anzsoilml-soilsample/1.0.0/schema/anzsoilml-soilsample.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd" numberMatched="unknown" numberReturned="1">
+	<wfs:member>
+		<anzsmlss:SoilSample gml:id="soil_sample_899.Morphology.CP302.1.1.1">
+			<gml:identifier codeSpace="http://www.asris.csiro.au">http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_899.Morphology.CP302.1.1.1</gml:identifier>
+			<sam:sampledFeature xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_sample_899.Morphology.CP302.1.1.1"/>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.15A2_CA">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime>
+					<gml:TimeInstant gml:id="time_899.Morphology.CP302.1.1.1.1.15A2_CA_14111991">
+						<gml:timePosition>14111991</gml:timePosition>
+					</gml:TimeInstant>
+					</om:resultTime>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.15A2_CA">
+							<gml:description>Exchangeable bases (Ca2+,Mg2+,Na+,K+) - 1M ammonium chloride at pH 7.0, pretreatment for soluble salts</gml:description>
+							<gml:name>Exch. Ca++</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15A2_CA" xlink:title="Exchangeable bases (Ca2+,Mg2+,Na+,K+) - 1M ammonium chloride at pH 7.0, pretreatment for soluble salts"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:title="EXCH_BASES_CA"/>
+					<om:featureOfInterest xlink:href="http:///resources.aclep.org/soilfeature/soil_horizon_103.EPA_CMP.SITE001.01.01"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">2.7</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.15A2_CEC">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.15A2_CEC_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.15A2_CEC">
+							<gml:description>Exchangeable bases- 1M ammonium chloride at pH 7.0, pretreatment for soluble salts</gml:description>
+							<gml:name>CEC</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15A2_CEC" xlink:title="Exchangeable bases- 1M ammonium chloride at pH 7.0, pretreatment for soluble salts"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_CEC"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">2.3</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.15A2_K">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.15A2_K_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.15A2_K">
+							<gml:description>Exchangeable bases- 1M ammonium chloride at pH 7.0, pretreatment for soluble salts</gml:description>
+							<gml:name>Exch. K++</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15A2_K" xlink:title="Exchangeable bases- 1M ammonium chloride at pH 7.0, pretreatment for soluble salts"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_K"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">0.19</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.15A2_MG">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.15A2_MG_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.15A2_MG">
+							<gml:description>Exchangeable bases- 1M ammonium chloride at pH 7.0, pretreatment for soluble salts</gml:description>
+							<gml:name>Exch. Mg++</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15A2_MG" xlink:title="Exchangeable bases- 1M ammonium chloride at pH 7.0, pretreatment for soluble salts"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_MG"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">0.8</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.15A2_NA">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.15A2_NA_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.15A2_NA">
+							<gml:description>Exchangeable bases- 1M ammonium chloride at pH 7.0, pretreatment for soluble salts</gml:description>
+							<gml:name>Exch. Na++</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/15A2_NA" xlink:title="Exchangeable bases- 1M ammonium chloride at pH 7.0, pretreatment for soluble salts"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="EXCH_BASES_NA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="meq/100g">0.05</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.3A1">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.3A1_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.3A1">
+							<gml:description>EC of 1:5 soil/water extract</gml:description>
+							<gml:name>EC</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/3A1" xlink:title="EC of 1:5 soil/water extract"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://www.waterwatch.org.au/publications/module4/electrical.html" xlink:title="EC"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="dS/m">0.1</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.4A1">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.4A1_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.4A1">
+							<gml:description>pH of 1:5 soil/water suspension</gml:description>
+							<gml:name>pH Soil/water</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/4A1" xlink:title="pH of 1:5 soil/water suspension"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://sweet.jpl.nasa.gov/2.0/chemAcidity.owl#pH" xlink:title="PH"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="-">6.95</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.5A1">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.5A1_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.5A1">
+							<gml:description>Chloride - 1:5 soil/water extract, potentiometric titration</gml:description>
+							<gml:name>Water soluble Cl</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/5A1" xlink:title="Chloride - 1:5 soil/water extract, potentiometric titration"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://www.engineeringtoolbox.com/gases-solubility-water-d_1148.html" xlink:title="CHLORIDE"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="mg/kg">22.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.6B2">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.6B2_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.6B2">
+							<gml:description>Total organic carbon - high frequency induction furnace, volumetric</gml:description>
+							<gml:name>Organic carbon</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/6B2" xlink:title="Total organic carbon - high frequency induction furnace, volumetric"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://en.wikipedia.org/wiki/Total_organic_carbon" xlink:title="ORGANIC_CARBON"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">0.71</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_GRAV">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_GRAV_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_GRAV">
+							<gml:description>Gravel (%)</gml:description>
+							<gml:name>Gravel</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_GRAV" xlink:title="Gravel (%)"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://resource.geosciml.org/classifier/cgi/lithology/gravel" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">0.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_0.20">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_0.20_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_0.20">
+							<gml:description>0.20 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>0.20 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_0.20" xlink:title="0.20 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">0.8</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_0.48">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_0.48_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_0.48">
+							<gml:description>0.48 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>0.48 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_0.48" xlink:title="0.48 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">2.2</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_1">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_1_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_1">
+							<gml:description>1 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>1 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_1" xlink:title="1 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">2.9</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_1000">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_1000_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_1000">
+							<gml:description>1000 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>1000 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_1000" xlink:title="1000 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">98.9</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_125">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_125_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_125">
+							<gml:description>125 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>125 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_125" xlink:title="125 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">22.6</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_15.6">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_15.6_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_15.6">
+							<gml:description>15.6 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>15.6 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_15.6" xlink:title="15.6 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">4.6</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_2">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_2_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_2">
+							<gml:description>2 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>2 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_2" xlink:title="2 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">3.6</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_20">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_20_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_20">
+							<gml:description>20 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>20 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_20" xlink:title="20 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">4.7</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_2000">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_2000_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_2000">
+							<gml:description>2000 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>2000 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_2000" xlink:title="2000 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">100.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_250">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_250_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_250">
+							<gml:description>250 micron (cumlative %) - Sedigraph</gml:description>
+							<gml:name>250 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_250" xlink:title="250 micron (cumlative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">63.2</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_3.9">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_3.9_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_3.9">
+							<gml:description>3.9 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>3.9 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_3.9" xlink:title="3.9 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">4.4</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_31.2">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_31.2_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_31.2">
+							<gml:description>31.2 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>31.2 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_31.2" xlink:title="31.2 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">4.8</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_500">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_500_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_500">
+							<gml:description>500 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>500 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_500" xlink:title="500 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">91.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_53">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_53_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_53">
+							<gml:description>53 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>53 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_53" xlink:title="53 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">4.9</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_63">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_63_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_63">
+							<gml:description>63 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>63 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_63" xlink:title="63 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">5.3</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P10_S_7.8">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P10_S_7.8_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P10_S_7.8">
+							<gml:description>7.8 micron (cumulative %) - Sedigraph</gml:description>
+							<gml:name>7.8 micron</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P10_S_7.8" xlink:title="7.8 micron (cumulative %) - Sedigraph"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="PSA"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="%">4.5</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P3A1">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P3A1_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P3A1">
+							<gml:description>Bulk density - g/cm3</gml:description>
+							<gml:name>Bulk density</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P3A1" xlink:title="Bulk density - g/cm3"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="http://www.geology.iupui.edu/research/SoilsLab/procedures/bulk/" xlink:title="DENSITY"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="g/cm3">1.36</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sam:relatedObservation>
+				<om:OM_Observation gml:id="lab_result_899.Morphology.CP302.1.1.1.1.P5_LS_MOD">
+					<om:phenomenonTime nilReason="unknown"/>
+					<om:resultTime xlink:href="#time_899.Morphology.CP302.1.1.1.1.P5_LS_MOD_14111991"/>
+					<om:procedure>
+						<gsmlla:AnalyticalProcess gml:id="lab_method_899.Morphology.CP302.1.1.1.1.P5_LS_MOD">
+							<gml:description>Modified linear shrinkage (McKenzie, Jacquier and Ringrose-Voase, AJSR, 1994, 32, 931-8)</gml:description>
+							<gml:name>Cole</gml:name>
+							<gsmlla:method xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/lab_methods/P5_LS_MOD" xlink:title="Modified linear shrinkage (McKenzie, Jacquier and Ringrose-Voase, AJSR, 1994, 32, 931-8)"/>
+							<gsmlla:acquisition xsi:nil="true" nilReason="missing"/>
+							<gsmlla:computation xsi:nil="true" gco:nilReason="missing"/>
+						</gsmlla:AnalyticalProcess>
+					</om:procedure>
+					<om:observedProperty xlink:href="no link available" xlink:title="LINEAR_SHRINKAGE"/>
+					<om:featureOfInterest xlink:href="soil_sample_899.Morphology.CP302.1.1.1"/>
+					<om:result xsi:type="gml:MeasureType" uom="-">0.0</om:result>
+				</om:OM_Observation>
+			</sam:relatedObservation>
+			<sams:shape>
+				<gml:Point gml:id="point_899.Morphology.CP302.1.1.1" srsDimension="2" srsName="http://www.opengis.net/gml/srs/epsg.xml#4283">
+					<gml:pos>136.241 -33.9486</gml:pos>
+				</gml:Point>
+			</sams:shape>
+			<anzsmlss:depthRange>
+				<swe:QuantityRange>
+					<swe:uom code="m" xlink:href="http://aurora.regenstrief.org/~ucum/ucum.html#para-28" xlink:title="metre"/>
+					<swe:value>0 0.15</swe:value>
+				</swe:QuantityRange>
+			</anzsmlss:depthRange>
+			<anzsmlss:archivedSample>
+				<anzsmlss:SoilSpecimen gml:id="soil_specimen_899.Morphology.CP302.1.1.1.1">
+				<!-- gml:id for a SoilSpecimen = "soil_specimen_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID].[H_NO].[SAMP_NO].[JAR_NO] from ARCHIVE_SAMPLES -->
+					
+			<gml:metaDataProperty>
+						<gml:GenericMetaData>
+							<gmd:CI_ResponsibleParty>
+								<gmd:organisationName>
+									<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+								</gmd:organisationName>
+								<gmd:role>
+									<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeListValue="CI_RoleCode_owner" codeSpace="ISOTC211/19115">owner</gmd:CI_RoleCode>
+								</gmd:role>
+							</gmd:CI_ResponsibleParty>
+						</gml:GenericMetaData>
+					</gml:metaDataProperty>
+					<gml:identifier codeSpace="http://www.asris.csiro.au">http://www.clw.csiro.au/aclep/resources/soilfeature/soil_specimen_103.EPA_CMP.SITE001.01.01.01.02</gml:identifier>
+					<sam:sampledFeature xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_horizon_899.Morphology.CP302.1.1"/>
+					<spec:materialClass xlink:href="http://www.opengis.net/def/material/OGC-OM/2.0/" xlink:title="soil"/>
+					<spec:samplingTime xsi:nil="true" nilReason="unknown"/>
+					<spec:currentLocation>
+						<gmd:EX_GeographicDescription>
+							<gmd:geographicIdentifier>
+								<gmd:MD_Identifier>
+									<gmd:authority>
+										<gmd:CI_Citation>
+											<gmd:title/>
+											<gmd:date/>
+											<gmd:citedResponsibleParty>
+												<gmd:CI_ResponsibleParty>
+													<gmd:organisationName>
+														<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+													</gmd:organisationName>
+													<gmd:role>
+														<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeListValue="CI_RoleCode_custodian" codeSpace="ISOTC211/19115">custodian</gmd:CI_RoleCode>
+													</gmd:role>
+												</gmd:CI_ResponsibleParty>
+											</gmd:citedResponsibleParty>
+										</gmd:CI_Citation>
+									</gmd:authority>
+									<gmd:code>
+										<gco:CharacterString>8-3-2</gco:CharacterString>
+									</gmd:code>
+								</gmd:MD_Identifier>
+							</gmd:geographicIdentifier>
+						</gmd:EX_GeographicDescription>
+					</spec:currentLocation>
+					<spec:specimenType xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilsampletype/FE" xlink:title="Fine earth"/>
+					<anzsmlss:coarseFragmentsPresent>false</anzsmlss:coarseFragmentsPresent>
+				</anzsmlss:SoilSpecimen>
+			</anzsmlss:archivedSample>
+			<anzsmlss:archivedSample>
+				<anzsmlss:SoilSpecimen gml:id="soil_specimen_899.Morphology.CP302.1.1.1.2">
+					<gml:metaDataProperty>
+						<gml:GenericMetaData>
+							<gmd:CI_ResponsibleParty>
+								<gmd:organisationName>
+									<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+								</gmd:organisationName>
+								<gmd:role>
+									<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeListValue="CI_RoleCode_owner" codeSpace="ISOTC211/19115">owner</gmd:CI_RoleCode>
+								</gmd:role>
+							</gmd:CI_ResponsibleParty>
+						</gml:GenericMetaData>
+					</gml:metaDataProperty>
+					<sam:sampledFeature xlink:href="http://www.clw.csiro.au/aclep/resources/soilfeature/soil_horizon_899.Morphology.CP302.1.1"/>
+					<spec:materialClass xlink:href="http://www.opengis.net/def/material/OGC-OM/2.0/" xlink:title="soil"/>
+					<spec:samplingTime xsi:nil="true" nilReason="unknown"/>
+					<spec:currentLocation>
+						<gmd:EX_GeographicDescription>
+							<gmd:geographicIdentifier>
+								<gmd:MD_Identifier>
+									<gmd:authority>
+										<gmd:CI_Citation>
+											<gmd:title/>
+											<gmd:date/>
+											<gmd:citedResponsibleParty>
+												<gmd:CI_ResponsibleParty>
+													<gmd:organisationName>
+														<gco:CharacterString>CSIRO Land and Water</gco:CharacterString>
+													</gmd:organisationName>
+													<gmd:role>
+														<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeListValue="CI_RoleCode_custodian" codeSpace="ISOTC211/19115">custodian</gmd:CI_RoleCode>
+													</gmd:role>
+												</gmd:CI_ResponsibleParty>
+											</gmd:citedResponsibleParty>
+										</gmd:CI_Citation>
+									</gmd:authority>
+									<gmd:code>
+										<gco:CharacterString>8-3-2</gco:CharacterString>
+									</gmd:code>
+								</gmd:MD_Identifier>
+							</gmd:geographicIdentifier>
+						</gmd:EX_GeographicDescription>
+					</spec:currentLocation>
+					<spec:specimenType xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/soilsampletype/WS" xlink:title="Whole soil"/>
+					<anzsmlss:coarseFragmentsPresent>false</anzsmlss:coarseFragmentsPresent>
+				</anzsmlss:SoilSpecimen>
+			</anzsmlss:archivedSample>
+		</anzsmlss:SoilSample>
+	</wfs:member>
+</wfs:FeatureCollection>

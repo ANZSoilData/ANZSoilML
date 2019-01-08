@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wfs:FeatureCollection xmlns="http://www.w3.org/2001/XMLSchema" xmlns:wfs="http://www.opengis.net/wfs/2.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:anzsml="http://xmlns.anzsoil.org/ANZSoilML-Core/1.0" timeStamp="2012-05-18T09:07:14.313+10:00" 
+xsi:schemaLocation="http://www.opengis.net/wfs/2.0 http://schemas.opengis.net/wfs/2.0/wfs.xsd http://www.opengis.net/gml/3.2 http://schemas.opengis.net/gml/3.2.1/gml.xsd
+                http://xmlns.anzsoil.org/ANZSoilML-Core/1.0.0 http://anzsoil.org/anzsoilml/anzsoilml-core/1.0.0/schema/anzsoilml-core.xsd" numberMatched="unknown" numberReturned="5">
+	<!-- ========================================= -->
+	<!-- The following schema locations are for use when testing and web access is unavailable -->
+	<!-- 
+https://svnserv.csiro.au/svn/TernSoils/ANZSoilML/trunk/ANZSoilML_Core/xsd/anzsoilml-core.xsd
+C:\Repos\TernSoils/ANZSoilML/trunk/ANZSoilML_Core/xsd/anzsoilml-core.xsd -->
+	<!-- ========================================= -->
+	<!-- wfs:FeatureCollection and wfs:member allow delivery of multiple features -->
+	<wfs:member>
+		<anzsml:SpatialEntity gml:id="spatial_entity_103.EPA_CMP.SITE001.01">
+			<!-- anzsmla:SpatialEntity/gml:description = OBSERVATIONS:O_LOCATION_NOTES -->
+			<gml:description>Some description of the spatial location</gml:description>
+			<!-- anzsmla:SpatialEntity/osmla:observationMethod = OBSERVATIONS:O_TYPE:C_O_TYPE -->
+			<anzsml:observationMethod xlink:href="http://resource.soilinformationstandards.org/classifier/aclep/observationmethod/soilpit" xlink:title="Soil pit"/>
+			<!-- osmls:geometry delivers the spatial location of the osmlss:SoilProfile -->
+			<anzsml:geometry>
+				<!--  point_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID] -->
+				<!-- osmla:SpatialEntity/gml:Point//gml:id = point_[AGENCY_CODE].[PROJ_CODE].[S_ID].[OBS_ID]-->
+				<gml:Point gml:id="point_103.EPA_CMP.SITE001.01" srsName="http://www.opengis.net/def/crs/EPSG/0/4283" srsDimension="2">
+					<!-- Check EPSG and use appropriate one for either AMG or Latitude/Longitude -->
+					<!-- <gml:pos = [OBSERVATIONS:O_LATITUDE_GDA94]" " [OBSERVATIONS:O_LONGITUDE_GDA94] -->
+					<gml:pos>-25.0 119.0</gml:pos>
+				</gml:Point>
+			</anzsml:geometry>
+			<!-- neither anzsmla:positionalAccuracy or anzsmla:resoloutionScale are known. Use gco:nilReason = "unknown" -->
+			<anzsml:positionalAccuracy gco:nilReason="unknown"/>
+			<anzsml:resolutionScale gco:nilReason="unknown"/>
+			
+			<anzsml:featureDescription xlink:href="http:///resources.aclep.org/soilfeature/soil_profile_103.EPA_CMP.SITE001.01" xlink:title="[OBSERVATIONS:O_MAP_UNIT_NAME]"/> 
+<!-- anzsml:SpatialEntity/anzsml:metadata shown in-line here as an example  -->
+			<!--	More likely to be by reference e.g. <anzsml:metadata xlink:href="http://metadata_103.EPA_CMP"/> -->
+			<!-- Question whether schema is correct allowing metadata on spatial entity? -->
+			
+			<anzsml:metadata>
+			
+				<gmd:MD_Metadata id="metadata_103.EPA_CMP">
+					<!-- The first gmd:contact is the "originator" of the data. It is from [HORIZONS:AGENCY_CODE:AGENCIES:AGENCY_NAME]   -->
+					<gmd:contact>
+						<gmd:CI_ResponsibleParty>
+							<gmd:organisationName>
+								<!-- For gmd:role/gmd:CI_RoleCode = "originator" gmd:organisationName/gco:CharacterString = [HORIZONS:AGENCY_CODE:AGENCIES:AGENCY_NAME] -->
+								<gco:CharacterString>SA Department of Primary Industries</gco:CharacterString>
+							</gmd:organisationName>
+							<!-- gmd:role/gmd:CI_RoleCode/codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_originator", value = "originator" -->
+							<gmd:role>
+								<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_originator">originator</gmd:CI_RoleCode>
+							</gmd:role>
+						</gmd:CI_ResponsibleParty>
+					</gmd:contact>
+					<!-- The second gmd:contact is the provider of the data. I've indicated it as Australian Soil Resource Information System. -->
+					<gmd:contact>
+						<gmd:CI_ResponsibleParty>
+							<!-- For gmd:role/gmd:CI_RoleCode = "resourceProvider"  gmd:organisationName/gco:CharacterString = "Australian Soil Resource Information System"-->
+							<gmd:organisationName>
+								<gco:CharacterString>Australian Soil resource Information System</gco:CharacterString>
+							</gmd:organisationName>
+							<gmd:role>
+								<!-- gmd:role/gmd:CI_RoleCode/codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_resourceProvider", value = "resourceProvider" -->
+								<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_resourceProvider">resourceProvider</gmd:CI_RoleCode>
+							</gmd:role>
+						</gmd:CI_ResponsibleParty>
+					</gmd:contact>
+					<!-- The third gmd:contact is the custodian of the data. I've used "CSIRO Land and Water". -->
+					<!-- No use originator organisation -->
+					<gmd:contact>
+						<gmd:CI_ResponsibleParty>
+							<!-- For gmd:role/gmd:CI_RoleCode = "custodian" gmd:organisationName/gco:CharacterString = "CSIRO Land and Water" -->
+							<gmd:organisationName>
+								<gco:CharacterString/>
+							</gmd:organisationName>
+							<!-- gmd:role/gmd:CI_RoleCode/codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_custodian", value = "custodian" -->
+							<gmd:role>
+								<gmd:CI_RoleCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="CI_RoleCode_custodian">custodian</gmd:CI_RoleCode>
+							</gmd:role>
+						</gmd:CI_ResponsibleParty>
+					</gmd:contact>
+					<!-- gmd:dateStamp  is the date that the metadata were created or last updated Not present in NatSoil SITES -->
+					<gmd:dateStamp/>
+					<!-- gmd:IdentificationInfo provides information about the dataset -->
+					<gmd:identificationInfo>
+						<gmd:MD_DataIdentification>
+							<gmd:citation>
+								<!-- Recommended reference to be used for the dataset for this Project -->
+								<!-- gmd:CI_Citation/id = "citation_[AGENCY_CODE_PROJ_CODE] -->
+								<gmd:CI_Citation id="citation_103.EPA_CMP">
+									<!-- Use [PROJECTS]  for gmd:title, gmd:alternateTitle and gmd:ISBN for identification of specific data within overall project -->
+									<!-- Use PROJECTS Table Project Name -->
+									<!-- gmd:title/gco:CharacterString = [PROJECTS:PROJ_NAME] -->
+									<!-- Note any free text field with "&" will need to be replaced with "&amp;"-->
+									<gmd:title>
+										<gco:CharacterString>Adelaide Hills, Talunga &amp; Para Wirra, S.A.</gco:CharacterString>
+									</gmd:title>
+									<!-- If [PROJECTS:PROJ_BIBLIO_REF] != "ISBN"* || = NULL then gmd:alternateTitle/gco:CharacterString = [PROJECTS:PROJ_BIBLIO] -->
+									<gmd:alternateTitle>
+										<gco:CharacterString>A Survey of the Physical Properties of Wheatland Soils in Eastern Australia, CSIRO Division of Soils, Divisional Report No. 78</gco:CharacterString>
+									</gmd:alternateTitle>
+									<!-- Date of the dataset from [PROJECTS:PROJ_START_DATE]
+Format in database is "25121955" which will need to be converted to "1955-12-25" -->
+									<gmd:date>
+										<gmd:CI_Date>
+											<gmd:date>
+												<gco:Date>1955-12-25</gco:Date>
+											</gmd:date>
+											<gmd:dateType>
+												<!-- gmd:dateType is the creation date.
+gmd:CI_DateTypeCode codeList="standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue="CI_DateTypeCode_creation", value = "creation" -->
+												<gmd:CI_DateTypeCode codeList="standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmxCodelists.xml#CI_DateTypeCode" codeListValue="CI_DateTypeCode_creation">creation</gmd:CI_DateTypeCode>
+											</gmd:dateType>
+										</gmd:CI_Date>
+									</gmd:date>
+									<!-- If [PROJECTS:PROJ_BIBLIO_REF] =  "ISBN"* then gmd:ISBN = [PROJECTS:PROJ_BIBLIO_REF] -->
+									<gmd:ISBN>
+										<gco:CharacterString>ISBN 0 7310 2366 8</gco:CharacterString>
+									</gmd:ISBN>
+								</gmd:CI_Citation>
+							</gmd:citation>
+							<!-- NatSoil SITES does not contain any gmd:abstract information on the Project dataset -->
+							<gmd:abstract/>
+							<!-- gmd:aggregationInfo allows aggregating different datasets. I have used it to aggragate data from the same Project -->
+							<gmd:aggregationInfo>
+								<gmd:MD_AggregateInformation>
+									<!-- gmd:AggragateDataSetName xlink:href= CI_Citation/id = "#citation_[AGENCY_CODE_PROJ_CODE] -->
+									<gmd:aggregateDataSetName xlink:href="#citation_103.EPA_CMP"/>
+									<!-- gmd:AssociationType allows specifying that the dat is all from the same Project of type "project" -->
+									<!-- as the association type I suggest using:
+<CodeDefinition gml:id="DS_AssociationTypeCode_source">
+<gml:description>mapping and charting information from which the dataset content originates</gml:description>
+<gml:identifier codeSpace="ISOTC211/19115">source</gml:identifier>
+</CodeDefinition>  
+Instead could use:
+<CodeDefinition gml:id="DS_AssociationTypeCode_largerWorkCitation">
+<gml:description>reference to a master dataset of which this one is a part</gml:description>
+<gml:identifier codeSpace="ISOTC211/19115">largerWorkCitation</gml:identifier>
+</CodeDefinition> 
+ -->
+									<gmd:associationType>
+										<gmd:DS_AssociationTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeSpace="ISOTC211/19115" codeListValue="DS_AssociationTypeCode_source">source</gmd:DS_AssociationTypeCode>
+									</gmd:associationType>
+									<!--	gmd:initiativeType specifies that the initiative is a 'project'. -->
+									<!-- gmd:DS_InitiativeTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeListValue="DS_InitiativeTypeCode_project" codeSpace="ISOTC211/19115" value = "project" -->
+									<gmd:initiativeType>
+										<gmd:DS_InitiativeTypeCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/gmxCodelists.xml" codeListValue="DS_InitiativeTypeCode_project" codeSpace="ISOTC211/19115">project</gmd:DS_InitiativeTypeCode>
+									</gmd:initiativeType>
+								</gmd:MD_AggregateInformation>
+							</gmd:aggregationInfo>
+							<gmd:language>
+								<!-- The language that the dataset is delivered in -->
+								<gmd:LanguageCode codeList="http://standards.iso.org/ittf/PubliclyAvailableStandards/ISO_19139_Schemas/resources/Codelist/ML_gmx
+Codelists.xml#LanguageCode" codeListValue="eng">English</gmd:LanguageCode>
+							</gmd:language>
+							<gmd:topicCategory>
+								<gmd:MD_TopicCategoryCode>geoscientificInformation</gmd:MD_TopicCategoryCode>
+							</gmd:topicCategory>
+						</gmd:MD_DataIdentification>
+					</gmd:identificationInfo>
+				</gmd:MD_Metadata>
+			</anzsml:metadata>
+		</anzsml:SpatialEntity>
+	</wfs:member>
+</wfs:FeatureCollection>
