@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:anzsml100="http://xmlns.anzsoil.org/ANZSoilML/1.0.0" xmlns:anzsmll="http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0.0" xmlns:anzsmls="http://xmlns.anzsoil.org/ANZSoilML-Soil/1.0.0" xmlns:anzsmlss="http://xmlns.anzsoil.org/ANZSoilML-SoilSample/1.0.0" xmlns:anzsml="http://xmlns.anzsoil.org/ANZSoilML-Core/1.0.0" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://xmlns.anzsoil.org/ANZSoilML/1.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0">
+  <annotation>
+    <documentation>Summary schema to import all related application schemas for ANZSoilML v1.0
+					   ANZSoilML is an application schema that specifies a set of feature-types and supporting structures for information used in the
+					   Australian and New Zealand soil sciences. 
+					   ANZSoilML is scoped to the information specified in:
+							AUS: Australian Soil and Land Survey Field Handbook, Third edition, 2009, The National Committee on Soil and Terrain.
+							NZL: Soil Description, Revised edition, 1995, Milne, J.D.G., Clayden, B., Singleton, P.L., Wilson, A.D.
+					   ANZSoilML is primarily concerned with observed properties of Soils and associated Landscapes.
+					   ANZSoilML is factored into a set of sub-packages that are maintained separately. 
+					   ---
+					   ANZSoilML was derived from OzSoilML, which was developed under the auspices of the Australian Collaborative Land Evaluation Program
+					   (ACLEP) http://www.clw.csiro.au/aclep/
+					   Copyright (c) CSIRO 2012. All rights reserved.
+        </documentation>
+  </annotation>
+  <import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <import namespace="http://xmlns.anzsoil.org/ANZSoilML-Core/1.0.0" schemaLocation="http://anzsoil.org/anzsoilml-core/1.0.0/schema/anzsoilml-core.xsd"/>
+  <import namespace="http://xmlns.anzsoil.org/ANZSoilML-Soil/1.0.0" schemaLocation="http://anzsoil.org/anzsoilml-soil/1.0.0/schema/anzsoilml-soil.xsd"/>
+  <import namespace="http://xmlns.anzsoil.org/ANZSoilML-SoilSample/1.0.0" schemaLocation="http://anzsoil.org/anzsoilml-soilsample/1.0.0/schema/anzsoilml-soilsample.xsd"/>
+</schema>

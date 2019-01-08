@@ -35,11 +35,14 @@ version was rebranded as ANZSoilML.
 > Copyright (c) CSIRO 2019. All rights reserved.
 
 ## Documentation
-ANZSoilML documentation is maintained on the project's GitHub repository wiki: https://github.com/ANZSoilData/ANZSoilML/wiki
+ANZSoilML is developed in this GitHub repository: https://github.com/ANZSoilData/ANZSoilML
+
+ANZSoilML documentation is maintained on the GitHub repository's wiki: https://github.com/ANZSoilData/ANZSoilML/wiki
 
 Canonical schema are published at: http://anzsoil.org/def/schema/
 
-Schema are also published via the ANZSoilML github.io home page: https://anzsoildata.github.io/ANZSoilML/
+Schema under development (and archived schema) are published via the ANZSoilML github.io home page:
+https://anzsoildata.github.io/ANZSoilML/
 
 ## The current state of ANZSoilML
 The current version of ANZSoilML (2.0.1) has been designed and implemented as a

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anzsmll="http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0.0" xmlns:gml="http://www.opengis.net/gml/3.2" targetNamespace="http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0.0" elementFormDefault="qualified" version="1.0.0">
+  <xs:include schemaLocation="http://anzsoil.org/anzsoilml-landscape/1.0.0/schema/vegetation.xsd"/>
+  <xs:include schemaLocation="http://anzsoil.org/anzsoilml-landscape/1.0.0/schema/soillandscape.xsd"/>
+  <xs:include schemaLocation="http://anzsoil.org/anzsoilml-landscape/1.0.0/schema/humanactivity.xsd"/>
+  <xs:include schemaLocation="http://anzsoil.org/anzsoilml-landscape/1.0.0/schema/climate.xsd"/>
+  <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <xs:annotation>
+    <xs:documentation>Application schema to capture Landscape properties associated with Soils</xs:documentation>
+  </xs:annotation>
+</xs:schema>

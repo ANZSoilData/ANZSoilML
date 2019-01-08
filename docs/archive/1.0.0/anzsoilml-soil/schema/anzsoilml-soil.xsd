@@ -1,0 +1,1446 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anzsmls="http://xmlns.anzsoil.org/ANZSoilML-Soil/1.0.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:anzsml="http://xmlns.anzsoil.org/ANZSoilML-Core/1.0.0" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:gsmlpp="http://xmlns.geosciml.org/PhysicalProperties/3.0" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:anzsmlss="http://xmlns.anzsoil.org/ANZSoilML-SoilSample/1.0.0" xmlns:gsmlem="http://xmlns.geosciml.org/EarthMaterial/3.1" xmlns:gsmlgu="http://xmlns.geosciml.org/GeologicUnit/3.1" targetNamespace="http://xmlns.anzsoil.org/ANZSoilML-Soil/1.0.0" elementFormDefault="qualified" attributeFormDefault="unqualified" version="1.0.0">
+  <xs:import namespace="http://xmlns.geosciml.org/GeologicUnit/3.1" schemaLocation="http://schemas.geosciml.org/geologicunit/3.1/geologicUnit.xsd"/>
+  <xs:import namespace="http://xmlns.geosciml.org/EarthMaterial/3.1" schemaLocation="http://schemas.geosciml.org/earthmaterial/3.1/earthMaterial.xsd"/>
+  <xs:import namespace="http://xmlns.anzsoil.org/ANZSoilML-SoilSample/1.0.0" schemaLocation="http://anzsoil.org/anzsoilml-soilsample/1.0.0/schema/anzsoilml-soilsample.xsd"/>
+  <xs:import namespace="http://www.isotc211.org/2005/gmd" schemaLocation="http://schemas.opengis.net/iso/19139/20070417/gmd/gmd.xsd"/>
+  <xs:import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+  <xs:import namespace="http://xmlns.anzsoil.org/ANZSoilML-Core/1.0.0" schemaLocation="http://anzsoil.org/anzsoilml-core/1.0.0/schema/anzsoilml-core.xsd"/>
+  <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <xs:import namespace="http://xmlns.geosciml.org/PhysicalProperties/3.0" schemaLocation="http://schemas.geosciml.org/physicalproperties/3.0/physicalProperties.xsd"/>
+  <xs:annotation>
+    <xs:documentation>The ANZSoilML_Soil Package contains classes representing notional soil units, soil profiles and soil layers whose complete and precise extent is inferred to exist. Explicit spatial properties are available through association with a SpatialEntity via the AbstractSoil generalization. 
+
+Soils includes both formal units (i.e. formally adopted and named in the official lexicon) and informal units (i.e. named but not promoted to the lexicon) and unnamed units (i.e. recognisable and described and delineable in the field but not otherwise formalised).</xs:documentation>
+  </xs:annotation>
+  <xs:element name="AbstractSoil" type="anzsmls:AbstractSoilType" abstract="true" substitutionGroup="anzsml:LandscapeFeature">
+    <xs:annotation>
+      <xs:documentation>Name: AbstractSoil
+
+Definition: 
+AbstractSoil is an abstract soil domain feature that provides a link between the SoilFeatures and the Landscape features, via landscapeContext, the spatial distribution of the SoilFeatures via the occurrence property, and the metadata properties.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="AbstractSoilType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="anzsml:LandscapeFeatureType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="AbstractSoilPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:AbstractSoil"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Colour" type="anzsmls:ColourType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>The soil colour as measured on a freshly broken aggregate of (usually) moist soil.
+the colour scheme used (eg Munsell, RGB triplet), its value (eg 10YR4/2, 0,0,100), and whether the soil is moist or not.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ColourType">
+    <xs:sequence>
+      <xs:element name="value" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>The identifier for the colour. It is important that the ColourTerm value link back to a controlled vocabulary (via xlink:href) where the values can be de-referenced.
+The value for the colour may be delivered as part of xlink:title. Using Munsell this will be the hue, value, chroma triplet (eg 10YR4/2). For RGB the RGB triplet. Other schemes may just deliver the preferred label (eg light yellow).</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_ColourValueTerm.xml#ColourValueTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="moistureStatus" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>the moisture status of the soil. Maybe 'moist' or 'dry'.
+ASLS Field Handbook p159</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MoistureStatusTerm.xml#MoistureStatusTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ColourPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:Colour"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+  </xs:complexType>
+  <xs:element name="Consistence" type="anzsmls:ConsistenceType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>Consistence refers to the strength of cohesion and adhesion in soil. Strength will vary according to soil water status.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ConsistenceType">
+    <xs:sequence>
+      <xs:element name="plasticityDegree" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Plasticity is the ability to change shape and retain the new shape after stress is removed. The degree of plasticity only applies to normal plasticity (p188).
+Values are: non-plastic, slightly plastic, moderately plastic, very plastic</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PlasticityDegreeTerm.xml#PlasticityDegreeTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="plasticityType" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The type of plasticity refers to the degree to which either the consistence, field texture or both properties of a soil suggest the amount of clay-sized particles it contains (p188).
+Values are:
+superplastic, normal plasticity, subplastic, strongly plastic</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PlasticityTypeTerm.xml#PlasticityTypeTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="stickiness" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Stickiness is determined on wet soil by pressing the sample and observing adherence of soil to fingers.
+Values are:
+non-sticky, slightly sticky, moderately sticky, very sticky</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_StickinessTerm.xml#StickinessTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="strength" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Strength of the soil is the resistance to breaking or deformation.
+Values are:
+loose, very weak, weak, firm, very firm, strong, very strong, rigid</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_StrengthTerm.xml#StrengthTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="waterStatus" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Soil water status.
+Soil water status must be provided with strength.
+Values are:
+dry = below wilting point.
+moderately moist = drier half of available moisture range
+moist = wetter half of available moisture range
+wet = at or exceeding field capacity</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MoistureStatusTerm.xml#MoistureStatusTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ConsistencePropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:Consistence"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+  </xs:complexType>
+  <xs:element name="Cutans" type="anzsmls:CutansType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>A cutan is a modification of the texture, structure or fabric at natural surfaces in soil materials; it arises from concentration of particular soil constituents or in situ modification of the plasma. Cutans comprise any of the component substances of the soil material.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="CutansType">
+    <xs:sequence>
+      <xs:element name="type" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>The type of cutan.
+Examples: none, unspecified, clay skins, mangans, stress cutans, slickensides, other cutans</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_CutanTypeTerm.xml#CutanTypeTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="abundance" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The % of ped faces or pore walls with cutans</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="distinctness" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The ease and certainty with which a cutan is identified. It relates to thickness and colour contrast with adjacent material.
+Examples: faint, distinct, prominent</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_ContrastTerm.xml#ContrastTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CutansPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:Cutans"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+  </xs:complexType>
+  <xs:simpleType name="DescriptionPurposeType">
+    <xs:annotation>
+      <xs:documentation>Codes used for the specification of the intended purpose/level of abstraction for a given feature or object instance, ie the reason for the existence of the SoilFeature. 
+Values: instance, typicalNorm, definingNorm. </xs:documentation>
+    </xs:annotation>
+    <xs:union memberTypes="anzsmls:DescriptionPurposeEnumerationType anzsmls:DescriptionPurposeOtherType"/>
+  </xs:simpleType>
+  <xs:simpleType name="DescriptionPurposeEnumerationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="typicalNorm">
+        <xs:annotation>
+          <xs:documentation>TypicalNorm -- a description that specifies properties to be expected of some occurrence associated with the Soil. This description may include many properties that are not part of the DefiningNorm. 
+For example, the fact that Rudosols typically have gravel within 1 metre of the surface horizon is not a defining property, but is a useful typical property. These kinds of descriptions would be used to address queries like 'This area is within a polygon classified as a Rudosol; what sort of Soil Profile am I most likely to encounter when I start digging?' The Rudosol may be defined by the presence of little variation in texture or colour with depth.
+TypicalNorm description would be constructed as a summary over many Instance descriptions.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="instance">
+        <xs:annotation>
+          <xs:documentation>Instance -- a description that is specific to a particular observed occurrence. This is 'raw data', and its classification may start out as very general. </xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="definingNorm">
+        <xs:annotation>
+          <xs:documentation>DefiningNorm -- a description that specifies properties sufficient to identify a new occurrence as belonging to the class represented by the description. Basically these are the 'sufficient conditions' for class membership. Used when presented with a query 'I have a profile with these properties; which soil unit should I assign to the profile?' DefiningNorm has to do with the intension of a ControlledConcept.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DescriptionPurposeOtherType">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="other: \w{2,}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="Field_pH" type="anzsmls:Field_pHType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>The soil pH determined in the field.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="Field_pHType">
+    <xs:sequence>
+      <xs:element name="pHValue" type="xs:double">
+        <xs:annotation>
+          <xs:documentation>field pH value</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pHMethod" type="xs:string">
+        <xs:annotation>
+          <xs:documentation>Method by which the field pH value was obtained</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="pHDepth">
+        <xs:annotation>
+          <xs:documentation>Depth at which the field pH value was obtained</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityPropertyType"/>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="Field_pHPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:Field_pH"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Joint" type="anzsmls:JointType" substitutionGroup="gml:AbstractFeature">
+    <xs:annotation>
+      <xs:documentation>A placeholder to handle substrate discontinuities.
+To be replaced by GeoSciML 'Joint' feature class.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="JointType">
+    <xs:complexContent>
+      <xs:extension base="gml:AbstractFeatureType">
+        <xs:sequence>
+          <xs:element name="spacing" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The spacing of discontinuities or joints. </xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityRangePropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="hostMaterial" type="anzsmls:SubstratePropertyType" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmls:discontinuities</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="JointPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:Joint"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="MicroRelief" type="anzsmls:MicroReliefType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>The relief (up to a few metres) about the plane of the land surface. It includes gilfai, hummocky, biotic and other microrelief. 
+ASLS Field Handbook p129</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="MicroReliefType">
+    <xs:sequence>
+      <xs:element name="proportion" type="gml:ReferenceType" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>proportion is the proportion of the microrelief of each component. May only apply to gilgai?</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MicroReliefProportionTerm.xml#MicroReliefProportionTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>type is the type microrelief it may be at the top level of a microrelief hierarchical vocabulary (eg gilgai, hummocky, biotic, mound, karst), or at lower levels (eg crabhole gilgai, vegetation biotic)etc)</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MicroReliefTypeTerm.xml#MicroReliefTypeTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="components" type="gml:ReferenceType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+        <xs:annotation>
+          <xs:documentation>components is the microrelief components that make up the microrelief (eg mounds and depressions, depressions, terraces, trenches, hole, elongate mound). Modeled here as separate items rather than as patterns.</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MicroReliefComponentTerm.xml#MicroReliefComponentTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="horizontalInterval" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Horizontal distance between crests of mounds or tops of hummocks</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityPropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="verticalInterval" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Vertical distance between base of depression or flat and horizontal line joining crests of mounds or hummocks</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityPropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MicroReliefPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:MicroRelief"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+  </xs:complexType>
+  <xs:element name="Mottle" type="anzsmls:MottleType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>Mottles are spots, blotches or streaks of subdominant colours different from the matrix colour and different from the ped surface colour.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="MottleType">
+    <xs:sequence>
+      <xs:element name="type" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>type of mottle (eg mottle, biological mixing, mechanical mixing, weathering)</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MottleTypeTerm.xml#MottleTypeTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="abundance" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Abundance as a measured range ( 0-2%, 2-10%, 10-20%, 20-50%)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="boundaries" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>How distinct are the mottle boundaries (eg sharp, clear, diffuse))</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_BoundaryTypeTerm.xml#BoundaryTypeTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="contrast" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>How distinct the mottles are (eg faint, distinct, prominent)</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_ContrastTerm.xml#ContrastTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="size" nillable="true">
+        <xs:annotation>
+          <xs:documentation>the size of the mottle measured along the greatest dimension except where streaks or linear forms occur where width is measured. (eg 0-5 mm, 5-15 mm, 15-30 mm, &gt;30 mm)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="mottleColour" type="anzsmls:ColourPropertyType" nillable="true"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="MottlePropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:Mottle"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Peds" type="anzsmls:PedsType" substitutionGroup="anzsmls:SoilMaterial">
+    <xs:annotation>
+      <xs:documentation>Peds is a specialization of SoilMaterial to allow describing individual natural soil aggregates consisting of a cluster of primary particles (peds).  Peds are separated from adjoining peds by surfaces of weakness that are recognizable as natural voids or by the occurrence of cutans (ASLS Field Handbook p 171).
+
+Properties different from those of SoilMaterials include the ped type (platy, prismatic, columnar, angular blocky), and the grade (degree of development and distinctness of peds, e.g. single grain, massive, weak, moderate, strong).
+
+Inherited property particleGeometry:particleType is used to specify that the particle is an artificial fragment of type 'clod' or 'fragment' and its ConstituentPart:role is ped.
+ConstituentPart:relatedMaterial is used to identify parting between peds.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="PedsType">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:SoilMaterialType">
+        <xs:sequence>
+          <xs:element name="grade" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The degree of development and distinctness of peds.
+examples: single grain, massive, weak, moderate, strong</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PedGradeTerm.xml#PedGradeTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="type" type="gml:ReferenceType">
+            <xs:annotation>
+              <xs:documentation>The types of structures.
+examples: platy, prismatic, columnar, angular blocky</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PedTypeTerm.xml#PedTypeTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="PedsPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:Peds"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="QuantitativeMeasure" type="anzsmls:QuantitativeMeasureType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>A generic class to capture simple observation data without dealing with complete O&amp;M.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="QuantitativeMeasureType">
+    <xs:sequence>
+      <xs:element name="depth" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The depth below the soil surface the measurement was made.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="propertyName" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>The property the quantitative value refers to. PhysicalPropertyTerm indicates that it should come from a vocabulary of property terms (pH, Total Organic Carbon, density, porosity, permeability etc).</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.geosciml.org/PhysicalProperties/3.0/CodeList_PhysicalPropertyTerm.xml#PhysicalPropertyTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="propertyResult">
+        <xs:annotation>
+          <xs:documentation>The quantitative value, constraints and UOM</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityPropertyType"/>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="propertyTermValue" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>A term value that classifies the quantitative value in some classification scheme if required. For example 'acid', 'moist', 'hard', 'dense'. PropertyTermValueTerm indicates that it should come from a vocabulary.
+Optional to allow a term equivalent of a numerical result.</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PropertyTermValueTerm.xml#PropertyTermValueTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="observationMethod" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The method used to obtain the quantitative value. PhysicalPropertyObservationMethodTerm indicates that it should come from a vocabulary.</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PhysicalPropertyObservationMethodTerm.xml#PhysicalPropertyObservationMethodTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="resultQuality" type="gmd:DQ_Element_PropertyType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The quality of the result.</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="QuantitativeMeasurePropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:QuantitativeMeasure"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Roots" type="anzsmls:RootsType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>The presence and description of plant roots within soil layers (p199)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="RootsType">
+    <xs:sequence>
+      <xs:element name="abundance" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The abundance of the roots (p199)
+Examples: none, few, common, many, abundant</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_RootAbundanceTerm.xml#RootAbundanceTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="size" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The size range of the roots</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="RootsPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:Roots"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+    <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+  </xs:complexType>
+  <xs:element name="Segregations" type="anzsmls:SegregationsType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>discrete segregations that have accumulated in the soil because of the concentration of some constituent, usually by chemical or biological action (ASLS Field Handbook p195)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SegregationsType">
+    <xs:sequence>
+      <xs:element name="type" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>The nature of the segregations.
+Examples: unidentified, calcareous, gypseous, manganiferous, ...</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SegregationTypeTerm.xml#SegregationTypeTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="abundance" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The % abundance of segregations (p196) 0, 0-2%, 2-10%, 10-20%,</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="form" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The form of the segregations (ASLS Field Handbook p 196).
+Examples: concretions, nodules, fragments,...</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SegregationFormTerm.xml#SegregationFormTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="magnetism" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The magnetic attributes of the segregations (ASLS Field Handbook p 198).
+Examples: non-magnetic, magnetic</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MagnetismTerm.xml#MagnetismTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="size" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The size of the segregations (p197)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="strength" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The strength of the segregations (ASLS Field Handbook p 198).
+Examples: weak, strong</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_StrengthTerm.xml#StrengthTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SegregationsPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:Segregations"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Soil" type="anzsmls:SoilType" substitutionGroup="anzsmls:SoilFeature">
+    <xs:annotation>
+      <xs:documentation>Soil is a natural body consisting of layers (soil horizons or layers) of primarily mineral constituents of variable thicknesses, which differ from the parent materials in their texture, structure, consistence, colour, chemical, biological and other physical characteristics
+(after wikipedia).</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilType">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:SoilFeatureType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:Soil"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilClassification" type="anzsmls:SoilClassificationType" substitutionGroup="gml:AbstractObject"/>
+  <xs:complexType name="SoilClassificationType">
+    <xs:sequence>
+      <xs:element name="value" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>The value of the classification.
+This is a reference to a vocabulary.</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilClassificationTerm.xml#SoilClassificationTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reference" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The reference to the source of the classification scheme </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gml:AbstractMetadataPropertyType">
+              <xs:sequence>
+                <xs:element ref="gmd:CI_Citation"/>
+              </xs:sequence>
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <!-- nilReason should be allowed in confidence term -->
+      <xs:element name="confidence" nillable="true">
+        <xs:annotation>
+          <xs:documentation>A text description providing the confidence of the classification assertion.</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SoilClassificationPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:SoilClassification"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilFeature" type="anzsmls:SoilFeatureType" abstract="true" substitutionGroup="anzsmls:AbstractSoil">
+    <xs:annotation>
+      <xs:documentation>The abstract SoilFeature class represents a conceptual feature that is hypothesized to exist coherently in the world.
+   * this corresponds with a "Soil Unit", comprising a set of  similar soil profiles with a mappable distribution in some "Soil Landscape", a Soil Profile or its constituent parts;
+
+The implemented SoilFeature instance acts as the "description package"
+
+    * the description package is classified according to its purpose as an Instance, TypicalNorm, or DefiningNorm.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilFeatureType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:AbstractSoilType">
+        <xs:sequence>
+          <xs:element name="classifier" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="anzsmls:SoilClassificationPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="landformPosition" type="gml:ReferenceType" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>A soil site may not be centrally located in the associated LandformElement. The landformPosition property allows specifying where in the landform element the Soil Feature is located, relative to the height of the landform. 
+Values are: top-third, middle-third, bottom-third</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_LandformPositionTerm.xml#LandformPositionTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="purpose" type="anzsmls:DescriptionPurposeType">
+            <xs:annotation>
+              <xs:documentation>Specification of the intended purpose/level of abstraction for a given feature or object instance. Values are: 
+instance, typicalNorm, definingNorm. </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="drainage" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Summarises the local soil wetness conditions (ASLS p202). examples are 'very poorly drained', 'poorly drained', 'well-drained'</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_DrainageTerm.xml#DrainageTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="observationMethod" type="gml:ReferenceType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>ObservationMethod is a metadata snippet indicating how the feature was determined. ObservationMethod is a convenience property that provides a quick and dirty approach to observation metadata when data are reported using a feature view (as opposed to observation view). This property corresponds (loosely) to ISO19115 Lineage.  (eg: digitised, Global Positioning System, published map, field observation, downhole survey, aerial photography, field survey, soil pit, existing vertical exposure, undisturbed soil core, auger boring, outcrop)
+ASLS Field Handbook p147</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilObservationMethodTerm.xml#SoilObservationMethodTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="soilColour" type="anzsmls:ColourPropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+          <xs:element name="physicalProperty" type="anzsmls:QuantitativeMeasurePropertyType" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="pH" type="anzsmls:Field_pHPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="relatedSample" type="anzsmlss:SoilSamplePropertyType" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="composition" type="anzsmls:SoilMaterialPropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+          <xs:element name="poreSpace" type="anzsmls:VoidPropertyType" nillable="true"/>
+          <xs:element name="relatedSoilFeature" type="anzsmls:SoilRelationshipPropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilFeaturePropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilFeature"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilHorizon" type="anzsmls:SoilHorizonType" substitutionGroup="anzsmls:SoilLayer">
+    <xs:annotation>
+      <xs:documentation>A SoilHorizon is a layer of soil, approximately parallel to the land surface, with mostly homogenous morphological properties different from layers below and/or above it. (p148)
+Distinguished from SoilLayers in that it is developed in a parent material layer through pedogenic processes or made up of in-situ sedimented organic residues of up-growing plants (peat) (INSPIRE), and therefore can be classified with a horizon notation.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilHorizonType">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:SoilLayerType">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilHorizonPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilHorizon"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilLayer" type="anzsmls:SoilLayerType" substitutionGroup="anzsmls:SoilProfileElement">
+    <xs:annotation>
+      <xs:documentation>Documentation from INSPIRE:
+-- Name --
+Soil layer
+
+-- Definition --
+domain of a soil with a certain vertical extension developed through non-pedogenic processes, displaying an unconformity to possibly over- or underlying adjacent domains.
+
+-- Description --
+NOTE1 Different kinds of layer concepts are covered by this definition. 
+
+EXAMPLE 1 Geogenic layers: These are domains, resulting from e.g. sedimentation (as non-pedogenic) processes, that display an unconformity to possibly over- or underlying adjacent domains.
+
+EXAMPLE 2 Topsoil and Subsoil: These can be domains that group different soil horizon types (e.g. A vs. B horizons), or a special case of fixed depths with only two depth ranges (e.g. 0-15 cm: topsoil and, 15-75 cm: subsoil).
+
+EXAMPLE 3 Depth intervals: They are often used in soil monitoring, sampling of contaminated sites and in modelling and include: (i) depth increments (also called fixed depths) that are often used for sampling, e.g. 0-30cm, 30-60cm, and so on, (ii) a single depth range in which a soil sample (”specimen”) is taken and for which the analytical result is valid, and (iii) soil slicing, that is, profile segmentation according to a specified vector, for instance, either regularly spaced intervals (1cm), or a user-defined vector of segment boundaries (i.e. 0-10, 10-25, 25-50, 50-100). Slicing is used in modelling to generate continuous depth functions for soil properties.
+
+EXAMPLE 4: In the framework of soils deeply modified by human activity, artificial layers may be due to different kinds of deposits (concrete, bricks, …). 
+SOURCE WD ISO28258
+
+For OzSoilML a Soil Horizon is considered a further specialization of a SoilLayer</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilLayerType">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:SoilProfileElementType">
+        <xs:sequence>
+          <xs:element name="carbonateEffervescence" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The effervescence of carbonate in fine earth (ASLS Field Handbook p198)</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_EffervescenceTerm.xml#EffervescenceTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="rootComponent" type="anzsmls:RootsPropertyType" nillable="true"/>
+          <xs:element name="panDescription" type="anzsmls:SoilPanPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilLayerPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilLayer"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilMaterial" type="anzsmls:SoilMaterialType" substitutionGroup="gsmlem:CompoundMaterial">
+    <xs:annotation>
+      <xs:documentation>The physical properties and appearance of the soil</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilMaterialType">
+    <xs:complexContent>
+      <xs:extension base="gsmlem:CompoundMaterialType">
+        <xs:sequence>
+          <xs:element name="coarseFragmentDistribution" type="gml:ReferenceType" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Coarse fragments may occur throughout the soil profile.
+Examples are: undisturbed, reoriented, stratified, dispersed</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_FragmentDistributionTerm.xml#FragmentDistributionTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="textureQualification" type="gml:ReferenceType" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>A qualification to indicate whether the texture is toward the light or heavy range, or organic qualifiers.
+Examples: light, heavy, sapric, fibric
+ASLS Field Handbook p166</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_TextureQualificationTerm.xml#TextureQualificationTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="waterRepellence" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Examples: non water repellent, water repellent, strongly water repellent
+ASLS Field Handbook (p191)</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_WaterRepellenceTerm.xml#WaterRepellenceTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="soilConsistency" type="anzsmls:ConsistencePropertyType" nillable="true"/>
+          <xs:element name="pedogenicSegregations" type="anzsmls:SegregationsPropertyType" minOccurs="0" maxOccurs="unbounded"/>
+          <xs:element name="particleCoating" type="anzsmls:CutansPropertyType" nillable="true"/>
+          <xs:element name="fabric" type="gsmlem:FabricDescriptionPropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilMaterialPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilMaterial"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilPan" type="anzsmls:SoilPanType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>A pan is an indurated and/or cemented soil horizon (ASLS Field Handbook p192).
+However, treated as property of SoilLayer in OzSoilML as NatSoil doesn't record depth of Pan, often doesn't assign Horizon identifiers.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilPanType">
+    <xs:sequence>
+      <xs:element name="type" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>Type of pan (ASLS Field Handbook p 192).
+Examples are: no pan, calcrete, silcrete, red-brown hardpan, duripan, fragipan, ...</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PanTypeTerm.xml#PanTypeTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="cementation" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Degree of cementation;
+Values: uncemented, weakly cemented, moderately cemented, strongly cemented, very strongly cemented</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PanCementationTerm.xml#PanCementationTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="continuity" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Continuity of the pan (ASLS Field Handbook p 195).
+Examples are:continuous, discontinuous, broken</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PanContinuityTerm.xml#PanContinuityTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="structure" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Structure of the pan (ASLS Field Handbook p 195).
+Examples are: massive, vesicular, concretionary, nodular, platy, vermicular</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_PanStructureTerm.xml#PanStructureTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SoilPanPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmls:SoilPan"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilProfile" type="anzsmls:SoilProfileType" substitutionGroup="anzsmls:SoilProfileElement">
+    <xs:annotation>
+      <xs:documentation>-- Name --
+soil profile
+
+-- Definition -- 
+description of the soil that is characterized by a vertical succession of profile elements.
+
+-- Description --
+NOTE The soil profile is abstracted from observations in a trial pit or a boring, or derived from expert knowledge using other soil profiles.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilProfileType">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:SoilProfileElementType">
+        <xs:sequence>
+          <xs:element name="horizonRDepth" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The depth to the R Horizon or strongly cemented pan</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="microReliefComponent" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The component of the microrelief in which the described soil profile is located</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MicroReliefComponentTerm.xml#MicroReliefComponentTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="associatedSubstrate" type="anzsmls:SoilSubstrateRelationshipPropertyType" nillable="true">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmls:relatedSoilProfile</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilProfilePropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilProfile"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilProfileElement" type="anzsmls:SoilProfileElementType" abstract="true" substitutionGroup="anzsmls:SoilFeature">
+    <xs:annotation>
+      <xs:documentation>The elements that make up the Soil Profile</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilProfileElementType" abstract="true">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:SoilFeatureType">
+        <xs:sequence>
+          <xs:element name="depthRange">
+            <xs:annotation>
+              <xs:documentation>To specify the upper and lower boundaries of the ProfileElement or Profile</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityRangePropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="colourPattern" type="anzsmls:MottlePropertyType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilProfileElementPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilProfileElement"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilRelationship" type="anzsmls:SoilRelationshipType" substitutionGroup="gml:AbstractGML">
+    <xs:annotation>
+      <xs:documentation>The SoilRelationship class is  used to define relationships between soilfeatures, ie. SoilProfile-SoilProfile, Soil-Soil relationships.
+
+Relationships are always binary and directional.  There is always a single source and a single target. The relationship is always defined from the perspective of the Source and is generally an active verb.
+
+Example:  a Source may point to a Soil forming a component of a soil complex.  In this case, the Target would point to the appropriate Soil representing the complex and the relationship attribute would be 'soil complex component'.  Other appropriate relationship attributes might include: catena component, buried soil
+
+Two or more SoilFeatures are associated in aSoilRelationship; each has a role in the relationship. Examples of soil roles include "component part", "complex soil", "overlies", "underlies", "catena part", and so forth. </xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilRelationshipType">
+    <xs:complexContent>
+      <xs:extension base="gml:AbstractGMLType">
+        <xs:sequence>
+          <xs:element name="boundaryDistinctness" type="gml:ReferenceType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>The boundary distinctness between soil features.
+For SoilLayers for example: sharp, abrupt, clear, gradual, diffuse
+
+In some cases this may be inapplicable, such as when using SoilRelationships to describe the SoilFeatures that make up a catena.</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_BoundaryTypeTerm.xml#BoundaryTypeTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="boundaryShape" type="gml:ReferenceType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>The boundary shape between soil features.
+Examples for SoilLayers (ASLS p200) are: smooth, wavy, irregular, tongued, broken</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_BoundaryShapeTerm.xml#BoundaryShapeTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="proportion" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The proportion (in %) of the target soil feature that is made up by the source soil feature.
+Although conceptually only a single Soil feature is located at any particular spatial location, in practice because of the uncertainty multiple Soil Features may be associated with a particular SpatialEntity (geometry). The SoilRelationship class is then used to specify the relationship properties between the Soil features and their spatial distribution.
+This class is also applicable for Soil features such as Soil Complexes which consist of multiple individual soil features (Soils, soil profiles, layers).
+In some cases proportion may be inapplicable, such as when using SoilRelationships to describe the SoilFeatures that make up a catena.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="relationship" type="gml:ReferenceType">
+            <xs:annotation>
+              <xs:documentation>The relationship between the two soil features. Examples may be 'part of', 'complex component', 'catena'</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilRelationshipTerm.xml#SoilRelationshipTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="sourceRole" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The role of the source soil feature in the relationship. Examples might be 'soil complex'</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilRelationshipTerm.xml#SoilRelationshipTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="targetRole" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The role of the target soil feature in the relationship. Examples might be 'soil complex component'</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilRelationshipTerm.xml#SoilRelationshipTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <!-- Had to add an extra relatedSoilFeature element to encode SoilFeatures in SoilRelationship. Needs to be fixed in UML  -->
+          <xs:element name="relatedSoilFeature" type="anzsmls:SoilFeaturePropertyType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilRelationshipPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilRelationship"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilSubstrateRelationship" type="anzsmls:SoilSubstrateRelationshipType" substitutionGroup="gml:AbstractGML">
+    <xs:annotation>
+      <xs:documentation>Describes the relationship between the Substrate and the Soil</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilSubstrateRelationshipType">
+    <xs:complexContent>
+      <xs:extension base="gml:AbstractGMLType">
+        <xs:sequence>
+          <xs:element name="depth" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Measure or estimate of the depth of the substrate below the land surface (ASLS Field Handbook p206)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="distanceFromProfile" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Distance the observed substrate was from the observed Soil Profile. Where the substrate is observed in the profile the distance is zero (0). ASLS Field Handbook p206</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="parentConfidence" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Confidence that the observed substrate is the parent material of the observed soil profile (ASLS p206). Terms are 'not parent material', dubious, doubtful', 'probable', 'certain'</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_ParentConfidenceTerm.xml#ParentConfidenceTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <!-- Had to add an extra associatedSubstrate element to encode SoilFeatures in SoilRelationship. Needs to be fixed in UML  -->
+          <xs:element name="associatedSubstrate" type="anzsmls:SubstratePropertyType" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilSubstrateRelationshipPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilSubstrateRelationship"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilSurface" type="anzsmls:SoilSurfaceType" substitutionGroup="anzsmls:SoilFeature">
+    <xs:annotation>
+      <xs:documentation>The Soil as it appears at the surface.
+This can be considered as analogous to a Soil Layer with a depth of 0.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilSurfaceType">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:SoilFeatureType">
+        <xs:sequence>
+          <xs:element name="surfaceCondition" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Some soils have characteristic appearance when dry. More than one term may be applied to the surface. (p189)
+Examples: cracking, self-mulching, loose, soft, firm, ...</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilSurfaceConditionTerm.xml#SoilSurfaceConditionTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="surfaceRelief" type="anzsmls:MicroReliefPropertyType" nillable="true"/>
+          <xs:element name="soilDisturbance" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>--  Definition --
+the level of disturbance of the soil observed at the surface Examples are: No significant disturbance apparent Disturbance of some of the soil surface Complete soil disturbance by cultivation, heavy grazing or both</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilDisturbanceTerm.xml#SoilDisturbanceTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilSurfacePropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilSurface"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilThematicObject" type="anzsmls:SoilThematicObjectType" substitutionGroup="anzsmls:AbstractSoil">
+    <xs:annotation>
+      <xs:documentation>-- Name --
+soil thematic object
+
+-- Definition --
+spatial object representing a soil related property derived from one or more soil properties.
+
+-- Description --
+NOTE Soil thematic maps can be derived directly from the involved soil database (organic matter content, pH, texture, etc.) or they can be derived by using Pedotransfer Functions (water availability…).</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilThematicObjectType">
+    <xs:complexContent>
+      <xs:extension base="anzsmls:AbstractSoilType">
+        <xs:sequence>
+          <xs:element name="depthInterval" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>-- Name --
+depth interval
+
+-- Definition --
+range of depth from the surface to which the Soil Thematic Object is referring to.
+
+-- Description --
+A Soil Thematic Object can refer to a soil property for a particular depth range. For example, the texture class from 0 to 30 cm. Thus the DepthRange value will refer to the 0-30 cm depth range.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityRangePropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="soilThematicProperty">
+            <xs:annotation>
+              <xs:documentation>-- Name --
+soil thematic property
+-- Definition --
+the soil related property that the soil thematic results relate to within the soil thematic object.
+Data Type is Any. However, the soilThematicProperty shall be a phenomenon associated with soil features. </xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilThematicPropertyTerm.xml#SoilThematicPropertyTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="soilThematicResult">
+            <xs:annotation>
+              <xs:documentation>-- Name --
+soil thematic result
+-- Definition --
+collection of numeric values of the soil for the related soil thematic property within the soil thematic object.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="uncertainty" type="gmd:DQ_QuantitativeAttributeAccuracy_PropertyType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>-- Name --
+soil thematic property
+-- Definition --
+the soil related property that the soil thematic results relate to within the soil thematic object.
+Data Type is Any. However, the soilThematicProperty shall be a phenomenon associated with soil features. </xs:documentation>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilThematicObjectPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:SoilThematicObject"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Substrate" type="anzsmls:SubstrateType" substitutionGroup="gml:AbstractFeature">
+    <xs:annotation>
+      <xs:documentation>Material and mass of the earth or rock that do not show pedological development. They are not soils but typically underlie them. The substrate includes the R horizon and that part of the C horizon that shows no pedological development.  The substrate beneath the soil may or may not be the parent material of the soil.
+The Substrate is clearly related to the GeoSciML GeologicUnit. However, as the observations typically made on the substrate by soil scientists are different to those made by geologists, it is considered a separate class here.  Future harmonization between domains should resolve these differences.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SubstrateType">
+    <xs:complexContent>
+      <xs:extension base="gml:AbstractFeatureType">
+        <xs:sequence>
+          <xs:element name="geologicDescription" type="gsmlgu:GeologicUnitPropertyType" nillable="true"/>
+          <xs:element name="geneticType" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>A genetic classification based on the 'Glossary of substrate mass genetic types" (p217ff).
+This classification is most likely a subset of the IUGS-CGI lithology classification and a mapping between the terms used here and those by GeoSciML should be possible.</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_GeneticTypeTerm.xml#GeneticTypeTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="massStrength" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Broad strength classes based on the consolidation level (p215)
+Examples are 'Earth or soil', 'very weak rock', 'weak rock', 'moderately strong rock', 'strong rock' </xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_MassStrengthTerm.xml#MassStrengthTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="observationMethod" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>ObservationMethod is a metadata snippet indicating how the feature was determined. ObservationMethod is a convenience property that provides a quick and dirty approach to observation metadata when data are reported using a feature view (as opposed to observation view). This property corresponds (loosely) to ISO19115 Lineage.  (eg: digitised, Global Positioning System, published map, field observation, downhole survey, aerial photography, field survey, soil pit, existing vertical exposure, undisturbed soil core, auger boring, outcrop)
+ASLS Field Handbook p205</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Soil/1.1/CodeList_SoilObservationMethodTerm.xml#SoilObservationMethodTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="discontinuities" type="anzsmls:JointPropertyType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmls:hostMaterial</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="relatedSoilProfile" type="anzsmls:SoilProfilePropertyType">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmls:associatedSubstrate</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SubstratePropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:Substrate"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Void" type="anzsmls:VoidType" substitutionGroup="gsmlem:EarthMaterial">
+    <xs:annotation>
+      <xs:documentation>Void is a general term for pore space and other openings in soils not occupied by solid mineral matter</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="VoidType">
+    <xs:complexContent>
+      <xs:extension base="gsmlem:EarthMaterialType">
+        <xs:sequence>
+          <xs:element name="crackWidth" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Cracks are planar voids. ASLS Field Handbook (p184) has:
+0-5mm = fine
+5-10mm = medium
+10-20mm = coarse
+20-50mm = very coarse
+&gt;50mm = extremely coarse</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityRangePropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="macroporeAbundance" nillable="true">
+            <xs:annotation>
+              <xs:documentation>ASLS Field Handbook (p184) divides  macropores into those &lt;2mm (fine macropores) and those &gt; 2mm (medium and coarse macropores).
+
+For fine macropores abundance ranges are:
+0
+0-1/100mm2
+1-5/100mm2
+&gt;5/100mm2
+For medium to coarse macropores abundance ranges are:
+0
+0-1/.01 m2
+1-5/0.01 m2
+&gt;5/0.01 m2
+
+For OzSoilML these have been combined into a single macroporeAbundance, with the macroporeDiameter property providing the capacity to subdivide into fine and coarse macropores.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityRangePropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="macroporeDiameter" nillable="true">
+            <xs:annotation>
+              <xs:documentation>ASLS Field Handbook (p185) provides following mapping:
+0.075-1mm = very fine
+1-2 mm = fine
+2-5 mm = medium
+&gt;5 mm = coarse</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityRangePropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="VoidPropertyType">
+    <xs:sequence minOccurs="0">
+      <xs:element ref="anzsmls:Void"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+</xs:schema>

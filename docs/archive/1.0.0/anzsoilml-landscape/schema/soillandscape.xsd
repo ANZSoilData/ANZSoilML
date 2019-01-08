@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:anzsmls="http://xmlns.anzsoil.org/ANZSoilML-Soil/1.0.0" xmlns:anzsmll="http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0.0" xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:swe="http://www.opengis.net/swe/2.0" xmlns:gsmlem="http://xmlns.geosciml.org/EarthMaterial/3.1" xmlns:anzsml="http://xmlns.anzsoil.org/ANZSoilML-Core/1.0.0" xmlns:gsmlgu="http://xmlns.geosciml.org/GeologicUnit/3.1" targetNamespace="http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0.0" elementFormDefault="qualified">
+  <xs:include schemaLocation="http://anzsoil.org/anzsoilml-landscape/1.0.0/schema/climate.xsd"/>
+  <xs:include schemaLocation="http://anzsoil.org/anzsoilml-landscape/1.0.0/schema/humanactivity.xsd"/>
+  <xs:import namespace="http://xmlns.geosciml.org/GeologicUnit/3.1" schemaLocation="http://schemas.geosciml.org/geologicunit/3.1/geologicUnit.xsd"/>
+  <xs:import namespace="http://xmlns.anzsoil.org/ANZSoilML-Core/1.0.0" schemaLocation="http://anzsoil.org/anzsoilml-core/1.0.0/schema/anzsoilml-core.xsd"/>
+  <xs:import namespace="http://xmlns.anzsoil.org/ANZSoilML-Soil/1.0.0" schemaLocation="http://anzsoil.org/anzsoilml-soil/1.0.0/schema/anzsoilml-soil.xsd"/>
+  <xs:import namespace="http://xmlns.geosciml.org/EarthMaterial/3.1" schemaLocation="http://schemas.geosciml.org/earthmaterial/3.1/earthMaterial.xsd"/>
+  <xs:import namespace="http://www.opengis.net/swe/2.0" schemaLocation="http://schemas.opengis.net/sweCommon/2.0/swe.xsd"/>
+  <xs:import namespace="http://www.opengis.net/gml/3.2" schemaLocation="http://schemas.opengis.net/gml/3.2.1/gml.xsd"/>
+  <xs:annotation>
+    <xs:documentation>Package to keep Landscape and Landform related Classes and Properties (including stream channel information) together</xs:documentation>
+  </xs:annotation>
+  <xs:element name="Erosion" type="anzsmll:ErosionType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>Erosion is not 'natural erosion' but the accelerated erosion that follows the destruction or loss of protective cover resulting from human influence on the soil, vegetation or landform. It may be difficult to distinguish from natural erosion. (p134)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="ErosionType">
+    <xs:sequence>
+      <xs:element name="degree" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The degree of erosion (eg none, minor, moderate, severe, very severe) ASLS Field Handbook combines these terms with the type of Erosion (p133-138)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="depth" minOccurs="0" maxOccurs="1">
+        <xs:annotation>
+          <xs:documentation>The depth of the erosion if applicable. May only apply to gully erosion. P137</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityPropertyType"/>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="state" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The state of erosion (eg active, stabilised, partly stabilised) p134</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="type" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The type of erosion (eg wind, scald, water-sheet, water-rill, mass movement). ASLS Field Handbook combines this with the degree of erosion. (p134-138)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ErosionPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:Erosion"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Geomorphology" type="anzsmll:GeomorphologyType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>The geomorphological modes and agents that generated the observed landform element.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="GeomorphologyType">
+    <xs:sequence>
+      <xs:element name="geomorphologicalActivity" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Geomorphological activities that are either gradational (eg eroded, aggraded) or anti-gradational (eg elevated, excavated, subsided)
+ASLS Field Handbook p30</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geomorphologicalAgent" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The agent responsible for generating the Geomorphological activities (eg gravity, wind, ice, human) p31</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="geomorphologicalStatus" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The status of the Geomorphological activities (eg continuously active, seldom active, relict) p55</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GeomorphologyPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:Geomorphology"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Inundation" type="anzsmll:InundationType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>Flooding due to overbank flow, local runon and overland flow.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="InundationType">
+    <xs:sequence>
+      <xs:element name="annualDepth" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The likely maximum depth of water associated with the likely annual inundation event</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityPropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="annualDuration" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The likely duration of an annual inundation event</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="averageFrequency" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The long term average number of years between inundation events.
+Expressed as a QuantityRange to indicate how often an inundation event is likely to happen. 
+For example, an event that is likely to occur at least once a year has a value of " 0 1" (uom = year"; an inundation event that is likely to occur at least once between 50 and 100 years has a value of "50 100".</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="runonVelocity" nillable="true">
+        <xs:annotation>
+          <xs:documentation>The likely run-on velocity range associated with the inundation event</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityRangePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="InundationPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:Inundation"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="LandSurface" type="anzsmll:LandSurfaceType" substitutionGroup="gml:AbstractFeature">
+    <xs:annotation>
+      <xs:documentation>The LandSurface Feature represents the surface properties of the landscape. These include the local geology and distribution of rock and other fragments, the slope, relief, pattern classification, site disturbance and genesis. The LandSurface Feature captures landscape or surface properties that impact directly on the soil. These include the degree of site inundation, the microrelief, surface erosion, elevation, slope, runoff, aspect.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="LandSurfaceType">
+    <xs:complexContent>
+      <xs:extension base="gml:AbstractFeatureType">
+        <xs:sequence>
+          <xs:element name="aspect" minOccurs="0" maxOccurs="1">
+            <xs:annotation>
+              <xs:documentation>Compass bearing of slope aspect. Usually to nearest 10 degrees. For slopes of &lt;1% aspect is usually nor provided.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="surfaceFragments" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Coarse fragments are particles &gt; 2mm. The material and mass of the earth that does not show pedological development. Includes both rock and non-rock (eg charcoal) fragments.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="gsmlem:RockMaterialPropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="aggradation" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Refers to the presence of material deposited on a pre-existing surface as a result of wind and/or water erosion p138</xs:documentation>
+              <xs:appinfo>
+                <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0.0/CodeList_AggradationTerm.xml#AggradationTerm</gml:defaultCodeSpace>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="drainageHeight" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Height of the soil observation above the flat or stream channel that forms the effective bottom of the toposequence (p128)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="elevation" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Metres the landform is above sea level</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="runOff" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The relative rate at which water runs off the soil surface. it is largely determined by slope, surface cover and soil infiltration rate. p144</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="slope" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Method of determining slope (eg Contour plan at 1:10 000 scale), the slope value as a % measure, the slope classification value (eg gently inclined, steep, precipitous)</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="anzsmll:SlopeMeasurementPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="waterDepth" nillable="true">
+            <xs:annotation>
+              <xs:documentation>Depth to free water either above (+) or below (-) soil surface, excluding litter and living vegetation.</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityPropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="surfaceRelief" nillable="true">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="anzsmls:MicroReliefPropertyType"/>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="landscapeContext" type="anzsmll:SoilLandscapePropertyType">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmll:earthSurfaceDescription</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="surfaceDegradation" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="anzsmll:ErosionPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="surfaceInundation" nillable="true">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="anzsmll:InundationPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LandSurfacePropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:LandSurface"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Landform" type="anzsmll:LandformType" substitutionGroup="gml:AbstractFeature">
+    <xs:annotation>
+      <xs:documentation>Description of the Landform for land use planning, enable extrapolation of point soil observations, help predict land degradation following land use and identify the relevant part of the terrain ASLS p15). These include the landform patterns and elements of interest to soil scientists, such as pattern classification, site disturbance and genesis. A landform in the soil sciences is largely defined by its surface form and location in the landscape, as part of the terrain, and as such, is typically an element of the topography or a geomorphology unit.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="LandformType">
+    <xs:complexContent>
+      <xs:extension base="gml:AbstractFeatureType">
+        <xs:sequence>
+          <xs:element name="landscapeContext" type="anzsmll:SoilLandscapePropertyType">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmll:earthSurfaceMorphology</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="classifier" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="anzsmll:LandformClassificationPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="landformShape" nillable="true">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="anzsmll:LandformElementPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="landformGenesis" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="anzsmll:GeomorphologyPropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="LandformPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:Landform"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="LandformClassification" type="anzsmll:LandformClassificationType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>Classification of the Landscape Feature based on its relief, modal slope, landform pattern.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="LandformClassificationType">
+    <xs:sequence>
+      <xs:element name="landformPattern" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>A classification of the Landscape Pattern based on the observed Landscape properties. see pp58-72
+Examples are alluvial fan, anastomatic plain, badlands
+{Australian Soil and land Survey Field Handbook p59ff} </xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0.0/CodeList_LandformClassificationTerm.xml#LandformClassificationTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="modalSlope" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Modal slope is the most common class of slope occurring in the landscape pattern. 
+{Australian Soil and land Survey Field Handbook p45} </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relief" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Relief is the difference between the high and low points on the land surface. {Australian Soil and land Survey Field Handbook p45} </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityPropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="reliefCategory" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>A term value specifying the average relief (eg very high, low). These are related to actual relief values, but no attempt is made here to validate between the two properties. {Australian Soil and land Survey Field Handbook p47} </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="reliefSlopeCategory" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Relief and modal slope categories combine to provide a brief landform pattern category (p47). Examples are {Australian Soil and land Survey Field Handbook p47} </xs:documentation>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LandformClassificationPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:LandformClassification"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="LandformElement" type="anzsmll:LandformElementType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>Describes the geometry (shape) of the landform in a radius of 20m</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="LandformElementType">
+    <xs:sequence>
+      <xs:element name="dimension" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Dimension (length, width and height (or depth)) of the landform element</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="anzsmll:SizePropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="morphology" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Types of landform element morphologies (eg crest, hillock, ridge, flat, open depression). p19
+Morphology also covers landform element type as these are hierarchically related to morphology types (eg 'hillcrest' is a type of 'crest', 'scroll' is a type of 'ridge', 'scarp' is a type of 'slope', 'plain' is a type of 'flat', etc).</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="relativeInclination" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>A morphological attribute expressing the relative inclination of adjacent landform elements in a toposequence (eg waxing, waning, maximal, minimal)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="slope" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Method of determining slope (eg Contour plan at 1:10 000 scale), the slope value as a % measure, the slope classification value (eg gently inclined, steep, precipitous)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="anzsmll:SlopeMeasurementPropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="elementClassification" type="gml:ReferenceType" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Classifies the landform element  (eg alcove, backplain, beach, bench, cliff). p32ff
+Morphology also covers landform element type as these are hierarchically related to morphology types (eg 'hillcrest' is a type of 'crest', 'scroll' is a type of 'ridge', 'scarp' is a type of 'slope', 'plain' is a type of 'flat', etc).</xs:documentation>
+          <xs:appinfo>
+            <gml:defaultCodeSpace>http://xmlns.anzsoil.org/ANZSoilML-Landscape/1.0.0/CodeList_LandSurfaceClassificationTerm.xml#LandSurfaceClassificationTerm</gml:defaultCodeSpace>
+          </xs:appinfo>
+        </xs:annotation>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="LandformElementPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:LandformElement"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="Size" type="anzsmll:SizeType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>The size of the object</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SizeType">
+    <xs:sequence>
+      <xs:element name="height" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Height (or depth) of the object</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gml:LengthType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="length" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Length of the object</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gml:LengthType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="volume" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Volume of the object</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gml:VolumeType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="width" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Width of the object</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="gml:LengthType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SizePropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:Size"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SlopeMeasurement" type="anzsmll:SlopeMeasurementType" substitutionGroup="gml:AbstractObject">
+    <xs:annotation>
+      <xs:documentation>Method of determining slope (eg Contour plan at 1:10 000 scale), the slope value as a % measure, the slope classification value (eg gently inclined, steep, precipitous)</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SlopeMeasurementType">
+    <xs:sequence>
+      <xs:element name="slopeGradient" nillable="true">
+        <xs:annotation>
+          <xs:documentation>the slope value as a % measure,</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:complexContent>
+            <xs:extension base="swe:QuantityPropertyType">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:complexContent>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="slopeClassification" type="gml:ReferenceType">
+        <xs:annotation>
+          <xs:documentation>the slope classification value (eg gently inclined, steep, precipitous)</xs:documentation>
+        </xs:annotation>
+      </xs:element>
+      <xs:element name="determiningMethod" nillable="true">
+        <xs:annotation>
+          <xs:documentation>Method of determining slope (eg Contour plan at 1:10 000 scale)</xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+          <xs:simpleContent>
+            <xs:extension base="xs:string">
+              <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+            </xs:extension>
+          </xs:simpleContent>
+        </xs:complexType>
+      </xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="SlopeMeasurementPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:SlopeMeasurement"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="StreamChannel" type="anzsmll:StreamChannelType" substitutionGroup="gml:AbstractFeature">
+    <xs:annotation>
+      <xs:documentation>A placeholder to capture stream channel information.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="StreamChannelType">
+    <xs:complexContent>
+      <xs:extension base="gml:AbstractFeatureType">
+        <xs:sequence>
+          <xs:element name="channelDevelopment" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The degree of development of stream channels. (eg absent, incipient, erosional, alluvial) p49</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="channelDirectionality" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The degree of channel lineation and the degree in which the channels tend to align in an organised way (p52). examples: centrufugal, divergent, unidirectional, convergent, centripetal, bidirectional, non-directional</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="channelIntegration" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The level of integration in the stream channel network. (eg integrated, interrupted, disintegrated) p52</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="channelMigration" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The migration rate of the stream channels (p50). (eg rapidly migrating, slowly migrating, fixed)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="channelPattern" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The pattern that tributaries enter the channel (p50). (eg tributary, non-tributary, distributary, reticulated)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="channelRatio" type="gml:ReferenceType" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The ratio of the channel depth relative to the its width (p50). (eg deep, moderately deep, shallow)</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="channelSpacing" nillable="true">
+            <xs:annotation>
+              <xs:documentation>The average spacing of stream channels. The Australian handbook uses term values but the numerical range should be provided</xs:documentation>
+            </xs:annotation>
+            <xs:complexType>
+              <xs:complexContent>
+                <xs:extension base="swe:QuantityRangePropertyType">
+                  <xs:attribute name="nilReason" type="gml:NilReasonType"/>
+                </xs:extension>
+              </xs:complexContent>
+            </xs:complexType>
+          </xs:element>
+          <xs:element name="enclosingLandscape" type="anzsmll:SoilLandscapePropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmll:channelDevelopment</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="StreamChannelPropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:StreamChannel"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+  <xs:element name="SoilLandscape" type="anzsmll:SoilLandscapeType" substitutionGroup="anzsml:LandscapeFeature">
+    <xs:annotation>
+      <xs:documentation>At a conceptual level landscape comprises the visible features of an area of land, including the physical elements of it soils, landforms (LandSurface Feature) such as (ice-capped) mountains, hills, geology (GeologicFeature), water bodies such as rivers (StreamChannel Feature), lakes, ponds and the sea, living elements of land cover including indigenous vegetation (VegetationFeature), human elements including different forms of land use (LandUse Feature), buildings and structures, and transitory elements such as lighting and weather conditions (Climate Feature). The SoilLandscape is the set of these that provides the context for the identified Soil.</xs:documentation>
+    </xs:annotation>
+  </xs:element>
+  <xs:complexType name="SoilLandscapeType">
+    <xs:complexContent>
+      <xs:extension base="anzsml:LandscapeFeatureType">
+        <xs:sequence>
+          <xs:element name="rockOutcrop" type="gsmlgu:GeologicUnitPropertyType" nillable="true" minOccurs="1" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Exposed area of rock inferred to be continuous with underlying bedrock.</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="siteDisturbance" type="gml:ReferenceType" minOccurs="0" maxOccurs="unbounded">
+            <xs:annotation>
+              <xs:documentation>Indicates the level of site disturbance ASLS p128</xs:documentation>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="earthSurfaceDescription" type="anzsmll:LandSurfacePropertyType" nillable="true">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmll:landscapeContext</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="channelDevelopment" type="anzsmll:StreamChannelPropertyType" nillable="true">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmll:enclosingLandscape</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+          <xs:element name="localClimate" type="anzsmll:ClimatePropertyType" nillable="true"/>
+          <!--<xs:element name="anthropogenicImpact" type="anzsmll:AnthropogenicActivityPropertyType" minOccurs="1" maxOccurs="unbounded">
+						<xs:annotation>
+							<xs:appinfo>
+								<gml:reversePropertyName>anzsmll:blankCanvas</gml:reversePropertyName>
+							</xs:appinfo>
+						</xs:annotation>
+					</xs:element>-->
+          <xs:element name="earthSurfaceMorphology" type="anzsmll:LandformPropertyType" nillable="true">
+            <xs:annotation>
+              <xs:appinfo>
+                <gml:reversePropertyName>anzsmll:landscapeContext</gml:reversePropertyName>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:element>
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:complexType name="SoilLandscapePropertyType">
+    <xs:sequence>
+      <xs:element ref="anzsmll:SoilLandscape"/>
+    </xs:sequence>
+    <xs:attributeGroup ref="gml:AssociationAttributeGroup"/>
+    <xs:attributeGroup ref="gml:OwnershipAttributeGroup"/>
+  </xs:complexType>
+</xs:schema>

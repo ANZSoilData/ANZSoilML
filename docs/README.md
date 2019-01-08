@@ -1,117 +1,33 @@
-# Australian and New Zealand Soil Mark-up Language (ANZSoilML)
+# ANZSoilML Document Repository
 
 ## Contents
-> 1. [Summary](#Summary)
-> 2. [Documentation](#Documentation)
-> 3. [The current state of ANZSoilML](#The-current-state-of-ANZSoilML)
-> 4. [The future of ANZSoilML](#The-future-of-ANZSoilML)
-> 5. [Contributors](#Contributors)
-> 6. [Implementations](#Implementations)
+> 1. [Important Note](Important-Note)
+> 1. [Overview](#Overview)
+> 1. [Documentation](#Documentation)
+> 1. [ANZSoilML Schema](#ANZSoilML-Schema)
 
-## Summary
-ANZSoilML is an information model that specifies the set of classes, properties, relationships and supporting
-vocabularies needed to structure digital information used in the Australian and New Zealand soil sciences. It is
-primarily concerned with observed properties of soils and associated landscape features as specified in the:
-- _Australian Soil and Land Survey Field Handbook, Third edition, 2009, The National Committee on Soil and Terrain._
-([CSIRO Publishing](https://www.publish.csiro.au/book/5230/))
-- _New Zealand Soil Description Handbook, Revised edition, 1995, Milne, J.D.G., Clayden, B., Singleton, P.L., Wilson,
-A.D._ ([Manaaki Whenua Digital Library](http://digitallibrary.landcareresearch.co.nz/cdm/ref/collection/p20022coll14/id/79))
+## Important Note
+> __Canonical__ versions of ANZSoilML schema and vocabularies are published at http://anzsoil.org/. __anzsoil.org__ is
+> intended to endure indefinitely so service providers must use that location for schema locations and vocabulary
+> identifiers. While links to __anzsoil.org__ may be redirected to resources in this repository, we make no guarantees
+> that that will always be the case.
 
-The main intention of ANZSoilML is to provide communities of data providers and users with a model that allows them to
-publish and parse a consistent set of data across multiple data repositories. End users especially can be confident
-that, for a given version of ANZSoilML, responses from providers will use the same data types, propertiy names and
-vocabularies.
-
-ANZSoilML also aims for consistency with other environmental datasets. Soil itself does not exist in isolation - its
-formation is influenced by climate, hydrology, geology, topography and biology, and in return it influences those
-aspects of the environment. This means that to effectively describe and model soil, data describing other parts of the
-environment may be required, and aggregating these data is much easier if they are delivered in a consistent way. This
-means ANZSoilML has been developed using a policy of re-use - importing and aligning itself with important standards
-for observation and sampling data, geology, groundwater and hydrology.
-
-ANZSoilML was derived from OzSoilML, which was developed in Australia by [CSIRO](https://www.csiro.au/) under the
-auspices of the Australian Collaborative Land Evaluation Program (ACLEP) http://www.clw.csiro.au/aclep/. Later, CSIRO
-worked with New Zealand's [Manaaki Whenua](https://www.landcareresearch.co.nz) to test and refine OZSoilML, this new
-version was rebranded as ANZSoilML.
-
-> Copyright (c) CSIRO 2019. All rights reserved.
+## Overview
+This folder contains normative documents for the ANZSoilML standard. Documents that are under development are
+accessible via https://anzsoildata.github.io/ANZSoilML/. The repository also includes an [archive](archive) of ANZSoilML
+versions 1.0.0, 2.0.0 and 2.0.1 imported from the CSIRO subversion repository at
+https://svnserv.csiro.au/svn/TernSoils/ANZSoilML. The archive is a static resource for reference purposes only. Its
+organisation reflects governance practices (community and version control) that may no longer be in play.
 
 ## Documentation
-ANZSoilML documentation is maintained on the project's GitHub repository wiki: https://github.com/ANZSoilData/ANZSoilML/wiki
+ANZSoilML is developed in this GitHub repository: https://github.com/ANZSoilData/ANZSoilML
+
+ANZSoilML documentation is maintained on the GitHub repository's wiki: https://github.com/ANZSoilData/ANZSoilML/wiki
 
 Canonical schema are published at: http://anzsoil.org/def/schema/
 
-Schema are also published via the ANZSoilML github.io home page: https://anzsoildata.github.io/ANZSoilML/
+## ANZSoilML Schema
 
-## The current state of ANZSoilML
-The current version of ANZSoilML (2.0.1) has been designed and implemented as a
-[Geography Mark-up Language (GML)](https://en.wikipedia.org/wiki/Geography_Markup_Language) [Application Schema](https://en.wikipedia.org/wiki/Geography_Markup_Language#Application_schema).
-This approach involves the definition and provision of '[Features](https://en.wikipedia.org/wiki/Geography_Markup_Language#Features)'
-(broadly speaking physical things) that are of interest when dealing with soils. These include (in _italics_):
-- _Soil Profiles_ as made up of _Soils_ and their _Horizons_
-- Soil _Landscape Features_ (e.g. _Topography_, _Climatic Setting_ and _Vegetation_)
-- Soil _Sites_
-- Soil _Samples_ and _Specimens_
-- _Laboratory Measurements_
-
-ANZSoilML has focussed on defining the Features specific to soil and imported and extended other Application Schema:
-- [Observations and Measurements 2.0 (O&M)](https://en.wikipedia.org/wiki/Observations_and_Measurements) - soil samples
-and laboratory measurements
-- [GeoScience Mark-up Language 3.0 (GeoSciML)](https://en.wikipedia.org/wiki/GeoSciML) - soil composition and parent
-material
-
-The use of GML Application Schema has these technical implications:
-- GML is an XML grammar therefore XML documents are provided by default
-- The physical model for the XML documents is provided as a collection of XML Schema Documents (XSDs)
-([link](http://anzsoil.org/def/schema/))
-- Documents are mainly provided via web services conforming to the OGC [Web Feature Service (WFS)](https://en.wikipedia.org/wiki/Web_Feature_Service)
-specification
-- Documents may be accessed via URLs acting as an identifier for a Feature (so called HTTP URIs) - these may proxy or
-redirect to a WFS request or a static document
-
-## The future of ANZSoilML
-ANZSoilML 2.0.1 has defined a robust conceptual model for the description, sampling and analysis of soils, and the
-modelling of their distribution, productivity or health. The next steps for the ANZSoilML community are to:
-- repackage the data model in a way that separates concepts (the 'data dictionary') from technology (encodings, and
-web services and their APIs)
-- define a modular framework that allows deployment of a range of tools that use technology and data that are
-appropriate to different communities of users
-
-These communities will be varied. They may be made up of any combination (often in the same individual) of:
--  _data providers_ who must publish and exchange rich, well documented data in a way that preserves the quality of the
-data without the loss of _any_ content
-- _data engineers_ who work with data providers to publish data in ways the meet the needs of users or with users to
-extract and transform data according to their needs
-- _data scientists_ who may need Semantic Web inferencing tools to discover new patterns in data; or fast access to raw
-data for models and simulations with optional access to rich metadata to help explain anomalies in results
-- _web developers_ who need simple, terse and fast interfaces that use widely used and supported technology (ReST, JSON
- etc)
-
-A tentative workplan for 'ANZSoilML 3' involves:
-1. Converting the current GML Application Schema to a technology independent model that can be formally captured using
-Semantic Web data modelling tools and also be published using lightweight web tools
-2. Defining practices for publishing data in a manner best suited to web developers (particularly the use of JSON and
-GeoJSON, and ReSTful interfaces)
-3. The definition of a more advanced, but still relatively simple, delivery mechanism using the O&M data types
-4. An investigation of the most effective way to deliver complex objects (for example a full soil profile description)
-
-This work will begin in January 2019.
-
-## Contributors
-ANZSoilML is developed by an informal group of research organizations that have responsibility to deliver soil
-information to their own scientists but also other agencies and the general public. They work in close consultation with
-various environmental Domain Working Groups within the [Open Geospatial Consortium](https://www.opengeospatial.org/)
-(OGC).
-
-The group would be delighted to welcome new members and/or to receive feedback - contributors do not need to have a
-research focus or be members of the OGC.
-
-| Agency | Country | Contact |
-| ------ | ------- | ------- |
-| CSIRO | Australia | [Peter Wilson](https://people.csiro.au/w/p/peter-wilson) |
-| Federation University of Australia | Australia | [Bruce Simons](http://www.cerdi.edu.au/cb_pages/staff.php#bruce_simons) |
-| Manaaki Whenua (Landcare Research) | New Zealand | [Alistair Ritchie](https://www.landcareresearch.co.nz/about/people/staff-details?id=cml0Y2hpZWE=) |
-
-
-## Implementations
-List of ANZSoilML implementations
+| Version | Status | Local Copy | Published Location |
+| ------- | ------ | ---------- | ------------------ |
+| 1.0.0 | Published | [./archive/1.0.0/](archive/1.0.0/) | http://anzsoil.org/def/schema/anzsoilml/1.0.0/ |
