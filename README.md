@@ -32,7 +32,7 @@ auspices of the Australian Collaborative Land Evaluation Program (ACLEP) http://
 worked with New Zealand's [Manaaki Whenua](https://www.landcareresearch.co.nz) to test and refine OZSoilML, this new
 version was rebranded as ANZSoilML.
 
-> Copyright (c) CSIRO 2019. All rights reserved.
+> Copyright (c) CSIRO, Landcare Research NZ Ltd and Federation University of Australia 2019. All rights reserved.
 
 ## Documentation
 ANZSoilML is developed in this GitHub repository: https://github.com/ANZSoilData/ANZSoilML
