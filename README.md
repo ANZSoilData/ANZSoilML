@@ -5,7 +5,7 @@
 > 2. [Documentation](#Documentation)
 > 3. [The current state of ANZSoilML](#The-current-state-of-ANZSoilML)
 > 4. [The future of ANZSoilML](#The-future-of-ANZSoilML)
-> 5. [Contributors](#Contributors)
+> 5. [Contacts](#Contacts)
 
 ## Summary
 ANZSoilML is an information model that specifies the set of classes, properties, relationships and supporting
@@ -105,7 +105,7 @@ This work will begin in January 2019.
 > ANZSoilML as a usable standard closely aligned with other environmental data standards matches the long term vision
 > for ELFIE. We are active participants and expect to use the findings of ELFIE to design implement and the new version.
 
-## Contributors
+## Contacts
 ANZSoilML is developed by an informal group of research organizations that have a responsibility to deliver soil
 information to their own scientists but also other agencies and the general public. They work in close consultation with
 various environmental Domain Working Groups within the [Open Geospatial Consortium](https://www.opengeospatial.org/)
