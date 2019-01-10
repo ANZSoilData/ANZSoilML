@@ -117,5 +117,5 @@ research focus or be members of the OGC.
 | Agency | Country | Contact |
 | ------ | ------- | ------- |
 | CSIRO | Australia | [Peter Wilson](https://people.csiro.au/w/p/peter-wilson) |
-| Federation University of Australia | Australia | [Bruce Simons](http://www.cerdi.edu.au/cb_pages/staff.php#bruce_simons) |
-| Manaaki Whenua (Landcare Research) | New Zealand | [Alistair Ritchie](https://www.landcareresearch.co.nz/about/people/staff-details?id=cml0Y2hpZWE=) |
+| Federation University of Australia | Australia | [Bruce Simons](http://www.cerdi.edu.au/cb_pages/bruce_simons.php) |
+| Manaaki Whenua - Landcare Research | New Zealand | [Alistair Ritchie](https://www.landcareresearch.co.nz/about/people/staff-details?id=cml0Y2hpZWE=) |
