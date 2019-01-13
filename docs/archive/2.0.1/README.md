@@ -7,13 +7,13 @@
   - QuantitativeMeasure now PhysicalPropertyValue
   - QuantitativeMeasureObservationMethodTerm now PhysicalPropertyObservationMethodTerm
   - propertyResult (mandatory) now propertyQuantityValue (optional)
-  - contraint added: count(propertyQuantityValue) + count(propertyTermValue) >= 1
-  - Purpose: allows catageorical physical property values to be recorded (previously they had to be quantitative).
+  - constraint added: count(propertyQuantityValue) + count(propertyTermValue) >= 1
+  - Purpose: allows categorical physical property values to be recorded (previously they had to be quantitative).
 
 ### ANZSoilML v2.0.1 Changes
 - Created package ANZSoilML_GSM - merges GSMML (Oceania) into ANZSoilML.
 - Created primary/secondary spatial entity classes as sub-types of SoilProfile
-- All mandatory properties are now optional (but still nillable).
+- All mandatory properties are now optional (but still nil-able).
 - Removed redundant classes (Field_PH)
 - Reconciled inconsistencies between UML and XSD (SoilFeature.samplingFeature).
 
