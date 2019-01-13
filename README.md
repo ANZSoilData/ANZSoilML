@@ -36,14 +36,14 @@ version was rebranded as ANZSoilML.
 > License: [CC-BY-SA-4.0](https://github.com/ANZSoilData/ANZSoilML/blob/master/LICENSE.md)
 
 ## Documentation
-ANZSoilML is developed in this GitHub repository: https://github.com/ANZSoilData/ANZSoilML
-
 ANZSoilML documentation is maintained on the GitHub repository's wiki: https://github.com/ANZSoilData/ANZSoilML/wiki
 
 Canonical schema are published at: http://anzsoil.org/def/schema/
 
 Schema under development (and archived schema) are published via the ANZSoilML github.io home page:
 https://anzsoildata.github.io/ANZSoilML/
+
+ANZSoilML is developed in this GitHub repository: https://github.com/ANZSoilData/ANZSoilML
 
 ## The current state of ANZSoilML
 The current version of ANZSoilML (2.0.1) has been designed and implemented as a
