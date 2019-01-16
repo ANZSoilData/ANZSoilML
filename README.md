@@ -1,13 +1,24 @@
 # Australian and New Zealand Soil Mark-up Language (ANZSoilML)
 
 ## Contents
+> 1. [Site Map](#Site-map)
 > 1. [Summary](#Summary)
-> 2. [Documentation](#Documentation)
-> 3. [The current state of ANZSoilML](#The-current-state-of-ANZSoilML)
-> 4. [The future of ANZSoilML](#The-future-of-ANZSoilML)
-> 5. [Contacts](#Contacts)
+> 1. [The current state of ANZSoilML](#The-current-state-of-ANZSoilML)
+> 1. [The future of ANZSoilML](#The-future-of-ANZSoilML)
+> 1. [Contacts](#Contacts)
+
+## Site map
+| Page | Link | Description |
+| ---- | ---- | ----------- |
+| Canonical Schema | [ANZ Soil project website (external link)](http://anzsoil.org/def/schema/) | Canonical published location of ANZSoilML schema documents. |
+| Documentation | [ANZSoilML GitHub Wiki](https://github.com/ANZSoilData/ANZSoilML/wiki) | Full documentation of the ANZSoilML information model and project work. |
+| Public development resources | [anzsoildata.github.io](https://anzsoildata.github.io/ANZSoilML/) | Schema under development. Archived schema. |
+
+> As of January 2019, all ANZSoilML development is hosted in this GitHub repository.
 
 ## Summary
+> ANZSoilML primer at the [repository wiki](https://github.com/ANZSoilData/ANZSoilML/wiki/ANZSoilML-Primer).
+
 ANZSoilML is an information model that specifies the set of classes, properties, relationships and supporting
 vocabularies needed to structure digital information used in the Australian and New Zealand soil sciences. It is
 primarily concerned with observed properties of soils and their associated landscape features as specified in the:
@@ -35,17 +46,9 @@ version was rebranded as ANZSoilML.
 > Copyright (c) CSIRO, Landcare Research NZ Ltd and Federation University of Australia 2019. All rights reserved.  
 > License: [CC-BY-SA-4.0](https://github.com/ANZSoilData/ANZSoilML/blob/master/LICENSE.md)
 
-## Documentation
-ANZSoilML documentation is maintained on the GitHub repository's wiki: https://github.com/ANZSoilData/ANZSoilML/wiki
-
-Canonical schema are published at: http://anzsoil.org/def/schema/
-
-Schema under development (and archived schema) are published via the ANZSoilML github.io home page:
-https://anzsoildata.github.io/ANZSoilML/
-
-ANZSoilML is developed in this GitHub repository: https://github.com/ANZSoilData/ANZSoilML
-
 ## The current state of ANZSoilML
+> Full description at the [repository wiki](https://github.com/ANZSoilData/ANZSoilML/wiki/Current-Version).
+
 The current version of ANZSoilML (2.0.1) has been designed and implemented as a
 [Geography Mark-up Language (GML)](https://en.wikipedia.org/wiki/Geography_Markup_Language) [Application Schema](https://en.wikipedia.org/wiki/Geography_Markup_Language#Application_schema).
 This approach involves the definition and provision of
@@ -73,6 +76,8 @@ The use of GML Application Schema has these technical implications:
 redirect to a WFS request or a static document
 
 ## The future of ANZSoilML
+> Full description at the [repository wiki](https://github.com/ANZSoilData/ANZSoilML/wiki/Future-Work).
+
 ANZSoilML 2.0.1 has defined a rich and robust conceptual model for the description, sampling and analysis of soils, and
 the modelling of their distribution, productivity or health. The next steps for the ANZSoilML community are to:
 - repackage the data model in a way that separates concepts (the 'data dictionary') from technology (encodings, and
