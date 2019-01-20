@@ -13,6 +13,7 @@
 | Canonical Schema | [ANZ Soil project website (external link)](http://anzsoil.org/def/schema/) | Canonical published location of ANZSoilML schema documents. |
 | Documentation | [ANZSoilML GitHub Wiki](https://github.com/ANZSoilData/ANZSoilML/wiki) | Full documentation of the ANZSoilML information model and project work. |
 | Public development resources | [anzsoildata.github.io](https://anzsoildata.github.io/ANZSoilML/) | Schema under development. Archived schema. |
+| Project planning | [ANZSoilML GitHub Project](https://github.com/ANZSoilData/ANZSoilML/projects/1) | Known issues and planned future work. |
 
 > As of January 2019, all ANZSoilML development is hosted in this GitHub repository.
 
