@@ -40,7 +40,7 @@ means ANZSoilML has been developed using a policy of re-use - importing and alig
 for observation and sampling data, geology, groundwater and hydrology.
 
 ANZSoilML was derived from OzSoilML, which was developed in Australia by [CSIRO](https://www.csiro.au/) under the
-auspices of the Australian Collaborative Land Evaluation Program (ACLEP) http://www.clw.csiro.au/aclep/. Later, CSIRO
+auspices of the Australian Collaborative Land Evaluation Program ([ACLEP](http://www.clw.csiro.au/aclep/)). Later, CSIRO
 worked with New Zealand's [Manaaki Whenua](https://www.landcareresearch.co.nz) to test and refine OZSoilML, this new
 version was rebranded as ANZSoilML.
 
@@ -117,8 +117,8 @@ information to their own scientists but also other agencies and the general publ
 various environmental Domain Working Groups within the [Open Geospatial Consortium](https://www.opengeospatial.org/)
 (OGC).
 
-The group would be delighted to welcome new members and/or to receive feedback - contributors do not need to have a
-research focus or be members of the OGC.
+The group would be delighted to welcome new members and/or to receive feedback. Contributors do not need to have a
+research focus or be members of the OGC, nor do they need to be 'locals'.
 
 | Agency | Country | Contact |
 | ------ | ------- | ------- |
