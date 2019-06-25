@@ -1,0 +1,1384 @@
+@prefix swe:   <urn:x-gsml-rdf:types> .
+@prefix anzsmls: <https://soilmlie.org/def/soilml#/anzsmls#> .
+@prefix sf:    <http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling> .
+@prefix iso19150-2: <http://def.isotc211.org/iso19150-2/2012/base#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix meta:  <http://def.seegrid.csiro.au/isotc211/iso19115/2003/citation> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+<https://soilmlie.org/def/soilml#/anzsmls>
+        a                owl:Ontology ;
+        owl:imports      <http://eelst.cs.unibo.it/apps/LODE/source?url=http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling.ttl> , <http://eelst.cs.unibo.it/apps/LODE/source?url=http://def.seegrid.csiro.au/isotc211/iso19115/2003/metadata.ttl> , <http://schemas.geosciml.org/rdf/types.ttl> ;
+        owl:versionIRI   "https://soilmlie.org/def/soilml#/anzsmls/1.0.0" ;
+        owl:versionInfo  "1.0.0" ;
+        skos:definition  "The ANZSoilML_Soil Package contains classes representing notional soil units, soil profiles and soil layers whose complete and precise extent is inferred to exist. Explicit spatial properties are available through association with a SpatialEntity via the AbstractSoil generalization. \r\n\r\nSoils includes both formal units (i.e. formally adopted and named in the official lexicon) and informal units (i.e. named but not promoted to the lexicon) and unnamed units (i.e. recognisable and described and delineable in the field but not otherwise formalised)."@en .
+
+anzsmls:SoilFeature  a         owl:Class ;
+        rdfs:subClassOf        anzsmls:AbstractSoil ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Colour ;
+                                 owl:onProperty     anzsmls:soilColour
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  swe:Quantity ;
+                                 owl:onProperty     anzsmls:horizonRDepth
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:carbonateEffervescence
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  sf:SF_SamplingFeature ;
+                                 owl:onProperty     anzsmls:SoilFeature.samplingFeature
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:SoilFeature.relatedObservation
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:relatedSample
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:drainage
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:SoilClassification ;
+                                 owl:onProperty     anzsmls:classifier
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:landformPosition
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:SoilMaterial ;
+                                 owl:onProperty     anzsmls:composition
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:SoilClassification ;
+                                 owl:onProperty     anzsmls:classifier
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:purpose
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Void ;
+                                 owl:onProperty     anzsmls:poreSpace
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:SoilFeature ;
+                                 owl:onProperty     anzsmls:relatedSoilFeature
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:landformPosition
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:purpose
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:SoilMaterial ;
+                                 owl:onProperty     anzsmls:composition
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Void ;
+                                 owl:onProperty     anzsmls:poreSpace
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Roots ;
+                                 owl:onProperty     anzsmls:rootComponent
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:SoilFeature.observationMethod
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:SoilFeature ;
+                                 owl:onProperty     anzsmls:relatedSoilFeature
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Colour ;
+                                 owl:onProperty     anzsmls:soilColour
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Mottle ;
+                                 owl:onProperty     anzsmls:colourPattern
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Substrate ;
+                                 owl:onProperty     anzsmls:associatedSubstrate
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:PhysicalPropertyValue ;
+                                 owl:onProperty     anzsmls:physicalProperty
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Field_pH ;
+                                 owl:onProperty     anzsmls:pH
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsmls:SoilFeature.observationMethod
+                               ] ;
+        iso19150-2:isAbstract  true ;
+        skos:definition        "The abstract SoilFeature class represents a conceptual feature that is hypothesized to exist coherently in the world.\r\n   * this corresponds with a \"Soil Unit\", comprising a set of  similar soil profiles with a mappable distribution in some \"Soil Landscape\", a Soil Profile or its constituent parts;\r\n\r\nThe implemented SoilFeature instance acts as the \"description package\"\r\n\r\n    * the description package is classified according to its purpose as an Instance, TypicalNorm, or DefiningNorm."@en .
+
+anzsmls:sourceRole  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The role of the source soil feature in the relationship. Examples might be 'soil complex'"@en .
+
+anzsmls:purpose  a       owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Specification of the intended purpose/level of abstraction for a given feature or object instance. Values are: \r\ninstance, typicalNorm, definingNorm."@en .
+
+anzsmls:massStrength  a  owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Broad strength classes based on the consolidation level (p215)\r\nExamples are 'Earth or soil', 'very weak rock', 'weak rock', 'moderately strong rock', 'strong rock'"@en .
+
+anzsmls:Roots.size  a    owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Roots ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "The size range of the roots"@en .
+
+anzsmls:Crack  a         owl:Class ;
+        rdfs:subClassOf  anzsmls:Void ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:crackWidth
+                         ] ;
+        skos:definition  "Planar voids"@en .
+
+anzsmls:stickiness  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Stickiness is determined on wet soil by pressing the sample and observing adherence of soil to fingers.\r\nValues are:\r\nnon-sticky, slightly sticky, moderately sticky, very sticky"@en .
+
+anzsmls:spacing  a       owl:ObjectProperty ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "The spacing of discontinuities or joints."@en .
+
+anzsmls:Consistence.strength
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Consistence ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Strength of the soil is the resistance to breaking or deformation.\r\nValues are:\r\nloose, very weak, weak, firm, very firm, strong, very strong, rigid"@en .
+
+anzsmls:waterRepellence
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Examples: non water repellent, water repellent, strongly water repellent\r\nASLS Field Handbook (p191)"@en .
+
+anzsmls:geologicDescription
+        a           owl:ObjectProperty ;
+        rdfs:range  skos:Concept .
+
+anzsmls:SoilSurface  a   owl:Class ;
+        rdfs:subClassOf  anzsmls:SoilFeature ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:soilDisturbance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:MicroRelief ;
+                           owl:onProperty     anzsmls:surfaceRelief
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:surfaceCondition
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:soilDisturbance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:MicroRelief ;
+                           owl:onProperty     anzsmls:surfaceRelief
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:surfaceCondition
+                         ] ;
+        skos:definition  "The Soil as it appears at the surface.\r\nThis can be considered as analogous to a Soil Layer with a depth of 0."@en .
+
+anzsmls:relatedSoilFeature
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:SoilFeature .
+
+anzsmls:fabric  a   owl:ObjectProperty ;
+        rdfs:range  skos:Concept .
+
+anzsmls:confidence  a    owl:DatatypeProperty ;
+        rdfs:range       xsd:string ;
+        skos:definition  "A text description providing the confidence of the classification assertion."@en .
+
+anzsmls:Segregations.strength
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Segregations ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The strength of the segregations (ASLS Field Handbook p 198).\r\nExamples: weak, strong"@en .
+
+anzsmls:PhysicalPropertyValue.depth
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:PhysicalPropertyValue ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "The depth below the soil surface the measurement was made."@en .
+
+anzsmls:MicroRelief.proportion
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:MicroRelief ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "<b>proportion </b>is the proportion of the microrelief of each component. May only apply to gilgai?"@en .
+
+anzsmls:Cutans.type  a   owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Cutans ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The type of cutan.\r\nExamples: none, unspecified, clay skins, mangans, stress cutans, slickensides, other cutans"@en .
+
+anzsmls:distinctness  a  owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The ease and certainty with which a cutan is identified. It relates to thickness and colour contrast with adjacent material.\r\nExamples: faint, distinct, prominent"@en .
+
+anzsmls:surfaceCondition
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Some soils have characteristic appearance when dry. More than one term may be applied to the surface. (p189)\r\nExamples: cracking, self-mulching, loose, soft, firm, ..."@en .
+
+anzsmls:Peds  a          owl:Class ;
+        rdfs:subClassOf  anzsmls:SoilMaterial ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Peds.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:grade
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Peds.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:grade
+                         ] ;
+        skos:definition  "Peds is a specialization of SoilMaterial to allow describing individual natural soil aggregates consisting of a cluster of primary particles (peds).  Peds are separated from adjoining peds by surfaces of weakness that are recognizable as natural voids or by the occurrence of cutans (ASLS Field Handbook p 171).\r\n\r\nProperties different from those of SoilMaterials include the ped type (platy, prismatic, columnar, angular blocky), and the grade (degree of development and distinctness of peds, e.g. single grain, massive, weak, moderate, strong).\r\n\r\nInherited property particleGeometry:particleType is used to specify that the particle is an artificial fragment of type 'clod' or 'fragment' and its ConstituentPart:role is ped.\r\nConstituentPart:relatedMaterial is used to identify parting between peds."@en .
+
+anzsmls:reference  a     owl:ObjectProperty ;
+        rdfs:range       meta:Citation ;
+        skos:definition  "The reference to the source of the classification scheme"@en .
+
+anzsmls:Segregations.type
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Segregations ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The nature of the segregations.\r\nExamples: unidentified, calcareous, gypseous, manganiferous, ..."@en .
+
+anzsmls:associatedSubstrate
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:Substrate .
+
+anzsmls:horizonRDepth
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "The depth to the R Horizon or strongly cemented pan"@en .
+
+anzsmls:soilThematicResult
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "-- Name --\r\nsoil thematic result\r\n-- Definition --\r\ncollection of numeric values of the soil for the related soil thematic property within the soil thematic object."@en .
+
+anzsmls:Segregations  a  owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:magnetism
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Segregations.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Segregations.abundance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Segregations.abundance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Segregations.strength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:form
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Segregations.size
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:form
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Segregations.strength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Segregations.size
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Segregations.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:magnetism
+                         ] ;
+        skos:definition  "discrete segregations that have accumulated in the soil because of the concentration of some constituent, usually by chemical or biological action (ASLS Field Handbook p195)"@en .
+
+anzsmls:Segregations.abundance
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Segregations ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "The % abundance of segregations (p196)\r\n0, 0-2%, 2-10%, 10-20%,"@en .
+
+anzsmls:rootComponent
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:Roots .
+
+anzsmls:boundaries  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "How distinct are the mottle boundaries (eg sharp, clear, diffuse))"@en .
+
+anzsmls:Roots  a         owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Roots.size
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Roots.abundance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Roots.size
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Roots.abundance
+                         ] ;
+        skos:definition  "The presence and description of plant roots within soil layers (p199)"@en .
+
+anzsmls:PhysicalPropertyValue.observationMethod
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:PhysicalPropertyValue ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The method used to obtain the quantitative value. QuantitativeObservationMethodTerm indicates that it should come from a vocabulary."@en .
+
+anzsmls:Field_pH  a      owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:double ;
+                           owl:onProperty     anzsmls:pHValue
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:string ;
+                           owl:onProperty     anzsmls:pHMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:pHDepth
+                         ] ;
+        skos:definition  "The soil pH determined in the field."@en .
+
+anzsmls:physicalProperty
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:PhysicalPropertyValue .
+
+anzsmls:magnetism  a     owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The magnetic attributes of the segregations (ASLS Field Handbook p 198).\r\nExamples: non-magnetic, magnetic"@en .
+
+anzsmls:moistureStatus
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "the moisture status of the soil. Maybe 'moist' or 'dry'.\r\nASLS Field Handbook p159"@en .
+
+anzsmls:Roots.abundance
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Roots ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The abundance of the roots (p199)\r\nExamples: none, few, common, many, abundant"@en .
+
+anzsmls:boundaryShape
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The boundary shape between soil features.\r\nExamples for SoilLayers (ASLS p200) are: smooth, wavy, irregular, tongued, broken"@en .
+
+anzsmls:contrast  a      owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "How distinct the mottles are (eg faint, distinct, prominent)"@en .
+
+anzsmls:form  a          owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The form of the segregations (ASLS Field Handbook p 196).\r\nExamples: concretions, nodules, fragments,..."@en .
+
+anzsmls:uncertainty  a   owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "-- Name --\r\nsoil thematic property\r\n-- Definition --\r\nthe soil related property that the soil thematic results relate to within the soil thematic object.\r\nData Type is Any. However, the soilThematicProperty shall be a phenomenon associated with soil features."@en .
+
+anzsmls:depthInterval
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "-- Name --\r\ndepth interval\r\n\r\n-- Definition --\r\nrange of depth from the surface to which the Soil Thematic Object is referring to.\r\n\r\n-- Description --\r\nA Soil Thematic Object can refer to a soil property for a particular depth range. For example, the texture class from 0 to 30 cm. Thus the DepthRange value will refer to the 0-30 cm depth range."@en .
+
+anzsmls:SoilProfileAssociation
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:SoilProfileAssociation.profileRole
+                         ] ;
+        skos:definition  "Association to allow specifying the role the SoilProfile is playing in the Soil Unit."@en .
+
+anzsmls:Mottle.type  a   owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Mottle ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "type of mottle (eg mottle, biological mixing, mechanical mixing, weathering)"@en .
+
+anzsmls:SoilThematicObject
+        a                owl:Class ;
+        rdfs:subClassOf  anzsmls:AbstractSoil ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:depthInterval
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:soilThematicResult
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:uncertainty
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:soilThematicResult
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:soilThematicProperty
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:uncertainty
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:soilThematicProperty
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:depthInterval
+                         ] ;
+        skos:definition  "-- Name --\r\nsoil thematic object\r\n\r\n-- Definition --\r\nspatial object representing a soil related property derived from one or more soil properties.\r\n\r\n-- Description --\r\nNOTE Soil thematic maps can be derived directly from the involved soil database (organic matter content, pH, texture, etc.) or they can be derived by using Pedotransfer Functions (water availability…)."@en .
+
+anzsmls:SoilProfileAssociation.profileRole
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:SoilProfileAssociation ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Describes whether the SoilProfile is typical, defining, theoretical"@en .
+
+anzsmls:Void  a          owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:macroporeDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:macroporeAbundance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:crackWidth
+                         ] ;
+        skos:definition  "Void is a general term for pore space and other openings in soils not occupied by solid mineral matter"@en .
+
+anzsmls:Soil  a          owl:Class ;
+        rdfs:subClassOf  anzsmls:SoilFeature ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:SoilProfile ;
+                           owl:onProperty     anzsmls:Soil.profile
+                         ] ;
+        skos:definition  "Soil is a natural body consisting of layers (soil horizons or layers) of primarily mineral constituents of variable thicknesses, which differ from the parent materials in their texture, structure, consistence, colour, chemical, biological and other physical characteristics\r\n(after wikipedia)."@en .
+
+anzsmls:pHMethod  a      owl:DatatypeProperty ;
+        rdfs:range       xsd:string ;
+        skos:definition  "Method by which the field pH value was obtained"@en .
+
+anzsmls:SoilProfile  a   owl:Class ;
+        rdfs:subClassOf  anzsmls:SoilProfileElement ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:SoilClassification ;
+                           owl:onProperty     anzsmls:classifier
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Substrate ;
+                           owl:onProperty     anzsmls:associatedSubstrate
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:microReliefComponent
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:horizonRDepth
+                         ] ;
+        skos:definition  "-- Name -- soil profile\r\n\r\n-- Definition -- \r\nvertical description of the soil that is characterized by a vertical succession of soil elements.\r\n\r\n-- Description --\r\nNOTE The soil profile is abstracted from observations in a trial pit or a boring, or derived from expert knowledge using other soil profiles. As such it is considered a spatial sampling feature.\r\n\r\nUse SF_SpatialSamplingFeature parameter for upper and lower depth property"@en , "-- Name --\r\nsoil profile\r\n\r\n-- Definition -- \r\ndescription of the soil that is characterized by a vertical succession of profile elements.\r\n\r\n-- Description --\r\nNOTE The soil profile is abstracted from observations in a trial pit or a boring, or derived from expert knowledge using other soil profiles."@en .
+
+anzsmls:discontinuities
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:Joint .
+
+anzsmls:Mottle.abundance
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Mottle ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "Abundance as a measured range ( 0-2%, 2-10%, 10-20%, 20-50%)"@en .
+
+anzsmls:mottleColour  a  owl:ObjectProperty ;
+        rdfs:range  anzsmls:Colour .
+
+anzsmls:depthRange  a    owl:ObjectProperty ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "To specify the upper and lower boundaries of the ProfileElement or Profile"@en .
+
+anzsmls:Peds.type  a     owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Peds ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The types of structures.\r\nexamples: platy, prismatic, columnar, angular blocky"@en .
+
+anzsmls:crackWidth  a    owl:ObjectProperty ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "Cracks are planar voids. ASLS Field Handbook (p184) has:\r\n0-5mm = fine\r\n5-10mm = medium\r\n10-20mm = coarse\r\n20-50mm = very coarse\r\n>50mm = extremely coarse"@en .
+
+anzsmls:MicroRelief.type
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:MicroRelief ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "type is the type microrelief it may be at the top level of a microrelief hierarchical vocabulary (eg gilgai, hummocky, biotic, mound, karst), or at lower levels (eg crabhole gilgai, vegetation biotic)etc)"@en .
+
+anzsmls:boundaryDistinctness
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The boundary distinctness between soil features.\r\nFor SoilLayers for example: sharp, abrupt, clear, gradual, diffuse\r\n\r\nIn some cases this may be inapplicable, such as when using SoilRelationships to describe the SoilFeatures that make up a catena."@en .
+
+anzsmls:relatedSoilProfile
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:SoilProfile .
+
+anzsmls:pHDepth  a       owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Depth at which the field pH value was obtained"@en .
+
+anzsmls:landformPosition
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "A soil site may not be centrally located in the associated LandformElement. The landformPosition property allows specifying where in the landform element the Soil Feature is located, relative to the height of the landform. \r\nValues are: top-third, middle-third, bottom-third"@en .
+
+anzsmls:soilColour  a  owl:ObjectProperty ;
+        rdfs:range  anzsmls:Colour .
+
+anzsmls:SoilPan  a       owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:continuity
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:structure
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:structure
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:SoilPan.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:SoilPan.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:cementation
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:continuity
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:cementation
+                         ] ;
+        skos:definition  "A pan is an indurated and/or cemented soil horizon (ASLS Field Handbook p192).\r\nHowever, treated as property of SoilLayer in OzSoilML as NatSoil doesn't record depth of Pan, often doesn't assign Horizon identifiers."@en .
+
+anzsmls:propertyTermValue
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "A term value that classifies the quantitative value in some classification scheme if required. For example 'acid', 'moist', 'hard', 'dense'. PropertyTermValueTerm indicates that it should come from a vocabulary.\r\nOptional to allow a term equivalent of a numerical result."@en .
+
+anzsmls:SoilFeature.samplingFeature
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:SoilFeature ;
+        rdfs:range       sf:SF_SamplingFeature ;
+        skos:definition  "The feature that samples the Soil Feature (e.g. Soil Pit, Soil Profile)"@en .
+
+anzsmls:coarseFragmentDistribution
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Coarse fragments may occur throughout the soil profile.\r\nExamples are: undisturbed, reoriented, stratified, dispersed"@en .
+
+anzsmls:classifier  a  owl:ObjectProperty ;
+        rdfs:range  anzsmls:SoilClassification .
+
+anzsmls:SoilPan.type  a  owl:ObjectProperty ;
+        rdfs:domain      anzsmls:SoilPan ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Type of pan (ASLS Field Handbook p 192).\r\nExamples are: no pan, calcrete, silcrete, red-brown hardpan, duripan, fragipan, ..."@en .
+
+anzsmls:cementation  a   owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Degree of cementation;\r\nValues: uncemented, weakly cemented, moderately cemented, strongly cemented, very strongly cemented"@en .
+
+anzsmls:propertyName  a  owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The property the quantitative value refers to. PhysicalPropertyTerm indicates that it should come from a vocabulary of property terms (pH, Total Organic Carbon, density, porosity, permeability etc)."@en .
+
+anzsmls:relationship  a  owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The relationship between the two soil features. Examples may be 'part of', 'complex component', 'catena'"@en .
+
+anzsmls:colourPattern
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:Mottle .
+
+anzsmls:Pore  a          owl:Class ;
+        rdfs:subClassOf  anzsmls:Void ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:macroporeDiameter
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:macroporeAbundance
+                         ] ;
+        skos:definition  "Voids that are approximately circular in cross-section"@en .
+
+anzsmls:horizontalInterval
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Horizontal distance between crests of mounds or tops of hummocks"@en .
+
+anzsmls:Joint  a         owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Substrate ;
+                           owl:onProperty     anzsmls:hostMaterial
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:spacing
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Substrate ;
+                           owl:onProperty     anzsmls:hostMaterial
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:spacing
+                         ] ;
+        skos:definition  "A placeholder to handle substrate discontinuities.\r\nTo be replaced by GeoSciML 'Joint' feature class."@en .
+
+anzsmls:carbonateEffervescence
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The effervescence of carbonate in fine earth (ASLS Field Handbook p198)"@en .
+
+anzsmls:targetRole  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The role of the target soil feature in the relationship. Examples might be 'soil complex component'"@en .
+
+anzsmls:macroporeAbundance
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "ASLS Field Handbook (p184) divides  macropores into those <2mm (fine macropores) and those > 2mm (medium and coarse macropores).\r\n\r\nFor fine macropores abundance ranges are:\r\n0\r\n0-1/100mm2\r\n1-5/100mm2\r\n>5/100mm2\r\nFor medium to coarse macropores abundance ranges are:\r\n0\r\n0-1/.01 m2\r\n1-5/0.01 m2\r\n>5/0.01 m2\r\n\r\nFor OzSoilML these have been combined into a single macroporeAbundance, with the macroporeDiameter property providing the capacity to subdivide into fine and coarse macropores."@en .
+
+anzsmls:plasticityType
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The type of plasticity refers to the degree to which either the consistence, field texture or both properties of a soil suggest the amount of clay-sized particles it contains (p188).\r\nValues are:\r\nsuperplastic, normal plasticity, subplastic, strongly plastic"@en .
+
+anzsmls:relatedSample
+        a           owl:ObjectProperty ;
+        rdfs:range  skos:Concept .
+
+anzsmls:Cutans.abundance
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Cutans ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "The % of ped faces or pore walls with cutans"@en .
+
+anzsmls:soilThematicProperty
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "-- Name --\r\nsoil thematic property\r\n-- Definition --\r\nthe soil related property that the soil thematic results relate to within the soil thematic object.\r\nData Type is Any. However, the soilThematicProperty shall be a phenomenon associated with soil features."@en .
+
+anzsmls:SoilClassification
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:string ;
+                           owl:onProperty     anzsmls:confidence
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  meta:Citation ;
+                           owl:onProperty     anzsmls:reference
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:SoilClassification.value
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:string ;
+                           owl:onProperty     anzsmls:confidence
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  meta:Citation ;
+                           owl:onProperty     anzsmls:reference
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:SoilClassification.value
+                         ] .
+
+anzsmls:Consistence  a   owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Consistence.strength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:stickiness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:waterStatus
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Consistence.strength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:stickiness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:plasticityType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:waterStatus
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:plasticityDegree
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:plasticityType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:plasticityDegree
+                         ] ;
+        skos:definition  "Consistence refers to the strength of cohesion and adhesion in soil. Strength will vary according to soil water status."@en .
+
+anzsmls:resultQuality
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The quality of the result."@en .
+
+anzsmls:SoilFeature.observationMethod
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:SoilFeature ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "ObservationMethod is a metadata snippet indicating how the feature was determined. ObservationMethod is a convenience property that provides a quick and dirty approach to observation metadata when data are reported using a feature view (as opposed to observation view). This property corresponds (loosely) to ISO19115 Lineage.  (eg: digitised, Global Positioning System, published map, field observation, downhole survey, aerial photography, field survey, soil pit, existing vertical exposure, undisturbed soil core, auger boring, outcrop)\r\nASLS Field Handbook p147"@en .
+
+anzsmls:Cutans  a        owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:distinctness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Cutans.abundance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Cutans.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:distinctness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Cutans.abundance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Cutans.type
+                         ] ;
+        skos:definition  "A cutan is a modification of the texture, structure or fabric at natural surfaces in soil materials; it arises from concentration of particular soil constituents or in situ modification of the plasma. Cutans comprise any of the component substances of the soil material."@en .
+
+anzsmls:continuity  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Continuity of the pan (ASLS Field Handbook p 195).\r\nExamples are:continuous, discontinuous, broken"@en .
+
+anzsmls:grade  a         owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The degree of development and distinctness of peds.\r\nexamples: single grain, massive, weak, moderate, strong"@en .
+
+anzsmls:panDescription
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:SoilPan .
+
+anzsmls:textureQualification
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "A qualification to indicate whether the texture is toward the light or heavy range, or organic qualifiers.\r\nExamples: light, heavy, sapric, fibric\r\nASLS Field Handbook p166"@en .
+
+anzsmls:AbstractSoil  a        owl:Class ;
+        iso19150-2:isAbstract  true ;
+        skos:definition        "Name: AbstractSoil\r\n\r\nDefinition: \r\nAbstractSoil is an abstract soil domain feature that provides a link between the SoilFeatures and the Landscape features, via landscapeContext, the spatial distribution of the SoilFeatures via the occurrence property, and the metadata properties."@en .
+
+anzsmls:SoilMaterial  a  owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:textureQualification
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Consistence ;
+                           owl:onProperty     anzsmls:soilConsistency
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Segregations ;
+                           owl:onProperty     anzsmls:pedogenicSegregations
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Segregations ;
+                           owl:onProperty     anzsmls:pedogenicSegregations
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Consistence ;
+                           owl:onProperty     anzsmls:soilConsistency
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:coarseFragmentDistribution
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:waterRepellence
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:fabric
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:coarseFragmentDistribution
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Cutans ;
+                           owl:onProperty     anzsmls:particleCoating
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:waterRepellence
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:fabric
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:textureQualification
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Cutans ;
+                           owl:onProperty     anzsmls:particleCoating
+                         ] ;
+        skos:definition  "The physical properties and appearance of the soil"@en .
+
+anzsmls:soilDisturbance
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "--  Definition --\r\nthe level of disturbance of the soil observed at the surface\r\nExamples are:\r\nNo significant disturbance apparent\r\nDisturbance of some of the soil surface\r\nComplete soil disturbance by cultivation, heavy grazing or both"@en .
+
+anzsmls:waterStatus  a   owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Soil water status.\r\nSoil water status must be provided with strength.\r\nValues are:\r\ndry = below wilting point.\r\nmoderately moist = drier half of available moisture range\r\nmoist = wetter half of available moisture range\r\nwet = at or exceeding field capacity"@en .
+
+anzsmls:Colour  a        owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:moistureStatus
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Colour.value
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:moistureStatus
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Colour.value
+                         ] ;
+        skos:definition  "The soil colour as measured on a freshly broken aggregate of (usually) moist soil.\r\nthe colour scheme used (eg Munsell, RGB triplet), its value (eg 10YR4/2, 0,0,100), and whether the soil is moist or not."@en .
+
+anzsmls:Segregations.size
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Segregations ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "The size of the segregations (p197)"@en .
+
+anzsmls:PhysicalPropertyValue
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:resultQuality
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:PhysicalPropertyValue.observationMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:propertyTermValue
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:propertyQuantityValue
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:propertyName
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:PhysicalPropertyValue.depth
+                         ] ;
+        skos:definition  "A generic class to capture simple observation data without dealing with complete O&M."@en .
+
+anzsmls:SoilFeature.relatedObservation
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:SoilFeature ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Allows describing field and laboratory observations on the Soil Feature."@en .
+
+anzsmls:Substrate.observationMethod
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Substrate ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "ObservationMethod is a metadata snippet indicating how the feature was determined. ObservationMethod is a convenience property that provides a quick and dirty approach to observation metadata when data are reported using a feature view (as opposed to observation view). This property corresponds (loosely) to ISO19115 Lineage.  (eg: digitised, Global Positioning System, published map, field observation, downhole survey, aerial photography, field survey, soil pit, existing vertical exposure, undisturbed soil core, auger boring, outcrop)\r\nASLS Field Handbook p205"@en .
+
+anzsmls:Soil.profile  a  owl:ObjectProperty ;
+        rdfs:domain  anzsmls:Soil ;
+        rdfs:range   anzsmls:SoilProfile .
+
+anzsmls:verticalInterval
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Vertical distance between base of depression or flat and horizontal line joining crests of mounds or hummocks"@en .
+
+anzsmls:composition  a  owl:ObjectProperty ;
+        rdfs:range  anzsmls:SoilMaterial .
+
+anzsmls:parentConfidence
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Confidence that the observed substrate is the parent material of the observed soil profile (ASLS p206). Terms are 'not parent material', dubious, doubtful', 'probable', 'certain'"@en .
+
+anzsmls:SoilLayer  a     owl:Class ;
+        rdfs:subClassOf  anzsmls:SoilProfileElement ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:SoilPan ;
+                           owl:onProperty     anzsmls:panDescription
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Roots ;
+                           owl:onProperty     anzsmls:rootComponent
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:carbonateEffervescence
+                         ] ;
+        skos:definition  "Documentation from INSPIRE:\r\n-- Name --\r\nSoil layer\r\n\r\n-- Definition --\r\ndomain of a soil with a certain vertical extension developed through non-pedogenic processes, displaying an unconformity to possibly over- or underlying adjacent domains.\r\n\r\n-- Description --\r\nNOTE1 Different kinds of layer concepts are covered by this definition. \r\n\r\nEXAMPLE 1 Geogenic layers: These are domains, resulting from e.g. sedimentation (as non-pedogenic) processes, that display an unconformity to possibly over- or underlying adjacent domains.\r\n\r\nEXAMPLE 2 Topsoil and Subsoil: These can be domains that group different soil horizon types (e.g. A vs. B horizons), or a special case of fixed depths with only two depth ranges (e.g. 0-15 cm: topsoil and, 15-75 cm: subsoil).\r\n\r\nEXAMPLE 3 Depth intervals: They are often used in soil monitoring, sampling of contaminated sites and in modelling and include: (i) depth increments (also called fixed depths) that are often used for sampling, e.g. 0-30cm, 30-60cm, and so on, (ii) a single depth range in which a soil sample (”specimen”) is taken and for which the analytical result is valid, and (iii) soil slicing, that is, profile segmentation according to a specified vector, for instance, either regularly spaced intervals (1cm), or a user-defined vector of segment boundaries (i.e. 0-10, 10-25, 25-50, 50-100). Slicing is used in modelling to generate continuous depth functions for soil properties.\r\n\r\nEXAMPLE 4: In the framework of soils deeply modified by human activity, artificial layers may be due to different kinds of deposits (concrete, bricks, …). \r\nSOURCE WD ISO28258\r\n\r\nFor OzSoilML a Soil Horizon is considered a further specialization of a SoilLayer"@en .
+
+anzsmls:particleCoating
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:Cutans .
+
+anzsmls:surfaceRelief
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:MicroRelief .
+
+anzsmls:poreSpace  a  owl:ObjectProperty ;
+        rdfs:range  anzsmls:Void .
+
+anzsmls:components  a    owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "<b>components</b> is the microrelief components that make up the microrelief (eg mounds and depressions, depressions, terraces, trenches, hole, elongate mound). Modeled here as separate items rather than as patterns."@en .
+
+anzsmls:SoilClassification.value
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:SoilClassification ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The value of the classification.\r\nThis is a reference to a vocabulary."@en .
+
+anzsmls:propertyQuantityValue
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "The quantitative value, constraints and UOM"@en .
+
+anzsmls:SoilProfileElement
+        a                      owl:Class ;
+        rdfs:subClassOf        anzsmls:SoilFeature ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsmls:Mottle ;
+                                 owl:onProperty     anzsmls:colourPattern
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  swe:QuantityRange ;
+                                 owl:onProperty     anzsmls:depthRange
+                               ] ;
+        iso19150-2:isAbstract  true ;
+        skos:definition        "The elements that make up the Soil Profile"@en .
+
+anzsmls:hostMaterial  a  owl:ObjectProperty ;
+        rdfs:range  anzsmls:Substrate .
+
+anzsmls:SoilSubstrateRelationship.depth
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:SoilSubstrateRelationship ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Measure or estimate of the depth of the substrate below the land surface (ASLS Field Handbook p206)"@en .
+
+anzsmls:structure  a     owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Structure of the pan (ASLS Field Handbook p 195).\r\nExamples are: massive, vesicular, concretionary, nodular, platy, vermicular"@en .
+
+anzsmls:macroporeDiameter
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "ASLS Field Handbook (p185) provides following mapping:\r\n0.075-1mm = very fine\r\n1-2 mm = fine\r\n2-5 mm = medium\r\n>5 mm = coarse"@en .
+
+anzsmls:distanceFromProfile
+        a                owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "Distance the observed substrate was from the observed Soil Profile.\r\nWhere the substrate is observed in the profile the distance is zero (0).\r\nASLS Field Handbook p206"@en .
+
+anzsmls:MicroRelief  a   owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:MicroRelief.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:MicroRelief.proportion
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:components
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:MicroRelief.proportion
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:MicroRelief.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:verticalInterval
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:verticalInterval
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:components
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:horizontalInterval
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:horizontalInterval
+                         ] ;
+        skos:definition  "The relief (up to a few metres) about the plane of the land surface. It includes gilfai, hummocky, biotic and other microrelief. \r\nASLS Field Handbook p129"@en .
+
+anzsmls:soilConsistency
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:Consistence .
+
+anzsmls:microReliefComponent
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The component of the microrelief in which the described soil profile is located"@en .
+
+anzsmls:SoilSubstrateRelationship
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:parentConfidence
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:distanceFromProfile
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:SoilSubstrateRelationship.depth
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:parentConfidence
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:distanceFromProfile
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:SoilSubstrateRelationship.depth
+                         ] ;
+        skos:definition  "Describes the relationship between the Substrate and the Soil"@en .
+
+anzsmls:pH  a       owl:ObjectProperty ;
+        rdfs:range  anzsmls:Field_pH .
+
+anzsmls:geneticType  a   owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "A genetic classification based on the 'Glossary of substrate mass genetic types\" (p217ff).\r\nThis classification is most likely a subset of the IUGS-CGI lithology classification and a mapping between the terms used here and those by GeoSciML should be possible."@en .
+
+anzsmls:pedogenicSegregations
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsmls:Segregations .
+
+anzsmls:pHValue  a       owl:DatatypeProperty ;
+        rdfs:range       xsd:double ;
+        skos:definition  "field pH value"@en .
+
+anzsmls:Mottle  a        owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Colour ;
+                           owl:onProperty     anzsmls:mottleColour
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Mottle.abundance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Mottle.size
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Mottle.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Mottle.abundance
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:contrast
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Mottle.type
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:boundaries
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Colour ;
+                           owl:onProperty     anzsmls:mottleColour
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:contrast
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:Mottle.size
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:boundaries
+                         ] ;
+        skos:definition  "Mottles are spots, blotches or streaks of subdominant colours different from the matrix colour and different from the ped surface colour."@en .
+
+anzsmls:Colour.value  a  owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Colour ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "The identifier for the colour. It is important that the ColourTerm value link back to a controlled vocabulary (via xlink:href) where the values can be de-referenced.\r\nThe value for the colour may be delivered as part of xlink:title. Using Munsell this will be the hue, value, chroma triplet (eg 10YR4/2). For RGB the RGB triplet. Other schemes may just deliver the preferred label (eg light yellow)."@en .
+
+anzsmls:plasticityDegree
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Plasticity is the ability to change shape and retain the new shape after stress is removed. The degree of plasticity only applies to normal plasticity (p188).\r\nValues are: non-plastic, slightly plastic, moderately plastic, very plastic"@en .
+
+anzsmls:SoilHorizon  a   owl:Class ;
+        rdfs:subClassOf  anzsmls:SoilFeature , anzsmls:SoilLayer ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:SoilPan ;
+                           owl:onProperty     anzsmls:panDescription
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:QuantityRange ;
+                           owl:onProperty     anzsmls:depthRange
+                         ] ;
+        skos:definition  "A SoilHorizon is a layer of soil, approximately parallel to the land surface, with mostly homogenous morphological properties different from layers below and/or above it. (p148)\r\nDistinguished from SoilLayers in that it is developed in a parent material layer through pedogenic processes or made up of in-situ sedimented organic residues of up-growing plants (peat) (INSPIRE), and therefore can be classified with a horizon notation."@en .
+
+anzsmls:Mottle.size  a   owl:ObjectProperty ;
+        rdfs:domain      anzsmls:Mottle ;
+        rdfs:range       swe:QuantityRange ;
+        skos:definition  "the size of the mottle measured along the greatest dimension except where streaks or linear forms occur where width is measured. (eg 0-5 mm, 5-15 mm, 15-30 mm, >30 mm)"@en .
+
+anzsmls:SoilRelationship.proportion
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsmls:SoilRelationship ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "The proportion (in %) of the target soil feature that is made up by the source soil feature.\r\nAlthough conceptually only a single Soil feature is located at any particular spatial location, in practice because of the uncertainty multiple Soil Features may be associated with a particular SpatialEntity (geometry). The SoilRelationship class is then used to specify the relationship properties between the Soil features and their spatial distribution.\r\nThis class is also applicable for Soil features such as Soil Complexes which consist of multiple individual soil features (Soils, soil profiles, layers).\r\nIn some cases proportion may be inapplicable, such as when using SoilRelationships to describe the SoilFeatures that make up a catena."@en .
+
+anzsmls:drainage  a      owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Summarises the local soil wetness conditions (ASLS p202). examples are 'very poorly drained', 'poorly drained', 'well-drained'"@en .
+
+anzsmls:Substrate  a     owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Joint ;
+                           owl:onProperty     anzsmls:discontinuities
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:SoilFeature ;
+                           owl:onProperty     anzsmls:relatedSoilFeature
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:geologicDescription
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:massStrength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:geneticType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:geologicDescription
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:SoilProfile ;
+                           owl:onProperty     anzsmls:relatedSoilProfile
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Substrate.observationMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:massStrength
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:geneticType
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:Substrate.observationMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsmls:Joint ;
+                           owl:onProperty     anzsmls:discontinuities
+                         ] ;
+        skos:definition  "Material and mass of the earth or rock that do not show pedological development. They are not soils but typically underlie them. The substrate includes the R horizon and that part of the C horizon that shows no pedological development.  The substrate beneath the soil may or may not be the parent material of the soil.\r\nThe Substrate is clearly related to the GeoSciML GeologicUnit. However, as the observations typically made on the substrate by soil scientists are different to those made by geologists, it is considered a separate class here.  Future harmonization between domains should resolve these differences."@en .
+
+anzsmls:SoilRelationship
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:boundaryShape
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:relationship
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:targetRole
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:sourceRole
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:targetRole
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:boundaryDistinctness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:SoilRelationship.proportion
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:relationship
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:boundaryShape
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmls:SoilRelationship.proportion
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:boundaryDistinctness
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsmls:sourceRole
+                         ] ;
+        skos:definition  "The SoilRelationship class is  used to define relationships between soilfeatures, ie. SoilProfile-SoilProfile, Soil-Soil relationships.\r\n\r\nRelationships are always binary and directional.  There is always a single source and a single target. The relationship is always defined from the perspective of the Source and is generally an active verb.\r\n\r\nExample:  a Source may point to a Soil forming a component of a soil complex.  In this case, the Target would point to the appropriate Soil representing the complex and the relationship attribute would be 'soil complex component'.  Other appropriate relationship attributes might include: catena component, buried soil\r\n\r\nTwo or more SoilFeatures are associated in aSoilRelationship; each has a role in the relationship. Examples of soil roles include \"component part\", \"complex soil\", \"overlies\", \"underlies\", \"catena part\", and so forth."@en .
