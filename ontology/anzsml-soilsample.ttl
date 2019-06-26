@@ -1,0 +1,52 @@
+@prefix swe:   <urn:x-gsml-rdf:types> .
+@prefix sf:    <http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling> .
+@prefix anzsmlss: <https://soilmlie.org/def/soilml#/anzsmlss#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+anzsmlss:SoilSpecimen
+        a                owl:Class ;
+        rdfs:subClassOf  sf:SF_Specimen ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:boolean ;
+                           owl:onProperty     anzsmlss:coarseFragmentsPresent
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  xsd:boolean ;
+                           owl:onProperty     anzsmlss:coarseFragmentsPresent
+                         ] ;
+        skos:definition  "A specialisation of SF_Specimen to capture archived specimens. \r\nNatSoil archive indicates whether there is a coarse fraction (>2mm) present in the specimen."@en .
+
+anzsmlss:coarseFragmentsPresent
+        a                owl:DatatypeProperty ;
+        rdfs:range       xsd:boolean ;
+        skos:definition  "Presence or absence of coarse fragment sample >2mm"@en .
+
+<https://soilmlie.org/def/soilml#/anzsmlss>
+        a                owl:Ontology ;
+        owl:imports      <http://eelst.cs.unibo.it/apps/LODE/source?url=http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling.ttl> , <http://schemas.geosciml.org/rdf/types.ttl> ;
+        owl:versionIRI   "https://soilmlie.org/def/soilml#/anzsmlss/1.0.0" ;
+        owl:versionInfo  "1.0.0" ;
+        skos:definition  "Application Schema for soil sampling, soil specimens and related observations"@en .
+
+anzsmlss:lowerDepth  a   owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "To specify the upper and lower depths that the sample was taken from"@en .
+
+anzsmlss:SoilSample  a   owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmlss:upperDepth
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsmlss:lowerDepth
+                         ] ;
+        skos:definition  "A specialisation of SF_SpatialSamplingFeature for soil sampling features."@en , "A specialisation of SF_SpatialSamplingFeature to allow the depth at which the sample was taken and the size of the sample."@en .
+
+anzsmlss:upperDepth  a   owl:ObjectProperty ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "To specify the upper and lower depths that the sample was taken from"@en .

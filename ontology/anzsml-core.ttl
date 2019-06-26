@@ -1,0 +1,202 @@
+@prefix swe:   <urn:x-gsml-rdf:types> .
+@prefix iso19150-2: <http://def.isotc211.org/iso19150-2/2012/base#> .
+@prefix gsp:   <http://www.opengis.net/ont/geosparql#> .
+@prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix owl:   <http://www.w3.org/2002/07/owl#> .
+@prefix anzsml: <https://soilmlie.org/def/soilml#/anzsml#> .
+@prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
+@prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
+
+anzsml:LandscapeFeature.metadata
+        a            owl:ObjectProperty ;
+        rdfs:domain  anzsml:LandscapeFeature ;
+        rdfs:range   skos:Concept .
+
+anzsml:occurrence  a     owl:ObjectProperty ;
+        rdfs:range       anzsml:SpatialEntity ;
+        skos:definition  "Points to any number of spatial entities that are occurrences of the Landscape feature.  Spatial entities may all be from a single map or from several maps."@en .
+
+anzsml:geometry  a       owl:ObjectProperty ;
+        rdfs:range       gsp:Geometry ;
+        skos:definition  "Spatial representation (geometry)"@en .
+
+anzsml:observationMethod
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "SpatialEntity observationMethod is a metadata snippet indicating how the spatial extent of the mapped feature was determined. ObservationMethod is a convenience property that provides a quick and dirty approach to observation metadata when data are reported using a feature view (as opposed to observation view). This property corresponds (loosely) to ISO19115 Lineage.  (eg: digitised, Global Positioning System, published map, field observation,  aerial photography, field survey"@en .
+
+anzsml:sourceRole  a     owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "specifies the role the source feature plays in the relationship (e.g. 'enclosing landscape', 'contained soil')"@en .
+
+anzsml:DepthQuantityRange.upperBoundary
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsml:DepthQuantityRange ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "The 'upper' depth boundary, that is the closest to the surface."@en .
+
+anzsml:resolutionScale
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Reciprocal of equivalent scale of resolution for delineation of a feature's geometry. This is in contrast to positionalAccuracy which is a measure of how well a feature is located relative to other features in the geographic reference system."@en .
+
+anzsml:DepthQuantityRange
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsml:DepthQuantityRange.upperBoundary
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  swe:Quantity ;
+                           owl:onProperty     anzsml:DepthQuantityRange.lowerBoundary
+                         ] ;
+        skos:definition  "A data type to capture upper and lower depth boundary values.\r\nTreated as a special range for depths where the \"upper\" value will be numerically smaller than the \"lower\" depth as opposed to a (e.g.) \"DiscreteQuantityRange\" where the upper value will be larger than the lower value.\r\nDifferent from the INSPIRE \"RangeType\" dataType also used for depth values but where the deeper boundary is referred to as the \"upperBoundary\" (unless -ve values are used for depth)."@en .
+
+anzsml:featureDescription
+        a                owl:ObjectProperty ;
+        rdfs:range       anzsml:LandscapeFeature ;
+        skos:definition  "Points to the landscape features which describe the spatial entity."@en .
+
+anzsml:LandscapeFeatureRelation
+        a                owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:targetRole
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:sourceRole
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:relationship
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:targetRole
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:sourceRole
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:relationship
+                         ] ;
+        skos:definition  "Association class to allow relating features in the landscape to each other."@en .
+
+anzsml:positionalAccuracy
+        a                owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "Quantitative values define the radius of an uncertainty buffer around a mappedFeature (eg: a positionAccuracy of 100 m for a line feature defines a buffer polygon of total width 200 m centred on the line). Corresponds to ISO19115 DQ_PositionalAccuracy."@en .
+
+anzsml:relationship  a   owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "A term from a controlled vocabulary to specify the relationship."@en .
+
+anzsml:targetRole  a     owl:ObjectProperty ;
+        rdfs:range       skos:Concept ;
+        skos:definition  "specifies the role the target feature plays in the relationship (e.g. 'enclosing landscape', 'contained soil')"@en .
+
+anzsml:LandscapeFeature
+        a                      owl:Class ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsml:LandscapeFeature ;
+                                 owl:onProperty     anzsml:relatedFeature
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsml:SpatialEntity ;
+                                 owl:onProperty     anzsml:occurrence
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsml:LandscapeFeature.metadata
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsml:LandscapeFeature ;
+                                 owl:onProperty     anzsml:relatedFeature
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  anzsml:SpatialEntity ;
+                                 owl:onProperty     anzsml:occurrence
+                               ] ;
+        rdfs:subClassOf        [ a                  owl:Restriction ;
+                                 owl:allValuesFrom  skos:Concept ;
+                                 owl:onProperty     anzsml:LandscapeFeature.metadata
+                               ] ;
+        iso19150-2:isAbstract  true ;
+        skos:definition        "An abstract parent class of those features that may be spatially located in the landscape."@en .
+
+<https://soilmlie.org/def/soilml#/anzsml>
+        a                owl:Ontology ;
+        owl:imports      <http://schemas.geosciml.org/rdf/types.ttl> , <http://www.opengis.net/ont/geosparql> ;
+        owl:versionIRI   "https://soilmlie.org/def/soilml#/anzsml/1.0.0" ;
+        owl:versionInfo  "1.0.0" ;
+        skos:definition  "This is a separate package to facilitate future integration within a broader environmental system, and to minimise dependencies between ANZSoilML packages."@en .
+
+anzsml:SpatialEntity  a  owl:Class ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:observationMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:resolutionScale
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsml:LandscapeFeature ;
+                           owl:onProperty     anzsml:featureDescription
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:resolutionScale
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     anzsml:geometry
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:SpatialEntity.metadata
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:SpatialEntity.metadata
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:observationMethod
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  anzsml:LandscapeFeature ;
+                           owl:onProperty     anzsml:featureDescription
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:positionalAccuracy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  skos:Concept ;
+                           owl:onProperty     anzsml:positionalAccuracy
+                         ] ;
+        rdfs:subClassOf  [ a                  owl:Restriction ;
+                           owl:allValuesFrom  gsp:Geometry ;
+                           owl:onProperty     anzsml:geometry
+                         ] ;
+        skos:definition  "A SpatialEntity is part of a soil description. \r\nIt provides a link between a notional feature (description package) and one spatial representation of it, or part of it. (Sites, Transects, Exposures, Surface Traces and Intercepts, etc)\r\n    * the specific bounded occurrence, such as a map polygon\r\n    * the SpatialEntity carries a geometry or shape\r\n          - the association with a Soil or Landscape Feature provides the specification of all the other descriptors\r\n          - the association with a Sampling Feature provides the context and dimensionality \r\n\r\nA SpatialEntity is always associated with some sampling feature - e.g. a Soil Sample, a Landscape, a Soil Layer etc."@en .
+
+anzsml:relatedFeature
+        a           owl:ObjectProperty ;
+        rdfs:range  anzsml:LandscapeFeature .
+
+anzsml:DepthQuantityRange.lowerBoundary
+        a                owl:ObjectProperty ;
+        rdfs:domain      anzsml:DepthQuantityRange ;
+        rdfs:range       swe:Quantity ;
+        skos:definition  "The 'lower' depth boundary, that is the deepest or furthermost from the surface."@en .
+
+anzsml:SpatialEntity.metadata
+        a            owl:ObjectProperty ;
+        rdfs:domain  anzsml:SpatialEntity ;
+        rdfs:range   skos:Concept .
