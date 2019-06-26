@@ -3,7 +3,7 @@
 @prefix gsp:   <http://www.opengis.net/ont/geosparql#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
-@prefix anzsml: <https://soilmlie.org/def/soilml#/anzsml#> .
+@prefix anzsml: <https://anzsoil.org/ont/soil-core/> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
@@ -128,7 +128,7 @@ anzsml:LandscapeFeature
         iso19150-2:isAbstract  true ;
         skos:definition        "An abstract parent class of those features that may be spatially located in the landscape."@en .
 
-<https://soilmlie.org/def/soilml#/anzsml>
+<https://anzsoil.org/ont/soil-core>
         a                owl:Ontology ;
         owl:imports      <http://schemas.geosciml.org/rdf/types.ttl> , <http://www.opengis.net/ont/geosparql> ;
         owl:versionIRI   "https://soilmlie.org/def/soilml#/anzsml/1.0.0" ;

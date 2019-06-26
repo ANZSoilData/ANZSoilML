@@ -1,5 +1,5 @@
 @prefix swe:   <urn:x-gsml-rdf:types> .
-@prefix anzsmls: <https://soilmlie.org/def/soilml#/anzsmls#> .
+@prefix anzsmls: <https://anzsoil.org/ont/soil/> .
 @prefix sf:    <http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling> .
 @prefix iso19150-2: <http://def.isotc211.org/iso19150-2/2012/base#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -9,9 +9,9 @@
 @prefix skos:  <http://www.w3.org/2004/02/skos/core#> .
 @prefix rdfs:  <http://www.w3.org/2000/01/rdf-schema#> .
 
-<https://soilmlie.org/def/soilml#/anzsmls>
+<https://anzsoil.org/ont/soil>
         a                owl:Ontology ;
-        owl:imports      <http://eelst.cs.unibo.it/apps/LODE/source?url=http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling.ttl> , <http://eelst.cs.unibo.it/apps/LODE/source?url=http://def.seegrid.csiro.au/isotc211/iso19115/2003/metadata.ttl> , <http://schemas.geosciml.org/rdf/types.ttl> ;
+        owl:imports      <http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling.ttl> , <http://def.seegrid.csiro.au/isotc211/iso19115/2003/metadata.ttl> , <http://schemas.geosciml.org/rdf/types.ttl> ;
         owl:versionIRI   "https://soilmlie.org/def/soilml#/anzsmls/1.0.0" ;
         owl:versionInfo  "1.0.0" ;
         skos:definition  "The ANZSoilML_Soil Package contains classes representing notional soil units, soil profiles and soil layers whose complete and precise extent is inferred to exist. Explicit spatial properties are available through association with a SpatialEntity via the AbstractSoil generalization. \r\n\r\nSoils includes both formal units (i.e. formally adopted and named in the official lexicon) and informal units (i.e. named but not promoted to the lexicon) and unnamed units (i.e. recognisable and described and delineable in the field but not otherwise formalised)."@en .
