@@ -1,6 +1,6 @@
 @prefix swe:   <urn:x-gsml-rdf:types> .
 @prefix sf:    <http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling> .
-@prefix anzsmlss: <https://anzsoil.org/ont/soil-sample/> .
+@prefix anzsmlss: <https://anzsoil.org/ont/anzsoilml-sample/> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix owl:   <http://www.w3.org/2002/07/owl#> .
 @prefix xsd:   <http://www.w3.org/2001/XMLSchema#> .
@@ -25,7 +25,7 @@ anzsmlss:coarseFragmentsPresent
         rdfs:range       xsd:boolean ;
         skos:definition  "Presence or absence of coarse fragment sample >2mm"@en .
 
-<https://anzsoil.org/ont/soil-sample>
+<https://anzsoil.org/ont/anzsoilml-sample>
         a                owl:Ontology ;
         owl:imports      <http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling.ttl> , <http://schemas.geosciml.org/rdf/types.ttl> ;
         owl:versionIRI   "https://soilmlie.org/def/soilml#/anzsmlss/1.0.0" ;
