@@ -1,5 +1,5 @@
 @prefix swe:   <urn:x-gsml-rdf:types> .
-@prefix anzsmls: <https://soilmlie.org/def/soilml#/anzsmls#> .
+@prefix anzsmls: <https://anzsml.org/def/anzsml-soil#> .
 @prefix sf:    <http://def.seegrid.csiro.au/isotc211/iso19156/2011/sampling> .
 @prefix iso19150-2: <http://def.isotc211.org/iso19150-2/2012/base#> .
 @prefix rdf:   <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
